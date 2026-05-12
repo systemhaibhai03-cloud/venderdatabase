@@ -960,7 +960,7 @@ tbody td:first-child{text-align:center;color:#90a4ae;font-weight:600;font-size:1
         <input type="number" id="avp-inline-amount" placeholder="0.00" min="0">
       </div>
       <div class="pf-field-mini">
-        <label>Remark</label>
+        <label>Remarks</label>
         <input id="avp-inline-remark" placeholder="Optional note">
       </div>
       <button class="avp-direct-add-btn" onclick="avpDirectAddRow()">+ ADD ROW</button>
@@ -1964,95 +1964,123 @@ ${sheetRows}
 // ── JSONBIN.IO CROSS-PC DRAFT ──
 const JBIN_MASTER = '$2a$10$R4NaUhzd3NS9PFgOwLhGRONONlwS01g6zHSuje.tsd2FuDwnNZXNy';
 const JBIN_ACCESS = '$2a$10$WD79xZy.gBqU9GwF14Tz8uKaIBewvlP2tdtPh52JPA3xbDaU0dRXe';
-const JBIN_BASE   = 'https://api.jsonbin.io/v3/b';
+const JBIN_BASE   = 'https://api.jsonbin.io/v3';
 
-// BinID store karna — har company ke liye ek bin
-function getBinKey(company){ return 'jbin_id_'+company; }
-function getStoredBinId(company){ return localStorage.getItem(getBinKey(company))||null; }
-function storeBinId(company,id){ localStorage.setItem(getBinKey(company),id); }
+// Bin name fixed per company — same name se koi bhi PC dhundh sakta hai
+function binName(company){ return 'vtpl_draft_'+company.replace(/\s+/g,'_'); }
+function cacheId(company,id){ localStorage.setItem('jbid_'+company,id); }
+function cachedId(company){ return localStorage.getItem('jbid_'+company)||null; }
+
+// Bin ID dhundho by name (cross-PC ke liye)
+async function findBinId(company){
+  // Pehle local cache check karo
+  const cached = cachedId(company);
+  if(cached) return cached;
+  // JSONBin search API se dhundho
+  try{
+    const res = await fetch(JBIN_BASE+'/b?page=1', {
+      headers:{ 'X-Master-Key': JBIN_MASTER, 'X-Access-Key': JBIN_ACCESS }
+    });
+    const data = await res.json();
+    if(data.result){
+      const found = data.result.find(b => b.snippetMeta && b.snippetMeta.name === binName(company));
+      if(found){ cacheId(company, found.id); return found.id; }
+    }
+  }catch(e){}
+  return null;
+}
 
 async function saveDraft(){
   if(!rows.length){ showToast('⚠️ Koi row nahi hai'); return; }
-  const binId = getStoredBinId(currentUser);
-  const body = JSON.stringify({ company: currentUser, rows });
+  showToast('⏳ Saving...');
+  const body = JSON.stringify({ company: currentUser, rows, savedAt: Date.now() });
   const headers = {
     'Content-Type':'application/json',
     'X-Master-Key': JBIN_MASTER,
     'X-Access-Key': JBIN_ACCESS,
-    'X-Bin-Name': 'draft_'+currentUser,
-    'X-Bin-Private': 'true'
+    'X-Bin-Private': 'false'
   };
   try{
+    let binId = await findBinId(currentUser);
     let res, data;
     if(binId){
-      // Update existing bin
-      res = await fetch(JBIN_BASE+'/'+binId, { method:'PUT', headers, body });
+      res = await fetch(JBIN_BASE+'/b/'+binId, { method:'PUT', headers, body });
       data = await res.json();
     } else {
-      // Create new bin
-      res = await fetch(JBIN_BASE, { method:'POST', headers, body });
+      // Naya bin banao with fixed name
+      res = await fetch(JBIN_BASE+'/b', {
+        method:'POST',
+        headers:{ ...headers, 'X-Bin-Name': binName(currentUser) },
+        body
+      });
       data = await res.json();
-      if(data.metadata && data.metadata.id) storeBinId(currentUser, data.metadata.id);
+      if(data.metadata && data.metadata.id){
+        cacheId(currentUser, data.metadata.id);
+      }
     }
     localStorage.setItem('vtpl_draft_'+currentUser, JSON.stringify(rows));
-    showToast('💾 Draft saved — sabhi PCs pe load hoga!');
+    showToast('💾 Draft saved! Kisi bhi PC se load hoga ✅');
     updateDraftBtn();
   }catch(e){
     localStorage.setItem('vtpl_draft_'+currentUser, JSON.stringify(rows));
-    showToast('💾 Draft saved (local fallback)');
+    showToast('💾 Draft saved (local only — internet check karo)');
     updateDraftBtn();
   }
 }
 
 async function loadDraft(){
-  const binId = getStoredBinId(currentUser);
-  if(binId){
-    try{
-      const res = await fetch(JBIN_BASE+'/'+binId+'/latest', {
+  showToast('⏳ Loading draft...');
+  try{
+    const binId = await findBinId(currentUser);
+    if(binId){
+      const res = await fetch(JBIN_BASE+'/b/'+binId+'/latest', {
         headers:{ 'X-Master-Key': JBIN_MASTER, 'X-Access-Key': JBIN_ACCESS }
       });
       const data = await res.json();
-      if(data.record && data.record.rows){
+      if(data.record && data.record.rows && data.record.company === currentUser){
         rows = data.record.rows;
         renderTable();
-        showToast('📂 Draft loaded (cross-PC)!');
+        showToast('📂 Draft loaded (cross-PC) ✅');
         updateDraftBtn();
         return;
       }
-    }catch(e){}
-  }
-  // fallback localStorage
+    }
+  }catch(e){}
+  // Fallback localStorage
   try{
     const saved = localStorage.getItem('vtpl_draft_'+currentUser);
-    if(saved){ rows=JSON.parse(saved); renderTable(); showToast('📂 Draft loaded (local)!'); }
-    else{ renderTable(); showToast('ℹ️ Koi draft nahi mila.'); }
+    if(saved){ rows=JSON.parse(saved); renderTable(); showToast('📂 Draft loaded (local)'); }
+    else{ renderTable(); showToast('ℹ️ Koi draft nahi mila'); }
   }catch(e){ renderTable(); }
   updateDraftBtn();
 }
 
 async function removeDraft(){
   if(!confirm('Draft delete karna chahte hain? Yeh wapas nahi aayega.')) return;
-  const binId = getStoredBinId(currentUser);
-  if(binId){
-    try{
-      await fetch(JBIN_BASE+'/'+binId, {
+  try{
+    const binId = await findBinId(currentUser);
+    if(binId){
+      await fetch(JBIN_BASE+'/b/'+binId, {
         method:'DELETE',
         headers:{ 'X-Master-Key': JBIN_MASTER }
       });
-      localStorage.removeItem(getBinKey(currentUser));
-    }catch(e){}
-  }
+      localStorage.removeItem('jbid_'+currentUser);
+    }
+  }catch(e){}
   localStorage.removeItem('vtpl_draft_'+currentUser);
   showToast('🗑 Draft remove ho gaya!');
   updateDraftBtn();
 }
 
-function updateDraftBtn(){
-  const exists = !!getStoredBinId(currentUser) || !!localStorage.getItem('vtpl_draft_'+currentUser);
-  ['remove-draft-btn','footer-remove-draft-btn'].forEach(id=>{
-    const el = document.getElementById(id);
-    if(el) el.style.display = exists ? 'inline-block' : 'none';
-  });
+async function updateDraftBtn(){
+  try{
+    const binId = await findBinId(currentUser);
+    const exists = !!binId || !!localStorage.getItem('vtpl_draft_'+currentUser);
+    ['remove-draft-btn','footer-remove-draft-btn'].forEach(id=>{
+      const el = document.getElementById(id);
+      if(el) el.style.display = exists ? 'inline-block' : 'none';
+    });
+  }catch(e){}
 }
 
 
@@ -2342,4 +2370,3 @@ document.addEventListener("DOMContentLoaded", function(){
 
 </body>
 </html>
-
