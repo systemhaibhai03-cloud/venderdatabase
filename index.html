@@ -1962,207 +1962,123 @@ ${sheetRows}
 
 
 // ══════════════════════════════════════════
-//  CROSS-PC DRAFT — JSONBin.io (Fixed Index Bin)
-//  FIXED: Ab doosre PC pe bhi draft dikhega ✅
+//  CROSS-PC DRAFT — Pantry Cloud (100% FREE)
+//  No signup · No credit card · Kisi bhi PC se kaam kare ✅
 // ══════════════════════════════════════════
-const JBIN_MASTER = '$2a$10$R4NaUhzd3NS9PFgOwLhGRONONlwS01g6zHSuje.tsd2FuDwnNZXNy';
-const JBIN_ACCESS = '$2a$10$WD79xZy.gBqU9GwF14Tz8uKaIBewvlP2tdtPh52JPA3xbDaU0dRXe';
-const JBIN_BASE   = 'https://api.jsonbin.io/v3';
+// Pantry: https://getpantry.cloud — bilkul free service
+// SETUP: Sirf ek baar https://getpantry.cloud pe jaao
+//        Email daalo → apna Pantry ID neeche paste karo
+// ───────────────────────────────────────────────
+const PANTRY_ID = 'b2d95550-fd63-443b-8863-6809900fefe8';
+// ───────────────────────────────────────────────
+// Example: 'a1b2c3d4-1234-5678-abcd-ef0123456789'
 
-// INDEX BIN: ek fixed bin jisme company → bin ID map stored hai
-// Pehli baar automatically create hoga, phir hamesha yahi use hoga
-const INDEX_BIN_LSKEY = 'vtpl_index_bin_id';
+const PANTRY_BASE = 'https://getpantry.cloud/apiv1/pantry';
 
-function cacheId(company,id){ localStorage.setItem('jbid_'+company,id); }
-function cachedId(company){ return localStorage.getItem('jbid_'+company)||null; }
-
-const JBIN_HEADERS = {
-  'Content-Type':'application/json',
-  'X-Master-Key': JBIN_MASTER,
-  'X-Access-Key': JBIN_ACCESS
-};
-
-// Index bin ID get karo (create if not exists)
-async function getIndexBinId(){
-  let indexId = localStorage.getItem(INDEX_BIN_LSKEY);
-  if(indexId) return indexId;
-  // Try to find existing index bin by name
-  try{
-    const res = await fetch(JBIN_BASE+'/b?page=1', { headers: JBIN_HEADERS });
-    const data = await res.json();
-    if(data.result){
-      const found = data.result.find(b => b.snippetMeta && b.snippetMeta.name === 'vtpl_index_bin_v2');
-      if(found){
-        localStorage.setItem(INDEX_BIN_LSKEY, found.id);
-        return found.id;
-      }
-    }
-  }catch(e){}
-  // Create new index bin
-  try{
-    const res = await fetch(JBIN_BASE+'/b', {
-      method:'POST',
-      headers:{ ...JBIN_HEADERS, 'X-Bin-Name':'vtpl_index_bin_v2', 'X-Bin-Private':'false' },
-      body: JSON.stringify({ companies:{} })
-    });
-    const data = await res.json();
-    if(data.metadata && data.metadata.id){
-      localStorage.setItem(INDEX_BIN_LSKEY, data.metadata.id);
-      return data.metadata.id;
-    }
-  }catch(e){}
-  return null;
+function pantryBasket(company){
+  return company.replace(/[^a-zA-Z0-9]/g,'_').replace(/_+/g,'_').toLowerCase();
 }
 
-// Index bin se company ka draft bin ID dhundho
-async function findBinId(company){
-  // Pehle local cache
-  const cached = cachedId(company);
-  if(cached) return cached;
-  // Index bin se lookup
-  try{
-    const indexId = await getIndexBinId();
-    if(!indexId) return null;
-    const res = await fetch(JBIN_BASE+'/b/'+indexId+'/latest', { headers: JBIN_HEADERS });
-    const data = await res.json();
-    if(data.record && data.record.companies && data.record.companies[company]){
-      const id = data.record.companies[company];
-      cacheId(company, id);
-      return id;
-    }
-  }catch(e){}
-  return null;
+function pantryUrl(company){
+  return PANTRY_BASE + '/' + PANTRY_ID + '/basket/' + pantryBasket(company);
 }
 
-// Index bin mein company → bin ID register karo
-async function registerBinInIndex(company, binId){
-  try{
-    const indexId = await getIndexBinId();
-    if(!indexId) return;
-    // Get current index
-    const res = await fetch(JBIN_BASE+'/b/'+indexId+'/latest', { headers: JBIN_HEADERS });
-    const data = await res.json();
-    const companies = (data.record && data.record.companies) ? data.record.companies : {};
-    companies[company] = binId;
-    // Update index
-    await fetch(JBIN_BASE+'/b/'+indexId, {
-      method:'PUT',
-      headers: JBIN_HEADERS,
-      body: JSON.stringify({ companies })
-    });
-  }catch(e){ console.warn('Index register failed:', e); }
+function isPantryConfigured(){
+  return PANTRY_ID && PANTRY_ID !== 'b2d95550-fd63-443b-8863-6809900fefe8' && PANTRY_ID.length > 10;
 }
 
 async function saveDraft(){
   if(!rows.length){ showToast('⚠️ Koi row nahi hai'); return; }
-  showToast('⏳ Saving draft...');
-  const payload = JSON.stringify({ company: currentUser, rows, savedAt: Date.now() });
-  try{
-    let binId = await findBinId(currentUser);
-    let res, data;
-    if(binId){
-      // Update existing bin
-      res = await fetch(JBIN_BASE+'/b/'+binId, {
-        method:'PUT', headers: JBIN_HEADERS, body: payload
-      });
-      data = await res.json();
-      if(data.record){ // success
-        localStorage.setItem('vtpl_draft_'+currentUser, JSON.stringify(rows));
-        showToast('💾 Draft saved! Kisi bhi PC se load hoga ✅');
-        updateDraftBtn(); return;
-      }
-    }
-    // Create new bin + register in index
-    res = await fetch(JBIN_BASE+'/b', {
-      method:'POST',
-      headers:{ ...JBIN_HEADERS, 'X-Bin-Name':'vtpl_draft_'+currentUser.replace(/\s+/g,'_'), 'X-Bin-Private':'false' },
-      body: payload
-    });
-    data = await res.json();
-    if(data.metadata && data.metadata.id){
-      const newId = data.metadata.id;
-      cacheId(currentUser, newId);
-      await registerBinInIndex(currentUser, newId); // INDEX UPDATE — cross-PC magic ✅
-    }
-    localStorage.setItem('vtpl_draft_'+currentUser, JSON.stringify(rows));
-    showToast('💾 Draft saved! Kisi bhi PC se load hoga ✅');
+  // Always save to localStorage immediately
+  localStorage.setItem('vtpl_draft_'+currentUser, JSON.stringify(rows));
+  if(!isPantryConfigured()){
+    showToast('💾 Local save hua. Cross-PC ke liye Pantry ID setup karein.');
     updateDraftBtn();
-  }catch(e){
-    localStorage.setItem('vtpl_draft_'+currentUser, JSON.stringify(rows));
-    showToast('⚠️ Draft local save hua — internet check karo');
-    updateDraftBtn();
+    return;
   }
+  showToast('⏳ Cloud pe save ho raha hai...');
+  try{
+    const res = await fetch(pantryUrl(currentUser), {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ company: currentUser, rows, savedAt: Date.now() })
+    });
+    if(res.ok){
+      showToast('💾 Draft saved! Kisi bhi PC se load hoga ✅');
+    } else {
+      showToast('💾 Local save hua (cloud error: '+res.status+')');
+    }
+  }catch(e){
+    showToast('💾 Local save hua — internet check karo');
+  }
+  updateDraftBtn();
 }
 
 async function loadDraft(){
-  showToast('⏳ Loading draft...');
-  // Try cloud first
-  try{
-    const binId = await findBinId(currentUser);
-    if(binId){
-      const res = await fetch(JBIN_BASE+'/b/'+binId+'/latest', { headers: JBIN_HEADERS });
-      const data = await res.json();
-      if(data.record && data.record.rows && data.record.company === currentUser){
-        rows = data.record.rows;
-        renderTable();
-        // Sync to local cache too
-        localStorage.setItem('vtpl_draft_'+currentUser, JSON.stringify(rows));
-        showToast('📂 Draft loaded (cloud — cross-PC) ✅');
-        updateDraftBtn();
-        return;
+  // Cloud se load karo (agar Pantry configured hai)
+  if(isPantryConfigured()){
+    showToast('⏳ Cloud se load ho raha hai...');
+    try{
+      const res = await fetch(pantryUrl(currentUser));
+      if(res.ok){
+        const data = await res.json();
+        if(data && data.rows && Array.isArray(data.rows) && data.rows.length > 0){
+          rows = data.rows;
+          renderTable();
+          localStorage.setItem('vtpl_draft_'+currentUser, JSON.stringify(rows));
+          const d = new Date(data.savedAt);
+          showToast('📂 Cloud draft loaded! ' + d.toLocaleString('en-IN') + ' ✅');
+          updateDraftBtn();
+          return;
+        }
       }
-    }
-  }catch(e){ console.warn('Cloud load failed:', e); }
+    }catch(e){ console.warn('Pantry load failed:',e); }
+  }
   // Fallback: localStorage
-  try{
-    const saved = localStorage.getItem('vtpl_draft_'+currentUser);
-    if(saved){
+  const saved = localStorage.getItem('vtpl_draft_'+currentUser);
+  if(saved){
+    try{
       rows = JSON.parse(saved);
       renderTable();
-      showToast('📂 Draft loaded (local cache)');
+      showToast('📂 Local draft loaded' + (isPantryConfigured() ? ' (cloud mein nahi mila)' : ''));
+    }catch(e){ renderTable(); showToast('❌ Draft corrupt hai'); }
+  } else {
+    renderTable();
+    if(!isPantryConfigured()){
+      showToast('ℹ️ Pantry ID setup karein cross-PC ke liye');
     } else {
-      renderTable();
       showToast('ℹ️ Koi draft nahi mila — pehle Save Draft karein');
     }
-  }catch(e){ renderTable(); }
+  }
   updateDraftBtn();
 }
 
 async function removeDraft(){
   if(!confirm('Draft delete karna chahte hain? Yeh wapas nahi aayega.')) return;
-  try{
-    const binId = await findBinId(currentUser);
-    if(binId){
-      await fetch(JBIN_BASE+'/b/'+binId, { method:'DELETE', headers: JBIN_HEADERS });
-      localStorage.removeItem('jbid_'+currentUser);
-      // Index se bhi hata do
-      try{
-        const indexId = await getIndexBinId();
-        if(indexId){
-          const res2 = await fetch(JBIN_BASE+'/b/'+indexId+'/latest', { headers: JBIN_HEADERS });
-          const d2 = await res2.json();
-          if(d2.record && d2.record.companies){
-            delete d2.record.companies[currentUser];
-            await fetch(JBIN_BASE+'/b/'+indexId, { method:'PUT', headers: JBIN_HEADERS, body: JSON.stringify({ companies: d2.record.companies }) });
-          }
-        }
-      }catch(e){}
-    }
-  }catch(e){}
+  if(isPantryConfigured()){
+    try{
+      await fetch(pantryUrl(currentUser), { method: 'DELETE' });
+    }catch(e){}
+  }
   localStorage.removeItem('vtpl_draft_'+currentUser);
   showToast('🗑 Draft remove ho gaya!');
   updateDraftBtn();
 }
 
 async function updateDraftBtn(){
-  try{
-    const binId = await findBinId(currentUser);
-    const exists = !!binId || !!localStorage.getItem('vtpl_draft_'+currentUser);
-    ['remove-draft-btn','footer-remove-draft-btn'].forEach(id=>{
-      const el = document.getElementById(id);
-      if(el) el.style.display = exists ? 'inline-block' : 'none';
-    });
-  }catch(e){}
+  const localExists = !!localStorage.getItem('vtpl_draft_'+currentUser);
+  let cloudExists = false;
+  if(isPantryConfigured()){
+    try{
+      const res = await fetch(pantryUrl(currentUser));
+      if(res.ok){ const d = await res.json(); cloudExists = !!(d && d.rows && d.rows.length); }
+    }catch(e){}
+  }
+  const exists = localExists || cloudExists;
+  ['remove-draft-btn','footer-remove-draft-btn'].forEach(id=>{
+    const el = document.getElementById(id);
+    if(el) el.style.display = exists ? 'inline-block' : 'none';
+  });
 }
 
 
