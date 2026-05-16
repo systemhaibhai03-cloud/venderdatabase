@@ -1702,26 +1702,22 @@ function exportExcel(){
   XLSX.utils.book_append_sheet(wb, ws, 'NEFT Payment');
 
   const filename = (currentUser||'NEFT') + '_NEFT_' + fileDate + '.xlsx';
-  
+
+  // Always use blob download (works on all browsers including mobile)
   try {
-    XLSX.writeFile(wb, filename);
-    showToast('✅ Excel download ho gaya!');
+    const wbout = XLSX.write(wb, {bookType:'xlsx', type:'array'});
+    const blob = new Blob([wbout], {type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    a.style.display = 'none';
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function(){ document.body.removeChild(a); URL.revokeObjectURL(url); }, 500);
+    showToast('✅ Excel download ho gaya! — ' + filename);
   } catch(e) {
-    // Fallback: use writeFileXLSX with blob
-    try {
-      const wbout = XLSX.write(wb, {bookType:'xlsx', type:'array'});
-      const blob = new Blob([wbout], {type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = filename;
-      document.body.appendChild(a);
-      a.click();
-      setTimeout(()=>{ document.body.removeChild(a); URL.revokeObjectURL(url); }, 300);
-      showToast('✅ Excel download ho gaya!');
-    } catch(e2) {
-      alert('Export error: ' + e2.message);
-    }
+    alert('Export error: ' + e.message);
   }
 }
 
