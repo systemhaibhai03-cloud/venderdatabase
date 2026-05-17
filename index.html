@@ -1637,10 +1637,12 @@ function clearAll(){
 
 // ── EXPORT / DRAFT ──
 function exportExcel(){
-  const tableRows=document.querySelectorAll('#table-body tr[data-idx]');
-  if(!rows.length){showToast('⚠️ Koi row nahi hai — pehle row add karo');return;}
+  if(!rows.length){showToast('⚠️ Koi data nahi hai!');return;}
   const today=new Date();
   const dateStr=today.toLocaleDateString('en-GB',{day:'2-digit',month:'2-digit',year:'numeric'}).replace(/\//g,'.');
+  const dateDisp='Date : '+dateStr;
+  const B='border:1px solid #000;padding:6px 8px;';
+  const TH=B+'background:#f2f2f2;font-weight:bold;font-size:10pt;text-align:left;';
   let tableHTML='',grandTotal=0,sno=1;
 
   const typeOrder={'Vendor':1,'Contractor':2,'Engineer Expenses':3,'Others':4};
@@ -1653,55 +1655,67 @@ function exportExcel(){
     const ifscVal=r.ifsc||(dbV?dbV.ifsc:'')||'';
     tableHTML+=`
       <tr>
-        <td style="border:1px solid black;padding:5px;text-align:center;">${sno++}</td>
-        <td style="border:1px solid black;padding:5px;">${r.name||''}</td>
-        <td style="border:1px solid black;padding:5px;font-family:Courier New,monospace;font-size:11pt;letter-spacing:0.5pt;">${r.acc||''}</td>
-        <td style="border:1px solid black;padding:5px;">${ifscVal}</td>
-        <td style="border:1px solid black;padding:5px;">${r.bank||''}</td>
-        <td style="border:1px solid black;padding:5px;">${r.branch||''}</td>
-        <td style="border:1px solid black;padding:5px;">${r.site||''}</td>
-        <td style="border:1px solid black;padding:5px;">${r.type||''}</td>
-        <td style="border:1px solid black;padding:5px;text-align:right;">${amt.toLocaleString('en-IN')}</td>
-        <td style="border:1px solid black;padding:5px;">${r.remarks||''}</td>
+        <td style="${B}text-align:center;font-size:10pt;">${sno++}</td>
+        <td style="${B}font-size:10pt;">${r.name||''}</td>
+        <td style="${B}font-family:'Courier New',monospace;font-size:10pt;white-space:nowrap;">${r.acc||''}</td>
+        <td style="${B}font-size:10pt;white-space:nowrap;">${ifscVal}</td>
+        <td style="${B}font-size:10pt;">${r.bank||''}</td>
+        <td style="${B}font-size:10pt;">${r.branch||''}</td>
+        <td style="${B}font-size:10pt;">${r.site||''}</td>
+        <td style="${B}font-size:10pt;">${r.type||''}</td>
+        <td style="${B}text-align:right;font-size:10pt;font-weight:600;">${amt.toLocaleString('en-IN')}</td>
+        <td style="${B}font-size:9.5pt;">${r.remarks||''}</td>
       </tr>`;
   });
 
   const html=`<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">
-<head><meta charset="UTF-8"><style>body{font-family:Arial,sans-serif;font-size:11pt;}table{border-collapse:collapse;width:100%;}td,th{font-size:11pt;vertical-align:middle;}</style></head>
+<head><meta charset="UTF-8">
+<style>body{font-family:Arial,sans-serif;font-size:11pt;}table{border-collapse:collapse;}td,th{vertical-align:middle;}</style>
+</head>
 <body>
-<table style="width:100%;border:none;margin-bottom:4px;"><tr><td style="border:none;font-size:11pt;line-height:1.6;">The Chief Manager/Senior Branch Manager,<br>Indian Bank<br>Navyug Market,<br>Ghaziabad</td></tr></table>
-<br>
+<table style="width:100%;border:none;">
+  <tr style="height:18pt;"><td style="border:none;"></td></tr>
+  <tr style="height:18pt;"><td style="border:none;"></td></tr>
+  <tr style="height:18pt;"><td style="border:none;"></td></tr>
+  <tr style="height:18pt;"><td style="border:none;"></td></tr>
+  <tr style="height:18pt;"><td style="border:none;"></td></tr>
+  <tr><td style="border:none;font-size:11pt;">The Chief Manager/Senior Branch Manager,</td></tr>
+  <tr><td style="border:none;font-size:11pt;">Indian Bank</td></tr>
+  <tr><td style="border:none;font-size:11pt;">Navyug Market,</td></tr>
+  <tr><td style="border:none;font-size:11pt;">Ghaziabad</td></tr>
+  <tr style="height:14pt;"><td style="border:none;"></td></tr>
+</table>
 <table style="width:100%;border-collapse:collapse;">
   <tr>
-    <td colspan="7" style="border:1px solid black;padding:5px;font-weight:bold;font-size:11pt;">Vendors Bank Details for NEFT/RTGS</td>
-    <td colspan="3" style="border:1px solid black;padding:5px;text-align:right;font-size:11pt;">Date : ${dateStr}</td>
+    <td colspan="7" style="${B}font-weight:bold;font-size:11pt;">Vendors Bank Details for NEFT/RTGS</td>
+    <td colspan="3" style="${B}text-align:right;font-size:10pt;">${dateDisp}</td>
   </tr>
-  <tr style="background:#f2f2f2;">
-    <th style="border:1px solid black;padding:6px;text-align:center;">No.</th>
-    <th style="border:1px solid black;padding:6px;">Name</th>
-    <th style="border:1px solid black;padding:6px;">Account No</th>
-    <th style="border:1px solid black;padding:6px;">IFSC CODE</th>
-    <th style="border:1px solid black;padding:6px;">Bank Name</th>
-    <th style="border:1px solid black;padding:6px;">Branch Name</th>
-    <th style="border:1px solid black;padding:6px;">Site</th>
-    <th style="border:1px solid black;padding:6px;">Payment Type</th>
-    <th style="border:1px solid black;padding:6px;text-align:right;">Amount</th>
-    <th style="border:1px solid black;padding:6px;">Remarks</th>
+  <tr>
+    <th style="${TH}text-align:center;width:28pt;">No.</th>
+    <th style="${TH}">Name</th>
+    <th style="${TH}">Account No</th>
+    <th style="${TH}">IFSC Code</th>
+    <th style="${TH}">Bank Name</th>
+    <th style="${TH}">Branch Name</th>
+    <th style="${TH}">Site</th>
+    <th style="${TH}">Payment Type</th>
+    <th style="${TH}text-align:right;">Amount</th>
+    <th style="${TH}min-width:160pt;">Remarks</th>
   </tr>
   ${tableHTML}
   <tr>
-    <td colspan="8" style="border:1px solid black;padding:5px;text-align:right;font-weight:bold;">Total</td>
-    <td style="border:1px solid black;padding:5px;text-align:right;font-weight:bold;">${grandTotal.toLocaleString('en-IN')}</td>
-    <td style="border:1px solid black;padding:5px;"></td>
+    <td colspan="8" style="${B}text-align:right;font-weight:bold;font-size:11pt;">Total</td>
+    <td style="${B}text-align:right;font-weight:bold;font-size:11pt;">${grandTotal.toLocaleString('en-IN')}</td>
+    <td style="${B}"></td>
   </tr>
 </table>
 </body></html>`;
 
-  const blob=new Blob([html],{type:'application/vnd.ms-excel;charset=utf-8;'});
+  const blob=new Blob(['\uFEFF'+html],{type:'application/vnd.ms-excel;charset=utf-8;'});
   const url=URL.createObjectURL(blob);
   const a=document.createElement('a');
   a.href=url;
-  a.download=(currentUser||'Vishal_Technopower')+'_NEFT_'+dateStr.replace(/\./g,'')+'.xls';
+  a.download='Vishal_Technopower_'+dateStr.replace(/\./g,'')+'.xls';
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
