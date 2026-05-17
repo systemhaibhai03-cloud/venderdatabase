@@ -1639,18 +1639,19 @@ function clearAll(){
 function exportExcel(){
   if(!rows.length){showToast('⚠️ Koi data nahi hai!');return;}
 
-  const today = new Date();
-  const dd = String(today.getDate()).padStart(2,'0');
-  const mm = String(today.getMonth()+1).padStart(2,'0');
-  const yyyy = today.getFullYear();
-  const dateStr = dd + '.' + mm + '.' + yyyy;
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2,'0');
+  var mm = String(today.getMonth()+1).padStart(2,'0');
+  var yyyy = today.getFullYear();
+  var dateStr = dd + '.' + mm + '.' + yyyy;
+  var fileName = 'Vishal_Technopower_' + dd + mm + yyyy + '.xls';
 
-  const typeOrder = {'Vendor':1,'Contractor':2,'Engineer Expenses':3,'Others':4};
-  const sorted = [...rows].sort((a,b)=>(typeOrder[a.type]||5)-(typeOrder[b.type]||5));
+  var typeOrder = {'Vendor':1,'Contractor':2,'Engineer Expenses':3,'Others':4};
+  var sorted = rows.slice().sort(function(a,b){return (typeOrder[a.type]||5)-(typeOrder[b.type]||5);});
 
-  let tableHTML = '';
-  let grandTotal = 0;
-  let sno = 1;
+  var tableHTML = '';
+  var grandTotal = 0;
+  var sno = 1;
 
   sorted.forEach(function(r){
     var amt = parseFloat(r.amt) || 0;
@@ -1671,13 +1672,14 @@ function exportExcel(){
       + '</tr>';
   });
 
-  var html = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">'
+  var html = '<html xmlns:o="urn:schemas-microsoft-com:office:office" '
+    + 'xmlns:x="urn:schemas-microsoft-com:office:excel" '
+    + 'xmlns="http://www.w3.org/TR/REC-html40">'
     + '<head><meta charset="UTF-8">'
     + '<style>body{font-family:Arial,sans-serif;font-size:11pt;}table{border-collapse:collapse;}td,th{vertical-align:middle;}</style>'
     + '</head><body>'
-    + '<p style="font-size:11pt;line-height:2;">The Chief Manager/Senior Branch Manager,<br>'
-    + 'Indian Bank<br>Navyug Market,<br>Ghaziabad</p>'
-    + '<br>'
+    + '<p style="font-size:11pt;line-height:2.2;">The Chief Manager/Senior Branch Manager,<br>'
+    + 'Indian Bank<br>Navyug Market,<br>Ghaziabad</p><br>'
     + '<table style="width:100%;border-collapse:collapse;">'
     + '<tr>'
     + '<td colspan="7" style="border:1px solid #000;padding:6px 8px;font-weight:bold;font-size:11pt;">Vendors Bank Details for NEFT/RTGS</td>'
@@ -1703,40 +1705,24 @@ function exportExcel(){
     + '</tr>'
     + '</table></body></html>';
 
-  var fileName = 'Vishal_Technopower_' + dd + mm + yyyy + '.xls';
+  // Blob download — Edge/Chrome dono mein kaam karta hai
+  var blob = new Blob(['﻿' + html], {type: 'application/vnd.ms-excel'});
 
-  // Method 1: data URI (most compatible)
-  try {
-    var uri = 'data:application/vnd.ms-excel;charset=utf-8,' + encodeURIComponent('\uFEFF' + html);
-    var link = document.createElement('a');
-    link.setAttribute('href', uri);
-    link.setAttribute('download', fileName);
-    link.style.display = 'none';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    showToast('📊 Excel download ho raha hai!');
-  } catch(e1) {
-    // Method 2: Blob URL fallback
-    try {
-      var blob = new Blob(['\uFEFF' + html], {type:'application/vnd.ms-excel;charset=utf-8'});
-      var url = URL.createObjectURL(blob);
-      var a = document.createElement('a');
-      a.href = url;
-      a.download = fileName;
-      a.style.display = 'none';
-      document.body.appendChild(a);
-      a.click();
-      setTimeout(function(){ document.body.removeChild(a); URL.revokeObjectURL(url); }, 500);
-      showToast('📊 Excel download ho raha hai!');
-    } catch(e2) {
-      // Method 3: window.open fallback
-      var w = window.open('', '_blank');
-      w.document.write(html);
-      w.document.close();
-      showToast('⚠️ Nayi window mein khula — wahan se save karein (Ctrl+S)');
-    }
+  if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+    // Internet Explorer fallback
+    window.navigator.msSaveOrOpenBlob(blob, fileName);
+  } else {
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = fileName;
+    a.style.display = 'none';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 1000);
   }
+  showToast('📊 Excel download ho gaya!');
 }
 
 
