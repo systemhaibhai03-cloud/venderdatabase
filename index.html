@@ -35,29 +35,113 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);min-height:100vh;over
 .popup-btn-go:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(21,101,192,.6);}
 .popup-btn-cancel{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.7);}
 
-#login-screen{position:fixed;inset:0;z-index:99999;background:linear-gradient(135deg,#0a1628 0%,#0d1f3c 50%,#081525 100%);display:flex;align-items:center;justify-content:center;font-family:'DM Sans',sans-serif;flex-direction:column;gap:0;}
-#login-screen::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(21,101,192,.18) 0%,transparent 70%),radial-gradient(ellipse 40% 30% at 20% 80%,rgba(33,150,243,.1) 0%,transparent 60%);pointer-events:none;animation:bgBreath 5s ease-in-out infinite;}
-@keyframes bgBreath{0%,100%{opacity:.7;}50%{opacity:1;}}
-#login-screen::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(33,150,243,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(33,150,243,.04) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;}
-.splash-card{position:relative;z-index:2;width:min(560px,95vw);background:linear-gradient(135deg,rgba(13,71,161,.4),rgba(21,101,192,.3));border:1px solid rgba(33,150,243,.35);border-radius:24px;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,.6),0 0 0 1px rgba(33,150,243,.25);animation:splashIn .9s cubic-bezier(.16,1,.3,1) both;backdrop-filter:blur(20px);}
-@keyframes splashIn{from{opacity:0;transform:scale(.88) translateY(30px);}to{opacity:1;transform:scale(1) translateY(0);}}
-.splash-photo-wrap{position:relative;width:100%;height:200px;overflow:hidden;background:#050d1a;}
-.splash-photo-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(7,13,26,.8) 100%);display:flex;align-items:flex-end;padding:14px 20px;}
-.splash-photo-brand{display:flex;align-items:center;gap:12px;animation:fadeUp .8s .3s cubic-bezier(.16,1,.3,1) both;}
-@keyframes fadeUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
-.splash-vt-icon{width:46px;height:46px;background:linear-gradient(135deg,rgba(21,101,192,.9),rgba(33,150,243,.9));border-radius:12px;display:flex;align-items:center;justify-content:center;border:1.5px solid rgba(255,255,255,.3);backdrop-filter:blur(8px);flex-shrink:0;box-shadow:0 0 20px rgba(33,150,243,.5);}
-.splash-brand-text h2{font-family:'Baloo 2',cursive;font-size:18px;font-weight:800;color:#fff;line-height:1.1;letter-spacing:-.3px;}
-.splash-brand-text p{font-size:9.5px;color:rgba(255,255,255,.6);font-style:italic;margin-top:2px;}
-.splash-tagline{background:linear-gradient(90deg,#0d47a1,#1565c0,#1976d2);padding:6px 22px;font-size:9.5px;font-weight:700;color:rgba(255,255,255,.85);letter-spacing:2px;text-transform:uppercase;text-align:center;}
-.splash-body{padding:18px 20px 22px;}
-.splash-pick-label{text-align:center;font-size:11px;font-weight:600;color:rgba(255,255,255,.45);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px;}
-.splash-pick-label span{display:inline-block;width:28px;height:1px;background:rgba(255,255,255,.12);vertical-align:middle;margin:0 10px;}
-.splash-users{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
-.user-card{cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:7px;padding:14px 18px;border-radius:16px;border:1.5px solid rgba(33,150,243,.35);background:linear-gradient(135deg,rgba(21,101,192,.25),rgba(13,71,161,.35));transition:all .25s cubic-bezier(.16,1,.3,1);min-width:110px;position:relative;overflow:hidden;}
-.user-card:hover{background:linear-gradient(135deg,rgba(21,101,192,.5),rgba(13,71,161,.6));border-color:rgba(33,150,243,.7);transform:translateY(-4px);box-shadow:0 12px 35px rgba(21,101,192,.4);}
-.user-avatar{width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,#1565c0,#42a5f5);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;color:#fff;font-family:'Baloo 2',cursive;border:2px solid rgba(255,255,255,.2);flex-shrink:0;box-shadow:0 4px 15px rgba(0,0,0,.3);}
-.user-card span{font-size:12px;font-weight:600;color:rgba(255,255,255,.85);text-align:center;line-height:1.3;}
-.user-role{font-size:9px;color:rgba(255,255,255,.4);font-weight:400;}
+#login-screen{position:fixed;inset:0;z-index:99999;background:linear-gradient(180deg,#87ceeb 0%,#b3e0ff 35%,#d4ecff 70%,#e8f4ff 100%);display:flex;align-items:center;justify-content:center;font-family:'DM Sans',sans-serif;flex-direction:column;overflow:hidden;}
+#login-screen::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 40% at 50% 20%,rgba(255,255,255,.5) 0%,transparent 70%),radial-gradient(ellipse 80% 50% at 20% 80%,rgba(255,255,255,.3) 0%,transparent 60%);pointer-events:none;}
+#login-screen::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(21,101,192,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(21,101,192,.04) 1px,transparent 1px);background-size:50px 50px;pointer-events:none;mask-image:radial-gradient(ellipse at center,black 30%,transparent 80%);-webkit-mask-image:radial-gradient(ellipse at center,black 30%,transparent 80%);}
+
+.sun{position:absolute;top:8%;right:10%;width:90px;height:90px;background:radial-gradient(circle,#fff7d6 0%,#ffe082 40%,#ffb74d 100%);border-radius:50%;box-shadow:0 0 60px rgba(255,193,7,.6),0 0 120px rgba(255,193,7,.3);animation:sunPulse 4s ease-in-out infinite;z-index:1;}
+.sun::before{content:'';position:absolute;inset:-25px;border-radius:50%;background:radial-gradient(circle,rgba(255,235,59,.3) 0%,transparent 70%);animation:sunPulse 4s ease-in-out infinite reverse;}
+@keyframes sunPulse{0%,100%{transform:scale(1);box-shadow:0 0 60px rgba(255,193,7,.6),0 0 120px rgba(255,193,7,.3);}50%{transform:scale(1.08);box-shadow:0 0 80px rgba(255,193,7,.8),0 0 160px rgba(255,193,7,.4);}}
+
+.sun-rays{position:absolute;top:8%;right:10%;width:90px;height:90px;animation:sunRotate 30s linear infinite;z-index:1;}
+.sun-rays::before,.sun-rays::after{content:'';position:absolute;top:50%;left:50%;width:140px;height:2px;background:linear-gradient(90deg,transparent,rgba(255,193,7,.4),transparent);transform-origin:0 50%;}
+.sun-rays::before{transform:translate(0,-50%) rotate(0deg);}
+.sun-rays::after{transform:translate(0,-50%) rotate(60deg);}
+@keyframes sunRotate{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+
+.cloud{position:absolute;background:#fff;border-radius:100px;opacity:.85;filter:drop-shadow(0 4px 12px rgba(21,101,192,.15));}
+.cloud::before,.cloud::after{content:'';position:absolute;background:#fff;border-radius:50%;}
+.cloud1{top:15%;left:-150px;width:120px;height:35px;animation:cloudDrift 60s linear infinite;}
+.cloud1::before{width:60px;height:60px;top:-25px;left:15px;}
+.cloud1::after{width:80px;height:80px;top:-45px;left:50px;}
+.cloud2{top:25%;left:-200px;width:90px;height:28px;animation:cloudDrift 80s linear infinite;animation-delay:-20s;opacity:.7;}
+.cloud2::before{width:45px;height:45px;top:-18px;left:10px;}
+.cloud2::after{width:60px;height:60px;top:-32px;left:38px;}
+.cloud3{top:40%;left:-180px;width:100px;height:30px;animation:cloudDrift 70s linear infinite;animation-delay:-40s;opacity:.6;}
+.cloud3::before{width:50px;height:50px;top:-20px;left:12px;}
+.cloud3::after{width:70px;height:70px;top:-38px;left:42px;}
+@keyframes cloudDrift{from{transform:translateX(0);}to{transform:translateX(calc(100vw + 250px));}}
+
+.bird{position:absolute;font-size:14px;color:#1565c0;opacity:.6;animation:birdFly 25s linear infinite;}
+.bird1{top:18%;left:-50px;animation-delay:-5s;}
+.bird2{top:22%;left:-50px;animation-delay:-15s;font-size:11px;}
+.bird3{top:28%;left:-50px;animation-delay:-20s;font-size:12px;}
+@keyframes birdFly{0%{transform:translateX(0) translateY(0);}50%{transform:translateX(50vw) translateY(-15px);}100%{transform:translateX(calc(100vw + 100px)) translateY(0);}}
+
+.solar-field{position:absolute;bottom:0;left:0;right:0;height:170px;display:flex;align-items:flex-end;justify-content:center;gap:8px;padding:0 30px 25px;pointer-events:none;z-index:2;}
+.solar-unit{display:flex;flex-direction:column;align-items:center;animation:panelFloat 4s ease-in-out infinite;}
+.solar-unit:nth-child(2n){animation-delay:.5s;}
+.solar-unit:nth-child(3n){animation-delay:1s;}
+@keyframes panelFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-3px);}}
+.solar-panel{width:80px;height:55px;background:linear-gradient(135deg,#1976d2 0%,#0d47a1 50%,#1976d2 100%);border:2px solid #1565c0;border-radius:6px;position:relative;overflow:hidden;box-shadow:0 4px 15px rgba(13,71,161,.4),inset 0 0 20px rgba(33,150,243,.3);}
+.solar-panel::before{content:'';position:absolute;inset:3px;background-image:linear-gradient(rgba(255,255,255,.15) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.15) 1px,transparent 1px);background-size:13px 13px;border-radius:3px;}
+.solar-panel::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(110deg,transparent,rgba(255,255,255,.5),transparent);animation:panelShine 3s ease-in-out infinite;}
+@keyframes panelShine{0%{left:-100%;}50%,100%{left:130%;}}
+.solar-pole{width:4px;height:30px;background:linear-gradient(180deg,#90a4ae,#546e7a);box-shadow:0 2px 5px rgba(0,0,0,.2);}
+.solar-base{width:25px;height:5px;background:linear-gradient(180deg,#78909c,#546e7a);border-radius:2px;}
+
+.wind-turbine{position:absolute;bottom:165px;z-index:1;}
+.wind1{left:8%;}
+.wind2{right:8%;}
+.turbine-pole{width:3px;height:75px;background:linear-gradient(180deg,#fff,#cfd8dc);margin:0 auto;box-shadow:0 0 5px rgba(0,0,0,.15);}
+.turbine-blades{position:absolute;top:0;left:50%;transform:translateX(-50%);width:50px;height:50px;animation:spinBlades 4s linear infinite;}
+.wind2 .turbine-blades{animation-duration:5s;}
+@keyframes spinBlades{from{transform:translateX(-50%) rotate(0deg);}to{transform:translateX(-50%) rotate(360deg);}}
+.turbine-blade{position:absolute;width:6px;height:24px;background:linear-gradient(180deg,#fff,#e0e0e0);border-radius:50% 50% 5px 5px;left:50%;top:50%;transform-origin:50% 100%;box-shadow:0 0 3px rgba(0,0,0,.2);}
+.turbine-blade:nth-child(1){transform:translate(-50%,-100%) rotate(0deg);}
+.turbine-blade:nth-child(2){transform:translate(-50%,-100%) rotate(120deg);}
+.turbine-blade:nth-child(3){transform:translate(-50%,-100%) rotate(240deg);}
+.turbine-hub{position:absolute;width:8px;height:8px;background:#546e7a;border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%);z-index:5;}
+
+.tree{position:absolute;bottom:25px;z-index:1;}
+.tree1{left:3%;}
+.tree2{right:3%;}
+.tree3{left:18%;bottom:30px;transform:scale(.7);}
+.tree-trunk{width:8px;height:25px;background:linear-gradient(180deg,#6d4c41,#4e342e);margin:0 auto;border-radius:2px;}
+.tree-leaves{width:40px;height:50px;background:radial-gradient(circle at 50% 100%,#388e3c,#2e7d32);border-radius:50% 50% 30% 30%;margin-bottom:-5px;box-shadow:0 4px 10px rgba(46,125,50,.3);}
+
+.particle{position:absolute;width:6px;height:6px;background:radial-gradient(circle,#fff,rgba(33,150,243,.6));border-radius:50%;box-shadow:0 0 10px rgba(33,150,243,.8);animation:particleFloat 6s ease-in-out infinite;pointer-events:none;}
+.particle:nth-child(odd){background:radial-gradient(circle,#fff,rgba(255,193,7,.6));box-shadow:0 0 10px rgba(255,193,7,.8);}
+@keyframes particleFloat{0%,100%{opacity:0;transform:translateY(0) scale(.5);}50%{opacity:1;transform:translateY(-80px) scale(1.2);}}
+
+.energy-wave{position:absolute;bottom:60px;left:50%;transform:translateX(-50%);width:0;height:0;border-radius:50%;border:2px solid rgba(33,150,243,.4);animation:waveExpand 3s ease-out infinite;pointer-events:none;}
+.energy-wave:nth-child(2){animation-delay:1s;}
+.energy-wave:nth-child(3){animation-delay:2s;}
+@keyframes waveExpand{from{width:50px;height:50px;opacity:1;}to{width:500px;height:500px;opacity:0;}}
+
+.splash-card{position:relative;z-index:10;width:min(580px,95vw);background:linear-gradient(135deg,rgba(255,255,255,.85),rgba(227,242,253,.75));border:1.5px solid rgba(33,150,243,.3);border-radius:28px;overflow:hidden;box-shadow:0 25px 80px rgba(13,71,161,.25),0 0 0 1px rgba(255,255,255,.6),inset 0 1px 0 rgba(255,255,255,.8);animation:splashIn 1s cubic-bezier(.16,1,.3,1) both;backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);}
+@keyframes splashIn{from{opacity:0;transform:scale(.9) translateY(40px);}to{opacity:1;transform:scale(1) translateY(0);}}
+
+.splash-header{position:relative;padding:24px 28px 18px;background:linear-gradient(135deg,rgba(21,101,192,.95) 0%,rgba(13,71,161,.95) 100%);overflow:hidden;}
+.splash-header::before{content:'';position:absolute;top:-50%;right:-20%;width:300px;height:300px;background:radial-gradient(circle,rgba(255,193,7,.3),transparent 70%);border-radius:50%;}
+.splash-header::after{content:'';position:absolute;bottom:-30%;left:-10%;width:200px;height:200px;background:radial-gradient(circle,rgba(33,150,243,.4),transparent 70%);border-radius:50%;}
+.splash-header-content{position:relative;z-index:2;display:flex;align-items:center;gap:14px;}
+.splash-vt-icon{width:56px;height:56px;background:linear-gradient(135deg,#ffeb3b,#ff9800);border-radius:16px;display:flex;align-items:center;justify-content:center;border:2px solid rgba(255,255,255,.5);flex-shrink:0;box-shadow:0 8px 25px rgba(255,152,0,.5),inset 0 2px 0 rgba(255,255,255,.4);animation:iconBounce 3s ease-in-out infinite;}
+@keyframes iconBounce{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-4px) rotate(-3deg);}}
+.splash-brand-text h2{font-family:'Baloo 2',cursive;font-size:26px;font-weight:800;color:#fff;line-height:1;letter-spacing:-.5px;text-shadow:0 2px 10px rgba(0,0,0,.3);}
+.splash-brand-text p{font-size:11px;color:rgba(255,255,255,.85);font-weight:500;margin-top:4px;letter-spacing:.3px;}
+
+.splash-tagline{background:linear-gradient(90deg,#ffeb3b 0%,#ffc107 50%,#ff9800 100%);padding:10px 22px;font-size:11px;font-weight:800;color:#0d47a1;letter-spacing:2px;text-transform:uppercase;text-align:center;display:flex;align-items:center;justify-content:center;gap:10px;}
+.splash-tagline-dot{width:6px;height:6px;background:#0d47a1;border-radius:50%;animation:dotBlink 1.5s ease-in-out infinite;}
+@keyframes dotBlink{0%,100%{opacity:1;}50%{opacity:.3;}}
+
+.splash-body{padding:24px 26px 28px;background:linear-gradient(180deg,rgba(255,255,255,.4),rgba(227,242,253,.3));}
+.splash-pick-label{text-align:center;font-size:12px;font-weight:700;color:#1565c0;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;justify-content:center;gap:12px;}
+.splash-pick-label span{flex:1;max-width:40px;height:2px;background:linear-gradient(90deg,transparent,#1565c0,transparent);}
+
+.splash-users{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.user-card{cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:10px;padding:18px 16px 16px;border-radius:18px;border:2px solid rgba(33,150,243,.25);background:linear-gradient(135deg,rgba(255,255,255,.9),rgba(227,242,253,.85));transition:all .35s cubic-bezier(.16,1,.3,1);min-width:140px;position:relative;overflow:hidden;box-shadow:0 4px 15px rgba(13,71,161,.1);}
+.user-card::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.5),transparent);transition:left .6s ease;}
+.user-card:hover::before{left:100%;}
+.user-card:hover{transform:translateY(-8px) scale(1.03);border-color:#1976d2;box-shadow:0 20px 40px rgba(13,71,161,.25),0 0 0 4px rgba(33,150,243,.15);}
+.user-avatar{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#1565c0,#42a5f5);display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:800;color:#fff;font-family:'Baloo 2',cursive;border:3px solid #fff;flex-shrink:0;box-shadow:0 6px 20px rgba(21,101,192,.4),inset 0 -3px 0 rgba(0,0,0,.1);transition:.3s;}
+.user-card:hover .user-avatar{transform:rotate(-5deg) scale(1.1);}
+.user-card span{font-size:13px;font-weight:700;color:#0d47a1;text-align:center;line-height:1.3;}
+.user-role{font-size:10px;color:#546e7a;font-weight:500;margin-top:-4px;}
+
+.splash-footer-note{text-align:center;margin-top:18px;font-size:10px;color:#546e7a;font-weight:500;display:flex;align-items:center;justify-content:center;gap:6px;}
+.splash-footer-note .live-dot{width:7px;height:7px;background:#43a047;border-radius:50%;box-shadow:0 0 8px #43a047;animation:liveBlink 1.5s ease-in-out infinite;}
+@keyframes liveBlink{0%,100%{opacity:1;}50%{opacity:.4;}}
 
 #app{display:none;}
 .topbar{background:linear-gradient(90deg,#0d47a1 0%,#1565c0 40%,#1976d2 100%);padding:0 20px;height:54px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(13,71,161,.4);}
@@ -65,7 +149,7 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);min-height:100vh;over
 .topbar-logo{width:34px;height:34px;background:rgba(255,255,255,.18);border-radius:9px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.25);}
 .topbar-brand h1{font-family:'Baloo 2',cursive;font-size:15px;font-weight:800;color:#fff;letter-spacing:-.2px;line-height:1.2;}
 .topbar-brand p{font-size:9px;color:rgba(255,255,255,.6);letter-spacing:.5px;}
-.topbar-right{display:flex;align-items:center;gap:8px;}
+.topbar-right{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
 .switch-btn{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:8px;color:#fff;font-size:11px;font-weight:600;padding:5px 11px;cursor:pointer;transition:.2s;display:flex;align-items:center;gap:5px;font-family:'Poppins',sans-serif;}
 .switch-btn:hover{background:rgba(255,255,255,.22);}
 .topbar-add-btn{background:linear-gradient(90deg,#ff6f00,#ffa000);border:none;border-radius:8px;color:#fff;font-size:11px;font-weight:700;padding:5px 13px;cursor:pointer;transition:.2s;display:flex;align-items:center;gap:5px;font-family:'Poppins',sans-serif;box-shadow:0 2px 10px rgba(255,111,0,.35);}
@@ -73,6 +157,10 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);min-height:100vh;over
 .user-chip{display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:4px 10px 4px 4px;}
 .user-chip-av{width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#42a5f5,#1565c0);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;font-family:'Baloo 2',cursive;}
 .user-chip span{font-size:11px;font-weight:600;color:#fff;}
+
+.gh-token-btn{background:linear-gradient(135deg,#24292e,#40464d);color:#fff;border:1px solid rgba(255,255,255,.2);border-radius:8px;padding:5px 11px;font-size:11px;font-weight:600;cursor:pointer;font-family:'Poppins',sans-serif;display:flex;align-items:center;gap:5px;transition:.2s;}
+.gh-token-btn:hover{background:linear-gradient(135deg,#40464d,#586069);transform:translateY(-1px);}
+.gh-token-btn.connected{background:linear-gradient(135deg,#2e7d32,#43a047);border-color:rgba(102,187,106,.5);}
 
 .add-vendor-panel{display:none;background:#fff;border-bottom:2px solid #e3eaf7;padding:14px 20px;}
 .add-vendor-panel.open{display:block;animation:slideDown .35s cubic-bezier(.16,1,.3,1);}
@@ -136,25 +224,8 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);min-height:100vh;over
 .pf-field input,.pf-field select{border:1.5px solid #cfd8dc;border-radius:8px;padding:7px 10px;font-size:12px;font-family:'Poppins',sans-serif;color:#263238;background:#f8fbff;transition:.2s;width:100%;}
 .pf-field input:focus,.pf-field select:focus{outline:none;border-color:#1976d2;background:#fff;box-shadow:0 0 0 3px rgba(25,118,210,.1);}
 
-/* ══ REMARKS TEXTAREA ══ */
-.remarks-textarea{
-  border:1.5px solid #cfd8dc;
-  border-radius:8px;
-  padding:7px 10px;
-  font-size:12px;
-  font-family:'Poppins',sans-serif;
-  color:#263238;
-  background:#f8fbff;
-  transition:.2s;
-  width:100%;
-  resize:vertical;
-  min-height:36px;
-  max-height:100px;
-  line-height:1.5;
-  overflow-y:auto;
-}
+.remarks-textarea{border:1.5px solid #cfd8dc;border-radius:8px;padding:7px 10px;font-size:12px;font-family:'Poppins',sans-serif;color:#263238;background:#f8fbff;transition:.2s;width:100%;resize:vertical;min-height:36px;max-height:100px;line-height:1.5;overflow-y:auto;}
 .remarks-textarea:focus{outline:none;border-color:#1976d2;background:#fff;box-shadow:0 0 0 3px rgba(25,118,210,.1);}
-.remarks-hint{font-size:9px;color:#90a4ae;margin-top:2px;}
 
 .add-row-btn{background:linear-gradient(90deg,#1565c0,#1976d2);color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;font-family:'Poppins',sans-serif;transition:.2s;height:36px;}
 .add-row-btn:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(21,101,192,.4);}
@@ -186,7 +257,6 @@ tbody tr{border-bottom:1px solid #f1f5f9;transition:.15s;}
 tbody tr:hover{background:#f0f6ff;}
 tbody td{padding:8px 12px;font-size:11.5px;color:#37474f;vertical-align:middle;}
 tbody td:first-child{text-align:center;color:#90a4ae;font-weight:600;font-size:10.5px;}
-/* Remarks cell multiline display */
 .remarks-cell{white-space:pre-wrap;word-break:break-word;max-width:200px;font-size:10.5px;line-height:1.5;}
 .del-btn{background:none;border:none;cursor:pointer;color:#ef9a9a;font-size:16px;transition:.2s;padding:2px 4px;}
 .del-btn:hover{color:#c62828;transform:scale(1.2);}
@@ -213,54 +283,53 @@ tbody td:first-child{text-align:center;color:#90a4ae;font-weight:600;font-size:1
 .toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%);background:#263238;color:#fff;border-radius:10px;padding:10px 22px;font-size:12px;font-weight:600;font-family:'Poppins',sans-serif;box-shadow:0 8px 30px rgba(0,0,0,.3);z-index:99999;opacity:0;pointer-events:none;transition:.3s;white-space:nowrap;}
 .toast.show{opacity:1;}
 
+.gh-modal-overlay{position:fixed;inset:0;z-index:999998;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;}
+.gh-modal-overlay.active{display:flex;}
+.gh-modal{background:#fff;border-radius:16px;width:min(460px,92vw);padding:24px;box-shadow:0 20px 60px rgba(0,0,0,.3);animation:popCardIn .4s cubic-bezier(.16,1,.3,1);}
+.gh-modal h3{font-size:16px;font-weight:700;color:#24292e;margin-bottom:6px;display:flex;align-items:center;gap:8px;}
+.gh-modal p{font-size:12px;color:#586069;margin-bottom:14px;line-height:1.6;}
+.gh-modal input{width:100%;border:2px solid #d1d5da;border-radius:10px;padding:10px 14px;font-size:13px;font-family:'Poppins',sans-serif;margin-bottom:8px;}
+.gh-modal input:focus{outline:none;border-color:#1565c0;box-shadow:0 0 0 3px rgba(21,101,192,.15);}
+.gh-modal .gh-status{font-size:11px;padding:6px 10px;border-radius:8px;margin-bottom:12px;display:none;}
+.gh-modal .gh-status.success{display:block;background:#e8f5e9;color:#2e7d32;border:1px solid #a5d6a7;}
+.gh-modal .gh-status.error{display:block;background:#ffebee;color:#c62828;border:1px solid #ef9a9a;}
+.gh-modal .gh-status.info{display:block;background:#e3f2fd;color:#1565c0;border:1px solid #90caf9;}
+.gh-modal-btns{display:flex;gap:8px;flex-wrap:wrap;}
+.gh-modal-btns button{flex:1;min-width:90px;padding:9px 14px;border-radius:9px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Poppins',sans-serif;border:none;transition:.2s;}
+.gh-modal-btns .gh-save{background:linear-gradient(90deg,#24292e,#40464d);color:#fff;}
+.gh-modal-btns .gh-save:hover{background:#40464d;}
+.gh-modal-btns .gh-test{background:#e3f2fd;color:#1565c0;border:1.5px solid #90caf9;}
+.gh-modal-btns .gh-remove{background:#ffebee;color:#c62828;border:1.5px solid #ef9a9a;}
+.gh-modal-btns .gh-close{background:#f1f5f9;color:#546e7a;border:1.5px solid #cfd8dc;}
+
 #tds-inline-wrap{display:none;margin-top:10px;padding:10px 14px;border-top:2px dashed #a5d6a7;background:#f9fbe7;border-radius:0 0 10px 10px;}
+
+.cloud-indicator{display:inline-flex;align-items:center;gap:4px;font-size:9px;font-weight:700;padding:2px 8px;border-radius:10px;margin-left:8px;}
+.cloud-indicator.online{background:#e8f5e9;color:#2e7d32;border:1px solid #a5d6a7;}
+.cloud-indicator.offline{background:#fff3e0;color:#e65100;border:1px solid #ffcc80;}
+.cloud-indicator.hardcoded{background:#e1f5fe;color:#01579b;border:1px solid #81d4fa;}
 
 @media(max-width:700px){
   .stats-bar{grid-template-columns:repeat(2,1fr);}
   .vdf-row{grid-template-columns:1fr 1fr;}
   .payment-form-row{grid-template-columns:1fr 1fr;}
   .payment-form-row .add-row-btn{grid-column:1/-1;}
+  .topbar-right{gap:4px;}
+  .sun{width:60px;height:60px;}
+  .sun-rays{width:60px;height:60px;}
+  .solar-panel{width:50px;height:35px;}
+  .wind-turbine{display:none;}
+  .tree3{display:none;}
 }
 @media print{
-  .topbar,.stats-bar,.vendor-detail-form,.payment-form-wrap,.entry-section,.vendor-section,.table-controls,.footer-bar,.del-btn,.table-section,.add-vendor-panel,#link-popup-overlay{display:none!important;}
+  .topbar,.stats-bar,.vendor-detail-form,.payment-form-wrap,.entry-section,.vendor-section,.table-controls,.footer-bar,.del-btn,.table-section,.add-vendor-panel,#link-popup-overlay,.gh-modal-overlay{display:none!important;}
   .table-wrap{overflow:visible;}
   table{min-width:0;}
 }
-
-/* ══ LOGIN SOLAR ANIMATION (original) ══ */
-.login-solar-bg{position:absolute;inset:0;background:linear-gradient(180deg,#0a1a30 0%,#05101e 70%,#091828 100%);}
-.login-solar-panels{position:absolute;bottom:20px;left:0;right:0;display:flex;flex-wrap:wrap;gap:4px;padding:0 20px;justify-content:center;}
-.lsp{width:36px;height:24px;background:linear-gradient(135deg,#0d2a50 0%,#071a34 50%,#0d2a50 100%);border:1px solid rgba(33,150,243,.35);border-radius:3px;animation:lspGlow 3s ease-in-out infinite;position:relative;overflow:hidden;}
-.lsp::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,transparent 40%,rgba(33,150,243,.15) 60%,transparent 80%);animation:lspShine 4s ease-in-out infinite;}
-@keyframes lspGlow{0%,100%{border-color:rgba(33,150,243,.3);box-shadow:none;}50%{border-color:rgba(33,150,243,.75);box-shadow:0 0 8px rgba(33,150,243,.4);}}
-@keyframes lspShine{0%,100%{opacity:0;}50%{opacity:1;}}
-.lsp:nth-child(2n){animation-delay:.7s;}
-.lsp:nth-child(3n){animation-delay:1.4s;}
-.lsp:nth-child(4n){animation-delay:2.1s;}
-.lw{position:absolute;bottom:18px;display:flex;flex-direction:column;align-items:center;gap:0;}
-.lw-head{width:12px;height:12px;background:#ffcc80;border-radius:50%;position:relative;}
-.lw-helmet{position:absolute;top:-4px;left:0;right:0;height:7px;background:#ffeb3b;border-radius:4px 4px 0 0;}
-.lw-body{width:12px;height:20px;border-radius:2px 2px 0 0;}
-.lw1{left:18%;}.lw1 .lw-body{background:#e65100;}
-.lw2{left:50%;}.lw2 .lw-body{background:#1565c0;}
-.lw3{right:20%;}.lw3 .lw-body{background:#2e7d32;}
-.lw-arm{position:absolute;width:16px;height:3px;background:#ffcc80;border-radius:2px;top:8px;right:-12px;animation:armMove 2s ease-in-out infinite;transform-origin:left center;}
-@keyframes armMove{0%,100%{transform:rotate(-30deg);}50%{transform:rotate(10deg);}}
-.lw-tool{position:absolute;width:20px;height:3px;background:#90a4ae;border-radius:1px;top:7px;right:-24px;animation:armMove 2s ease-in-out infinite;transform-origin:left center;}
-.login-spark{position:absolute;width:5px;height:5px;background:rgba(33,150,243,.9);border-radius:50%;animation:loginSparkAnim 3.5s ease-in-out infinite;box-shadow:0 0 10px #2196f3;}
-.login-spark:nth-child(1){left:15%;top:55%;animation-delay:0s;}
-.login-spark:nth-child(2){left:40%;top:40%;animation-delay:1s;background:rgba(66,165,245,.9);}
-.login-spark:nth-child(3){left:68%;top:55%;animation-delay:2s;}
-.login-spark:nth-child(4){right:10%;top:45%;animation-delay:1.5s;background:rgba(21,101,192,.9);}
-@keyframes loginSparkAnim{0%{opacity:0;transform:translateY(0) scale(.5);}40%{opacity:1;transform:translateY(-25px) scale(1.2);}100%{opacity:0;transform:translateY(-60px) scale(.3);}}
-.login-energy{position:absolute;bottom:17px;left:0;right:0;height:2px;overflow:hidden;}
-.login-energy-bar{height:100%;width:60px;background:linear-gradient(90deg,transparent,#2196f3,transparent);animation:energyBeam 2s linear infinite;}
-@keyframes energyBeam{from{transform:translateX(-100px);}to{transform:translateX(calc(100vw + 100px));}}
 </style>
 </head>
 <body>
 
-<!-- ══ LINK POPUP ══ -->
 <div id="link-popup-overlay">
   <div class="link-popup-card">
     <div class="link-popup-shimmer"></div>
@@ -281,58 +350,99 @@ tbody td:first-child{text-align:center;color:#90a4ae;font-weight:600;font-size:1
   </div>
 </div>
 
-<!-- ══ LOGIN SCREEN ══ -->
+<div class="gh-modal-overlay" id="gh-modal-overlay">
+  <div class="gh-modal">
+    <h3>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="#24292e"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+      GitHub Cloud Sync Status
+    </h3>
+    <p id="gh-modal-info">
+      🔑 <strong>Token Status:</strong> <span id="gh-token-status">Checking...</span><br>
+      <span style="font-size:10px;color:#90a4ae;">Token is hardcoded in this file — works on all PCs automatically!</span>
+    </p>
+    <input type="password" id="gh-token-input" placeholder="Override token (optional)..." autocomplete="off">
+    <div class="gh-status" id="gh-status"></div>
+    <div class="gh-modal-btns">
+      <button class="gh-test" onclick="testGHToken()">🧪 Test Connection</button>
+      <button class="gh-save" onclick="saveGHToken()">💾 Override Token</button>
+      <button class="gh-remove" onclick="removeGHToken()">🗑 Clear Override</button>
+      <button class="gh-close" onclick="closeGHModal()">✕ Close</button>
+    </div>
+  </div>
+</div>
+
 <div id="login-screen">
+  <div class="sun-rays"></div>
+  <div class="sun"></div>
+  <div class="cloud cloud1"></div>
+  <div class="cloud cloud2"></div>
+  <div class="cloud cloud3"></div>
+  <div class="bird bird1">𓅪</div>
+  <div class="bird bird2">𓅪</div>
+  <div class="bird bird3">𓅪</div>
+  <div class="tree tree1"><div class="tree-leaves"></div><div class="tree-trunk"></div></div>
+  <div class="tree tree2"><div class="tree-leaves"></div><div class="tree-trunk"></div></div>
+  <div class="tree tree3"><div class="tree-leaves"></div><div class="tree-trunk"></div></div>
+  <div class="wind-turbine wind1"><div class="turbine-blades"><div class="turbine-blade"></div><div class="turbine-blade"></div><div class="turbine-blade"></div><div class="turbine-hub"></div></div><div class="turbine-pole"></div></div>
+  <div class="wind-turbine wind2"><div class="turbine-blades"><div class="turbine-blade"></div><div class="turbine-blade"></div><div class="turbine-blade"></div><div class="turbine-hub"></div></div><div class="turbine-pole"></div></div>
+  <div class="solar-field" id="solarField"></div>
+  <div class="energy-wave"></div>
+  <div class="energy-wave"></div>
+  <div class="energy-wave"></div>
+  <div class="particle" style="left:10%;top:60%;animation-delay:0s;"></div>
+  <div class="particle" style="left:25%;top:50%;animation-delay:1s;"></div>
+  <div class="particle" style="left:40%;top:55%;animation-delay:2s;"></div>
+  <div class="particle" style="left:55%;top:48%;animation-delay:1.5s;"></div>
+  <div class="particle" style="left:70%;top:58%;animation-delay:.5s;"></div>
+  <div class="particle" style="left:85%;top:52%;animation-delay:2.5s;"></div>
+
   <div class="splash-card">
-    <div class="splash-photo-wrap" style="position:relative;overflow:hidden;">
-      <div class="login-solar-bg"></div>
-      <div class="login-solar-panels" id="loginPanels"></div>
-      <div class="lw lw1"><div class="lw-head"><div class="lw-helmet"></div><div class="lw-arm"></div><div class="lw-tool"></div></div><div class="lw-body"></div></div>
-      <div class="lw lw2"><div class="lw-head"><div class="lw-helmet"></div><div class="lw-arm"></div><div class="lw-tool"></div></div><div class="lw-body"></div></div>
-      <div class="lw lw3"><div class="lw-head"><div class="lw-helmet"></div><div class="lw-arm"></div><div class="lw-tool"></div></div><div class="lw-body"></div></div>
-      <div class="login-spark"></div><div class="login-spark"></div>
-      <div class="login-spark"></div><div class="login-spark"></div>
-      <div class="login-energy"><div class="login-energy-bar"></div></div>
-      <div class="splash-photo-overlay" style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 20%,rgba(5,10,26,.85) 100%);display:flex;align-items:flex-end;padding:14px 20px;">
-        <div class="splash-photo-brand">
-          <div class="splash-vt-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="#fff"/></svg>
-          </div>
-          <div class="splash-brand-text">
-            <h2>VISHAL GROUP</h2>
-            <p>Vendor Payment Management System · 2026</p>
-          </div>
+    <div class="splash-header">
+      <div class="splash-header-content">
+        <div class="splash-vt-icon">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="#0d47a1" stroke="#0d47a1" stroke-width="1.5" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="splash-brand-text">
+          <h2>VISHAL GROUP</h2>
+          <p>⚡ Vendor Payment Management System · Version 2026</p>
         </div>
       </div>
     </div>
-    <div class="splash-tagline">⚡ Powering Infrastructure · Payment Excellence · 2026</div>
+    <div class="splash-tagline">
+      <span class="splash-tagline-dot"></span>
+      ☀️ Powering Infrastructure · Payment Excellence
+      <span class="splash-tagline-dot"></span>
+    </div>
     <div class="splash-body">
-      <div class="splash-pick-label"><span></span>Select Company<span></span></div>
+      <div class="splash-pick-label"><span></span>🏢 Select Your Company<span></span></div>
       <div class="splash-users">
         <div class="user-card" onclick="login('Vishaltechnopower','VT','Vishal Technopower Pvt Ltd')">
-          <div class="user-avatar">VT</div>
+          <div class="user-avatar" style="background:linear-gradient(135deg,#1976d2,#42a5f5);">VT</div>
           <span>Vishaltechnopower</span>
           <span class="user-role">Vishal Technopower</span>
         </div>
         <div class="user-card" onclick="login('Vishal Electrical','VE','Vishal Electrical')">
-          <div class="user-avatar" style="background:linear-gradient(135deg,#1565c0,#0d47a1)">VE</div>
+          <div class="user-avatar" style="background:linear-gradient(135deg,#0d47a1,#1565c0);">VE</div>
           <span>Vishal Electrical</span>
           <span class="user-role">Electrical Division</span>
         </div>
         <div class="user-card" onclick="login('Reway','RW','Reway Innovation Pvt Ltd')">
-          <div class="user-avatar" style="background:linear-gradient(135deg,#2e7d32,#66bb6a)">RW</div>
+          <div class="user-avatar" style="background:linear-gradient(135deg,#2e7d32,#66bb6a);">RW</div>
           <span>Reway</span>
           <span class="user-role">Reway Innovation</span>
         </div>
+      </div>
+      <div class="splash-footer-note">
+        <span class="live-dot"></span>
+        System Online · Cloud Sync Active · © 2026 Vishal Group
       </div>
     </div>
   </div>
 </div>
 
-<!-- ══ MAIN APP ══ -->
 <div id="app">
-
-  <!-- ADD VENDOR PANEL -->
   <div class="add-vendor-panel" id="addVendorPanel">
     <div class="avp-title">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#1565c0" stroke-width="2"/><path d="M12 8v8M8 12h8" stroke="#1565c0" stroke-width="2" stroke-linecap="round"/></svg>
@@ -350,22 +460,13 @@ tbody td:first-child{text-align:center;color:#90a4ae;font-weight:600;font-size:1
       <button class="avp-addrow-btn" onclick="saveAndAddRow()">✅ Save & Fill Form</button>
       <button class="avp-cancel-btn" onclick="closeAddVendor()">✕ Cancel</button>
     </div>
-
-    <!-- INLINE ADD ROW inside vendor panel -->
     <div class="avp-inline-addrow">
       <label style="align-self:flex-start;margin-top:4px;">➕ Quick Add to List:</label>
       <div class="pf-field-mini">
         <label>Payment Type</label>
         <select id="avp-inline-type">
           <option value="">— Type —</option>
-          <option>Vendor</option>
-          <option>Contractor</option>
-          <option>Engineer Expenses</option>
-          <option>Others</option>
-          <option>Salary</option>
-          <option>Professional Expenses</option>
-          <option>Office Expenses</option>
-          <option>Day Book</option>
+          <option>Vendor</option><option>Contractor</option><option>Engineer Expenses</option><option>Others</option><option>Salary</option><option>Professional Expenses</option><option>Office Expenses</option><option>Day Book</option>
         </select>
       </div>
       <div class="pf-field-mini">
@@ -379,23 +480,20 @@ tbody td:first-child{text-align:center;color:#90a4ae;font-weight:600;font-size:1
       </div>
       <div class="pf-field-mini">
         <label>Remarks <span style="font-size:8px;color:#1565c0;font-weight:400;">(Ctrl+Enter = new line)</span></label>
-        <textarea id="avp-inline-remark" class="remarks-textarea" placeholder="Note daalo... (Ctrl+Enter se nayi line)" rows="2" onkeydown="handleRemarksKey(event)"></textarea>
+        <textarea id="avp-inline-remark" class="remarks-textarea" placeholder="Note daalo..." rows="2" onkeydown="handleRemarksKey(event)"></textarea>
       </div>
       <button class="avp-direct-add-btn" onclick="avpDirectAddRow()">+ ADD ROW</button>
     </div>
   </div>
 
-  <!-- TOPBAR -->
   <div class="topbar">
     <div class="topbar-brand">
       <div class="topbar-logo">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-          <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="#fff"/>
-        </svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="#fff"/></svg>
       </div>
       <div>
         <h1 id="company-name">Vishaltechnopower</h1>
-        <p>Vendor Payment Management · 2026</p>
+        <p>Vendor Payment Management · 2026 <span class="cloud-indicator" id="cloud-indicator">☁ checking...</span></p>
       </div>
     </div>
     <div class="topbar-right">
@@ -403,7 +501,11 @@ tbody td:first-child{text-align:center;color:#90a4ae;font-weight:600;font-size:1
       <button onclick="saveDraft()" style="background:linear-gradient(135deg,#2e7d32,#43a047);color:#fff;border:none;border-radius:8px;padding:8px 14px;font-size:11px;font-weight:700;cursor:pointer;">💾 Save Draft</button>
       <button onclick="loadDraft()" style="background:linear-gradient(135deg,#e65100,#ff6f00);color:#fff;border:none;border-radius:8px;padding:8px 14px;font-size:11px;font-weight:700;cursor:pointer;">📂 Load Draft</button>
       <button id="remove-draft-btn" onclick="removeDraft()" style="background:linear-gradient(135deg,#b71c1c,#e53935);color:#fff;border:none;border-radius:8px;padding:8px 14px;font-size:11px;font-weight:700;cursor:pointer;display:none;">🗑 Remove Draft</button>
-      <button class="switch-btn" onclick="switchCompany()">⇄ Switch Company</button>
+      <button class="gh-token-btn" id="gh-token-btn" onclick="openGHModal()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+        🔑 GitHub
+      </button>
+      <button class="switch-btn" onclick="switchCompany()">⇄ Switch</button>
       <div class="user-chip">
         <div class="user-chip-av" id="user-av">V</div>
         <span id="user-label">VT</span>
@@ -411,7 +513,6 @@ tbody td:first-child{text-align:center;color:#90a4ae;font-weight:600;font-size:1
     </div>
   </div>
 
-  <!-- STATS BAR -->
   <div class="stats-bar">
     <div class="stat-card">
       <div class="stat-label">Total Entries</div>
@@ -425,7 +526,6 @@ tbody td:first-child{text-align:center;color:#90a4ae;font-weight:600;font-size:1
     </div>
   </div>
 
-  <!-- VENDOR DETAILS SECTION -->
   <div class="vendor-section" id="vdf-section-header" style="display:none;">
     <div class="vendor-section-title">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="3" y="7" width="18" height="13" rx="2" stroke="#fff" stroke-width="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" stroke="#fff" stroke-width="2"/></svg>
@@ -449,7 +549,6 @@ tbody td:first-child{text-align:center;color:#90a4ae;font-weight:600;font-size:1
     </div>
   </div>
 
-  <!-- PAYMENT ENTRY SECTION -->
   <div class="entry-section">
     <div class="entry-section-title">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#fff" stroke-width="2"/><path d="M12 8v8M8 12h8" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
@@ -458,30 +557,20 @@ tbody td:first-child{text-align:center;color:#90a4ae;font-weight:600;font-size:1
   </div>
   <div class="payment-form-wrap">
     <div class="payment-form-row">
-      <!-- 1. Payment Type -->
       <div class="pf-field">
         <label>1. Payment Type</label>
         <select id="pf-type" onchange="handleTypeChange(this)">
           <option value="">— Select Type —</option>
-          <option value="Vendor">Vendor</option>
-          <option value="Contractor">Contractor</option>
-          <option value="Engineer Expenses">Engineer Expenses</option>
-          <option value="Others">Others</option>
-          <option value="Salary">Salary</option>
-          <option value="Professional Expenses">Professional Expenses</option>
-          <option value="Office Expenses">Office Expenses</option>
-          <option value="Day Book">Day Book</option>
+          <option value="Vendor">Vendor</option><option value="Contractor">Contractor</option><option value="Engineer Expenses">Engineer Expenses</option><option value="Others">Others</option><option value="Salary">Salary</option><option value="Professional Expenses">Professional Expenses</option><option value="Office Expenses">Office Expenses</option><option value="Day Book">Day Book</option>
           <option value="__manual__">✏ Manually Type...</option>
         </select>
         <input id="pf-type-manual" placeholder="Type payment type..." style="display:none;margin-top:4px;border:1px solid #90caf9;border-radius:6px;padding:6px 10px;font-size:12px;width:100%;">
       </div>
-      <!-- 2. Name Search -->
       <div class="pf-field" id="name-search-wrap">
         <label>2. Search Vendor Name</label>
         <input id="pf-name" placeholder="Type to search vendor..." oninput="nameSearch()" autocomplete="off">
         <div class="search-dropdown" id="name-dropdown" style="display:none"></div>
       </div>
-      <!-- 3. Site Search -->
       <div class="pf-field" id="site-search-wrap">
         <label>3. Site / Location</label>
         <div style="display:flex;gap:6px;align-items:flex-start;">
@@ -492,21 +581,18 @@ tbody td:first-child{text-align:center;color:#90a4ae;font-weight:600;font-size:1
           <button type="button" onclick="addNewSite()" title="Naya site add karein" style="padding:10px 13px;background:#166534;color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:16px;font-weight:700;line-height:1;white-space:nowrap;flex-shrink:0;">➕</button>
         </div>
       </div>
-      <!-- 4. Amount -->
       <div class="pf-field">
         <label>4. Amount (₹)</label>
         <input type="number" id="pf-amount" placeholder="0.00" min="0" step="0.01">
       </div>
-      <!-- 5. Remarks — MULTILINE TEXTAREA -->
       <div class="pf-field">
         <label>5. Remarks / Notes <span style="font-size:9px;color:#1565c0;font-weight:400;">(Ctrl+Enter = nayi line)</span></label>
-        <textarea id="pf-remarks" class="remarks-textarea" placeholder="e.g. TMT Bar – Taxable Value 35775&#10;GST 6439&#10;(Ctrl+Enter se nayi line add karein)" rows="2" onkeydown="handleRemarksKey(event)"></textarea>
+        <textarea id="pf-remarks" class="remarks-textarea" placeholder="e.g. TMT Bar – Taxable Value 35775&#10;GST 6439" rows="2" onkeydown="handleRemarksKey(event)"></textarea>
       </div>
       <button class="add-row-btn" onclick="addRow()">+ ADD ROW</button>
     </div>
 
-    <!-- TDS CALCULATOR -->
-    <div id="tds-inline-wrap" style="display:none;margin-top:10px;padding:10px 14px;border-top:2px dashed #a5d6a7;background:#f9fbe7;border-radius:0 0 10px 10px;">
+    <div id="tds-inline-wrap">
       <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
         <div style="display:flex;align-items:center;gap:6px;flex-shrink:0;">
           <div style="width:22px;height:22px;background:linear-gradient(135deg,#2e7d32,#43a047);border-radius:6px;display:flex;align-items:center;justify-content:center;">
@@ -531,7 +617,6 @@ tbody td:first-child{text-align:center;color:#90a4ae;font-weight:600;font-size:1
     </div>
   </div>
 
-  <!-- TABLE SECTION -->
   <div class="table-section">
     <div class="table-section-title">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="#fff" stroke-width="2"/><path d="M3 9h18M9 21V9" stroke="#fff" stroke-width="2"/></svg>
@@ -544,10 +629,7 @@ tbody td:first-child{text-align:center;color:#90a4ae;font-weight:600;font-size:1
     <span class="sort-label">Sort:</span>
     <select class="ctrl-select" id="sort-col" onchange="sortTable()">
       <option value="">— Column —</option>
-      <option value="name">Name</option>
-      <option value="site">Site</option>
-      <option value="type">Payment Type</option>
-      <option value="amount">Amount</option>
+      <option value="name">Name</option><option value="site">Site</option><option value="type">Payment Type</option><option value="amount">Amount</option>
     </select>
     <button class="sort-dir-btn" onclick="setSortDir('asc')">↑ Asc</button>
     <button class="sort-dir-btn" onclick="setSortDir('desc')">↓ Desc</button>
@@ -569,8 +651,8 @@ tbody td:first-child{text-align:center;color:#90a4ae;font-weight:600;font-size:1
           <td colspan="10">
             <div class="empty-state">
               <div class="es-icon">🏢</div>
-              <p>Search vendor by name (field 2) → Select → Fill Type, Site, Amount → Click "+ ADD ROW"</p>
-              <small>Or use "➕ Add" button in the top bar to add a new vendor</small>
+              <p>Search vendor by name → Select → Fill Type, Site, Amount → Click "+ ADD ROW"</p>
+              <small>Or use "➕ Add" button in the top bar</small>
             </div>
           </td>
         </tr>
@@ -578,7 +660,6 @@ tbody td:first-child{text-align:center;color:#90a4ae;font-weight:600;font-size:1
     </table>
   </div>
 
-  <!-- FOOTER -->
   <div class="footer-bar">
     <div>
       <div class="grand-total-label">Grand Total Payable</div>
@@ -594,7 +675,6 @@ tbody td:first-child{text-align:center;color:#90a4ae;font-weight:600;font-size:1
   </div>
 </div>
 
-<!-- toast -->
 <div class="toast" id="toast"></div>
 
 <script>
@@ -610,13 +690,283 @@ let sortDir = 'asc';
 let currentUser = 'Vishaltechnopower';
 let pendingLink = null;
 
-// fill sites datalist
+// ╔══════════════════════════════════════════════════════════════════╗
+// ║                                                                  ║
+// ║   🔑 GITHUB TOKEN — यहाँ अपना token paste करो ⬇️                  ║
+// ║   ────────────────────────────────────────────                  ║
+// ║   GitHub.com → Settings → Developer Settings →                  ║
+// ║   Personal Access Tokens → Tokens (classic) →                   ║
+// ║   Generate new token → Scope: सिर्फ ✅ "gist"                     ║
+// ║                                                                  ║
+// ║   ⚠️ Repo PRIVATE होना ज़रूरी है security के लिए!                 ║
+// ║                                                                  ║
+// ╚══════════════════════════════════════════════════════════════════╝
+
+const HARDCODED_GH_TOKEN = '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';
+
+// ═══════════════════════════════════════════════
+//  GITHUB GIST — CLOUD SYNC ENGINE
+// ═══════════════════════════════════════════════
+const GH_API = 'https://api.github.com';
+const GH_TOKEN_KEY = 'vtpl_gh_token';
+const GH_GIST_ID_KEY = 'vtpl_gh_gist_id';
+
+function getGHToken(){ 
+  // Priority 1: Hardcoded token (if valid)
+  if(HARDCODED_GH_TOKEN && HARDCODED_GH_TOKEN.length > 15 && HARDCODED_GH_TOKEN.startsWith('ghp_') && !HARDCODED_GH_TOKEN.includes('PASTE_YOUR_TOKEN')){
+    return HARDCODED_GH_TOKEN;
+  }
+  // Priority 2: localStorage override (if user added one manually)
+  return localStorage.getItem(GH_TOKEN_KEY)||''; 
+}
+function isUsingHardcodedToken(){
+  return HARDCODED_GH_TOKEN && HARDCODED_GH_TOKEN.length > 15 && HARDCODED_GH_TOKEN.startsWith('ghp_') && !HARDCODED_GH_TOKEN.includes('PASTE_YOUR_TOKEN') && !localStorage.getItem(GH_TOKEN_KEY);
+}
+function getGHGistId(){ return localStorage.getItem(GH_GIST_ID_KEY)||''; }
+function isGHConfigured(){ return getGHToken().length > 10; }
+
+function ghHeaders(){
+  return {
+    'Authorization': 'token ' + getGHToken(),
+    'Accept': 'application/vnd.github.v3+json',
+    'Content-Type': 'application/json'
+  };
+}
+
+function gistFileName(company){
+  return 'vtpl_draft_' + company.replace(/[^a-zA-Z0-9]/g,'_').toLowerCase() + '.json';
+}
+
+async function findOrCreateGist(){
+  const token = getGHToken();
+  if(!token) return null;
+  const savedId = getGHGistId();
+  if(savedId){
+    try{
+      const res = await fetch(GH_API+'/gists/'+savedId, { headers:ghHeaders() });
+      if(res.ok) return savedId;
+    }catch(e){}
+    localStorage.removeItem(GH_GIST_ID_KEY);
+  }
+  try{
+    const res = await fetch(GH_API+'/gists?per_page=100', { headers:ghHeaders() });
+    if(res.ok){
+      const gists = await res.json();
+      for(const g of gists){
+        if(g.files && g.files['_vtpl_marker.json']){
+          localStorage.setItem(GH_GIST_ID_KEY, g.id);
+          return g.id;
+        }
+      }
+    }
+  }catch(e){}
+  try{
+    const res = await fetch(GH_API+'/gists', {
+      method:'POST',
+      headers:ghHeaders(),
+      body:JSON.stringify({
+        description:'Vishal Group — Vendor Payment Drafts (auto-sync)',
+        public:false,
+        files:{
+          '_vtpl_marker.json':{ content: JSON.stringify({app:'Vishal Group Vendor Payment System',created:new Date().toISOString()}) }
+        }
+      })
+    });
+    if(res.ok || res.status===201){
+      const data = await res.json();
+      localStorage.setItem(GH_GIST_ID_KEY, data.id);
+      return data.id;
+    }
+  }catch(e){}
+  return null;
+}
+
+async function saveToGist(company, data){
+  if(!isGHConfigured()) return false;
+  const gistId = await findOrCreateGist();
+  if(!gistId) return false;
+  const fileName = gistFileName(company);
+  const payload = {
+    files:{
+      [fileName]:{ content: JSON.stringify({ company, rows:data, savedAt:new Date().toISOString(), version:2 }, null, 2) }
+    }
+  };
+  try{
+    const res = await fetch(GH_API+'/gists/'+gistId, {
+      method:'PATCH',
+      headers:ghHeaders(),
+      body:JSON.stringify(payload)
+    });
+    return res.ok;
+  }catch(e){ return false; }
+}
+
+async function loadFromGist(company){
+  if(!isGHConfigured()) return null;
+  const gistId = await findOrCreateGist();
+  if(!gistId) return null;
+  try{
+    const res = await fetch(GH_API+'/gists/'+gistId, { headers:ghHeaders() });
+    if(!res.ok) return null;
+    const gist = await res.json();
+    const fileName = gistFileName(company);
+    if(gist.files && gist.files[fileName]){
+      const content = JSON.parse(gist.files[fileName].content);
+      return content.rows || null;
+    }
+  }catch(e){}
+  return null;
+}
+
+async function deleteFromGist(company){
+  if(!isGHConfigured()) return false;
+  const gistId = getGHGistId();
+  if(!gistId) return false;
+  const fileName = gistFileName(company);
+  try{
+    const res = await fetch(GH_API+'/gists/'+gistId, {
+      method:'PATCH',
+      headers:ghHeaders(),
+      body:JSON.stringify({ files:{ [fileName]:null } })
+    });
+    return res.ok;
+  }catch(e){ return false; }
+}
+
+async function testGHConnection(){
+  if(!isGHConfigured()) return { ok:false, msg:'Token not set' };
+  try{
+    const res = await fetch(GH_API+'/user', { headers:ghHeaders() });
+    if(res.ok){
+      const user = await res.json();
+      return { ok:true, msg:'Connected as: '+user.login, user:user.login };
+    }else if(res.status===401){
+      return { ok:false, msg:'Invalid token — check permission' };
+    }else{
+      return { ok:false, msg:'Error: HTTP '+res.status };
+    }
+  }catch(e){
+    return { ok:false, msg:'Network error — check internet' };
+  }
+}
+
+function openGHModal(){
+  document.getElementById('gh-modal-overlay').classList.add('active');
+  const input = document.getElementById('gh-token-input');
+  const statusEl = document.getElementById('gh-token-status');
+  
+  if(isUsingHardcodedToken()){
+    statusEl.innerHTML = '<span style="color:#01579b;font-weight:700;">✅ HARDCODED — Auto-active on all PCs</span>';
+    input.placeholder = 'Override hardcoded token (optional)...';
+    input.value = '';
+  }else if(localStorage.getItem(GH_TOKEN_KEY)){
+    statusEl.innerHTML = '<span style="color:#2e7d32;font-weight:700;">✅ Manual override active</span>';
+    input.value = localStorage.getItem(GH_TOKEN_KEY);
+  }else{
+    statusEl.innerHTML = '<span style="color:#c62828;font-weight:700;">❌ No token set — Hardcode it in file</span>';
+    input.value = '';
+  }
+  document.getElementById('gh-status').style.display='none';
+}
+function closeGHModal(){
+  document.getElementById('gh-modal-overlay').classList.remove('active');
+}
+function saveGHToken(){
+  const token = document.getElementById('gh-token-input').value.trim();
+  if(!token){
+    showGHStatus('error','⚠️ Token enter karo pehle!');
+    return;
+  }
+  localStorage.setItem(GH_TOKEN_KEY, token);
+  localStorage.removeItem(GH_GIST_ID_KEY);
+  showGHStatus('success','✅ Override token saved! Hardcoded ko bypass kar diya.');
+  updateCloudIndicator();
+  updateGHButton();
+}
+function removeGHToken(){
+  if(!confirm('Manual override token remove karna chahte ho?\n\n(Hardcoded token wapas active ho jayega)')) return;
+  localStorage.removeItem(GH_TOKEN_KEY);
+  localStorage.removeItem(GH_GIST_ID_KEY);
+  document.getElementById('gh-token-input').value='';
+  if(isUsingHardcodedToken()){
+    showGHStatus('success','✅ Override removed. Hardcoded token wapas active!');
+  }else{
+    showGHStatus('info','🗑 Token cleared. Local only mode.');
+  }
+  updateCloudIndicator();
+  updateGHButton();
+}
+async function testGHToken(){
+  showGHStatus('info','⏳ Testing connection...');
+  const result = await testGHConnection();
+  if(result.ok){
+    showGHStatus('success','✅ '+result.msg+' — Setting up gist...');
+    const gistId = await findOrCreateGist();
+    if(gistId){
+      showGHStatus('success','✅ All Good! User: '+result.user+' · Gist: '+gistId.slice(0,8)+'...');
+    }else{
+      showGHStatus('error','⚠️ User verified but Gist create nahi hua. Check "gist" scope.');
+    }
+  }else{
+    showGHStatus('error','❌ '+result.msg);
+  }
+  updateCloudIndicator();
+  updateGHButton();
+}
+function showGHStatus(type, msg){
+  const el = document.getElementById('gh-status');
+  el.className = 'gh-status '+type;
+  el.textContent = msg;
+  el.style.display = 'block';
+}
+
+function updateGHButton(){
+  const btn = document.getElementById('gh-token-btn');
+  if(isGHConfigured()){
+    btn.classList.add('connected');
+    let label = isUsingHardcodedToken() ? '🔒 Hardcoded' : '☁ Connected';
+    btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg> '+label;
+  }else{
+    btn.classList.remove('connected');
+    btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg> 🔑 GitHub';
+  }
+}
+
+async function updateCloudIndicator(){
+  const el = document.getElementById('cloud-indicator');
+  if(!isGHConfigured()){
+    el.className='cloud-indicator offline';
+    el.textContent='📴 Local Only';
+    return;
+  }
+  if(isUsingHardcodedToken()){
+    el.className='cloud-indicator hardcoded';
+    el.textContent='🔒 Auto-Sync ON';
+  }else{
+    el.className='cloud-indicator online';
+    el.textContent='☁ GitHub Sync';
+  }
+}
+
+// ═══════════════════════════════════════════════
+//  INIT
+// ═══════════════════════════════════════════════
 (function(){
   const dl = document.getElementById('sites-datalist');
   if(dl) SITES.forEach(s=>{const o=document.createElement('option');o.value=s;dl.appendChild(o);});
 })();
 
-// ── CTRL+ENTER for Remarks textarea ──
+(function(){
+  const c = document.getElementById('solarField');
+  if(c){
+    let h='';
+    for(let i=0;i<12;i++){
+      h+='<div class="solar-unit"><div class="solar-panel"></div><div class="solar-pole"></div><div class="solar-base"></div></div>';
+    }
+    c.innerHTML=h;
+  }
+})();
+
 function handleRemarksKey(e){
   if(e.ctrlKey && e.key === 'Enter'){
     e.preventDefault();
@@ -630,7 +980,6 @@ function handleRemarksKey(e){
   }
 }
 
-// ── TOAST ──
 let _tt;
 function showToast(msg){
   const t=document.getElementById('toast');
@@ -639,7 +988,6 @@ function showToast(msg){
   _tt=setTimeout(()=>{t.className='toast';setTimeout(()=>t.style.display='none',300);},2600);
 }
 
-// ── LINK POPUP ──
 function interceptLinks(){
   document.addEventListener('click', function(e){
     const a = e.target.closest('a[href]');
@@ -666,13 +1014,6 @@ function closePopup(){
 }
 interceptLinks();
 
-// Build login solar panels
-(function(){
-  const c = document.getElementById('loginPanels');
-  if(c){ let h=''; for(let i=0;i<30;i++) h+='<div class="lsp"></div>'; c.innerHTML=h; }
-})();
-
-// ── LOGIN ──
 function login(company, av, fullName){
   currentUser = company;
   rows = [];
@@ -682,6 +1023,8 @@ function login(company, av, fullName){
   document.getElementById('user-label').textContent = company;
   document.getElementById('login-screen').style.display = 'none';
   document.getElementById('app').style.display = 'block';
+  updateGHButton();
+  updateCloudIndicator();
   loadDraft();
 }
 function switchCompany(){
@@ -691,16 +1034,13 @@ function switchCompany(){
   document.getElementById('app').style.display = 'none';
 }
 
-// ── ADD VENDOR TOGGLE ──
 function toggleAddVendor(){
-  const p = document.getElementById('addVendorPanel');
-  p.classList.toggle('open');
+  document.getElementById('addVendorPanel').classList.toggle('open');
 }
 function closeAddVendor(){
   document.getElementById('addVendorPanel').classList.remove('open');
 }
 
-// ── AVP FUNCTIONS ──
 function avpCheckAccount(){
   const acc = document.getElementById('avp-acc').value.trim();
   const v = VENDOR_DB.find(x=>x.account===acc);
@@ -755,8 +1095,8 @@ function avpDirectAddRow(){
   const type = document.getElementById('avp-inline-type').value;
   const site = document.getElementById('avp-inline-site').value.trim();
   const amt  = parseFloat(document.getElementById('avp-inline-amount').value)||0;
-  const remarks = document.getElementById('avp-inline-remark').value;  // preserve newlines
-  if(!name){alert('Please enter Vendor Name in the fields above.');return;}
+  const remarks = document.getElementById('avp-inline-remark').value;
+  if(!name){alert('Please enter Vendor Name.');return;}
   if(!type){alert('Please select Payment Type.');return;}
   if(acc){
     const existing = VENDOR_DB.findIndex(x=>x.account===acc);
@@ -773,7 +1113,6 @@ function avpDirectAddRow(){
   showToast('✅ Row added!');
 }
 
-// ── VENDOR DETAIL FORM ──
 function vdfCheckAccount(){
   const acc = document.getElementById('vdf-acc').value.trim();
   const v = VENDOR_DB.find(x=>x.account===acc);
@@ -806,10 +1145,9 @@ function fetchAndFill(){
   const ifsc = document.getElementById('vdf-ifsc').value.trim().toUpperCase();
   const v = VENDOR_DB.find(x=>x.account===acc||x.ifsc===ifsc);
   if(v) fillVDF(v);
-  else alert('Vendor not found. Enter manually or use "+ Add" to add new vendor.');
+  else alert('Vendor not found. Enter manually or use "+ Add".');
 }
 
-// ── PAYMENT TYPE HANDLER ──
 function handleTypeChange(sel){
   const manual = document.getElementById('pf-type-manual');
   if(sel.value === '__manual__'){
@@ -821,7 +1159,6 @@ function handleTypeChange(sel){
   }
 }
 
-// ── NAME SEARCH ──
 function nameSearch(){
   const q = document.getElementById('pf-name').value.trim().toLowerCase();
   const dd = document.getElementById('name-dropdown');
@@ -841,8 +1178,7 @@ function selectVendorName(escaped){
   document.getElementById('name-dropdown').style.display='none';
   fillVDF(v);
   document.getElementById('vdf-section-header').style.display='flex';
-  const vdfWrap = document.getElementById('vdf-form-wrap');
-  vdfWrap.style.display='block';
+  document.getElementById('vdf-form-wrap').style.display='block';
   showToast('✅ Vendor details fetched!');
 }
 
@@ -853,7 +1189,6 @@ document.addEventListener('click',e=>{
     document.getElementById('site-dropdown').style.display='none';
 });
 
-// ── SITE MANAGEMENT ──
 (function loadCustomSites(){
   try{
     const saved = JSON.parse(localStorage.getItem('vtpl_custom_sites')||'[]');
@@ -887,7 +1222,6 @@ function siteSearch(){
 }
 function selectSite(s){ document.getElementById('pf-site').value=s; document.getElementById('site-dropdown').style.display='none'; }
 
-// ── ADD ROW ──
 function addRow(){
   const type = document.getElementById('pf-type').value === '__manual__'
     ? document.getElementById('pf-type-manual').value.trim()
@@ -899,13 +1233,12 @@ function addRow(){
   const ifscV= document.getElementById('vdf-ifsc').value.trim();
   const site = document.getElementById('pf-site').value.trim();
   const amt  = parseFloat(document.getElementById('pf-amount').value)||0;
-  const remarks = document.getElementById('pf-remarks').value;  // keep newlines
+  const remarks = document.getElementById('pf-remarks').value;
 
   if(!name){ showToast('⚠️ Vendor name required!'); return; }
   rows.push({name,acc,ifsc:ifscV,bank,branch,site,type,amt,remarks});
   renderTable();
 
-  // Clear form fields
   document.getElementById('pf-type').value='';
   document.getElementById('pf-type-manual').style.display='none';
   document.getElementById('pf-type-manual').value='';
@@ -913,16 +1246,14 @@ function addRow(){
   document.getElementById('pf-site').value='';
   document.getElementById('pf-amount').value='';
   document.getElementById('pf-remarks').value='';
-  // Keep vendor details filled for quick re-use
   showToast('✅ Row added!');
 }
 
-// ── RENDER TABLE ──
 function renderTable(data){
   data = data||rows;
   const tbody = document.getElementById('table-body');
   if(!data.length){
-    tbody.innerHTML=`<tr id="empty-row"><td colspan="10"><div class="empty-state"><div class="es-icon">🏢</div><p>Search vendor by name (field 2) → Select → Fill Type, Site, Amount → Click "+ ADD ROW"</p><small>Or use the ➕ Add button in the top bar</small></div></td></tr>`;
+    tbody.innerHTML=`<tr id="empty-row"><td colspan="10"><div class="empty-state"><div class="es-icon">🏢</div><p>Search vendor by name → Select → Fill Type, Site, Amount → Click "+ ADD ROW"</p><small>Or use the ➕ Add button</small></div></td></tr>`;
     updateStats([]); return;
   }
   tbody.innerHTML=data.map((r,i)=>`
@@ -950,7 +1281,6 @@ function escapeHtml(str){
   return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
-// ── DRAG TO REORDER ──
 let dragSrcIdx = null;
 function dragStart(e){ dragSrcIdx=parseInt(e.currentTarget.dataset.idx); e.currentTarget.style.opacity='0.4'; e.dataTransfer.effectAllowed='move'; }
 function dragOver(e){ e.preventDefault(); e.dataTransfer.dropEffect='move'; document.querySelectorAll('#table-body tr').forEach(tr=>tr.style.borderTop=''); e.currentTarget.style.borderTop='3px solid #1565c0'; }
@@ -966,7 +1296,6 @@ function updateStats(data){
   document.getElementById('footer-total').textContent='₹ '+total.toLocaleString('en-IN',{minimumFractionDigits:0});
 }
 
-// ── SORT & FILTER ──
 function setSortDir(d){sortDir=d;sortTable();}
 function sortTable(){
   const col=document.getElementById('sort-col').value;
@@ -989,36 +1318,22 @@ function clearAll(){
   if(!rows.length||confirm('Clear all entries?')){rows=[];renderTable();}
 }
 
-// ══════════════════════════════════════════
-//  EXPORT EXCEL — MULTILINE REMARKS FIX
-//  Line breaks in remarks → actual Excel cell line breaks
-// ══════════════════════════════════════════
 function exportExcel(){
   if(!rows.length){ showToast('⚠️ Koi data nahi hai!'); return; }
-
   const today = new Date();
   const dateStr = today.toLocaleDateString('en-GB',{day:'2-digit',month:'2-digit',year:'numeric'}).replace(/\//g,'.');
-
   const typeOrder = {'Vendor':1,'Contractor':2,'Engineer Expenses':3,'Others':4};
   const sorted = rows.slice().sort((a,b)=>(typeOrder[a.type]||5)-(typeOrder[b.type]||5));
-
   const B='border:1px solid #000;padding:5px 7px;';
   const TH=B+'background:#f2f2f2;font-weight:bold;font-size:10pt;text-align:left;vertical-align:middle;';
-
   let tableRows='', grandTotal=0, sno=1;
-
   sorted.forEach(r=>{
     const amt = parseFloat(r.amt)||0;
     grandTotal += amt;
     const dbV = VENDOR_DB.find(v=>v.account===r.acc);
     const ifscVal = r.ifsc||(dbV?dbV.ifsc:'')||'';
-
-    // ── Multiline Remarks: \n → &#10; (Excel actual cell line break) ──
     const remarksText = (r.remarks||'').trim();
-    const remarksExcel = remarksText.split('\n')
-      .map(line => line.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'))
-      .join('&#10;');
-
+    const remarksExcel = remarksText.split('\n').map(line => line.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')).join('&#10;');
     tableRows += `<tr>
       <td style="${B}text-align:center;vertical-align:top;">${sno++}</td>
       <td style="${B}vertical-align:top;">${r.name||''}</td>
@@ -1032,27 +1347,11 @@ function exportExcel(){
       <td style="${B}vertical-align:top;mso-wrap-text:True;white-space:pre-wrap;min-width:160px;">${remarksExcel}</td>
     </tr>`;
   });
-
   const excelHtml=`<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">
-<head>
-<meta charset="UTF-8">
-<xml>
-  <x:ExcelWorkbook>
-    <x:ExcelWorksheets>
-      <x:ExcelWorksheet>
-        <x:Name>Vendor Payments</x:Name>
-        <x:WorksheetOptions><x:WrapText/></x:WorksheetOptions>
-      </x:ExcelWorksheet>
-    </x:ExcelWorksheets>
-  </x:ExcelWorkbook>
-</xml>
-<style>
-body{font-family:Arial,sans-serif;}
-table{border-collapse:collapse;}
-td,th{vertical-align:top;font-family:Arial;font-size:10pt;}
-</style>
-</head>
-<body>
+<head><meta charset="UTF-8">
+<xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>Vendor Payments</x:Name><x:WorksheetOptions><x:WrapText/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml>
+<style>body{font-family:Arial,sans-serif;}table{border-collapse:collapse;}td,th{vertical-align:top;font-family:Arial;font-size:10pt;}</style>
+</head><body>
 <table style="width:100%;border:none;margin-bottom:6px;">
   <tr><td style="border:none;">The Chief Manager/Senior Branch Manager,</td></tr>
   <tr><td style="border:none;">Indian Bank</td></tr>
@@ -1060,31 +1359,11 @@ td,th{vertical-align:top;font-family:Arial;font-size:10pt;}
   <tr><td style="border:none;">&nbsp;</td></tr>
 </table>
 <table style="width:100%;border-collapse:collapse;">
-  <tr>
-    <td colspan="7" style="${B}font-weight:bold;font-size:11pt;">Vendors Bank Details for NEFT/RTGS</td>
-    <td colspan="3" style="${B}text-align:right;font-weight:bold;">Date: ${dateStr}</td>
-  </tr>
-  <tr>
-    <th style="${TH}text-align:center;width:24pt;">No.</th>
-    <th style="${TH}">Name</th>
-    <th style="${TH}">Account No</th>
-    <th style="${TH}">IFSC Code</th>
-    <th style="${TH}">Bank Name</th>
-    <th style="${TH}">Branch Name</th>
-    <th style="${TH}text-align:right;">Amt</th>
-    <th style="${TH}">Site</th>
-    <th style="${TH}">Payment Type</th>
-    <th style="${TH}min-width:160pt;">Remarks</th>
-  </tr>
+  <tr><td colspan="7" style="${B}font-weight:bold;font-size:11pt;">Vendors Bank Details for NEFT/RTGS</td><td colspan="3" style="${B}text-align:right;font-weight:bold;">Date: ${dateStr}</td></tr>
+  <tr><th style="${TH}text-align:center;width:24pt;">No.</th><th style="${TH}">Name</th><th style="${TH}">Account No</th><th style="${TH}">IFSC Code</th><th style="${TH}">Bank Name</th><th style="${TH}">Branch Name</th><th style="${TH}text-align:right;">Amt</th><th style="${TH}">Site</th><th style="${TH}">Payment Type</th><th style="${TH}min-width:160pt;">Remarks</th></tr>
   ${tableRows}
-  <tr>
-    <td colspan="6" style="${B}text-align:right;font-weight:bold;">Total</td>
-    <td style="${B}text-align:right;font-weight:bold;">${grandTotal.toLocaleString('en-IN')}</td>
-    <td colspan="3" style="${B}"></td>
-  </tr>
-</table>
-</body></html>`;
-
+  <tr><td colspan="6" style="${B}text-align:right;font-weight:bold;">Total</td><td style="${B}text-align:right;font-weight:bold;">${grandTotal.toLocaleString('en-IN')}</td><td colspan="3" style="${B}"></td></tr>
+</table></body></html>`;
   const blob = new Blob(['\uFEFF'+excelHtml], {type:'application/vnd.ms-excel;charset=utf-8;'});
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
@@ -1092,61 +1371,81 @@ td,th{vertical-align:top;font-family:Arial;font-size:10pt;}
   a.download = 'Vishal_Payments_'+dateStr.replace(/\./g,'')+'.xls';
   a.click();
   URL.revokeObjectURL(url);
-  showToast('📊 Excel exported! Remarks me nayi lines bhi aayengi ✅');
+  showToast('📊 Excel exported!');
 }
-
-
-// ══════════════════════════════════════════
-//  DRAFT — Cloud + Local
-// ══════════════════════════════════════════
-const PANTRY_ID = 'b2d95550-fd63-443b-8863-6809900fefe8';
-const PANTRY_BASE = 'https://getpantry.cloud/apiv1/pantry';
-function pantryBasket(c){ return c.replace(/[^a-zA-Z0-9]/g,'_').replace(/_+/g,'_').toLowerCase(); }
-function pantryUrl(c){ return PANTRY_BASE+'/'+PANTRY_ID+'/basket/'+pantryBasket(c); }
-function isPantryConfigured(){ return PANTRY_ID && PANTRY_ID.length > 10; }
 
 async function saveDraft(){
   if(!rows.length){ showToast('⚠️ Koi row nahi hai'); return; }
   localStorage.setItem('vtpl_draft_'+currentUser, JSON.stringify(rows));
-  if(!isPantryConfigured()){ showToast('💾 Local save hua.'); updateDraftBtn(); return; }
-  showToast('⏳ Cloud pe save ho raha hai...');
-  try{
-    const res = await fetch(pantryUrl(currentUser), { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({company:currentUser,rows,savedAt:Date.now()}) });
-    showToast(res.ok ? '💾 Cloud draft saved ✅' : '💾 Local save hua (cloud error: '+res.status+')');
-  }catch(e){ showToast('💾 Local save hua — internet check karo'); }
+  if(!isGHConfigured()){
+    showToast('💾 Local save ho gaya!');
+    updateDraftBtn();
+    return;
+  }
+  showToast('⏳ GitHub pe save ho raha hai...');
+  const ok = await saveToGist(currentUser, rows);
+  showToast(ok ? '💾 GitHub Cloud + Local saved ✅' : '💾 Local save hua (GitHub error)');
   updateDraftBtn();
 }
+
 async function loadDraft(){
-  if(isPantryConfigured()){
-    showToast('⏳ Cloud se load ho raha hai...');
-    try{
-      const res = await fetch(pantryUrl(currentUser));
-      if(res.ok){ const data=await res.json(); if(data&&data.rows&&data.rows.length>0){ rows=data.rows; renderTable(); localStorage.setItem('vtpl_draft_'+currentUser,JSON.stringify(rows)); showToast('📂 Cloud draft loaded ✅'); updateDraftBtn(); return; } }
-    }catch(e){ console.warn('Pantry load failed:',e); }
+  if(isGHConfigured()){
+    showToast('⏳ GitHub se load ho raha hai...');
+    const cloudRows = await loadFromGist(currentUser);
+    if(cloudRows && cloudRows.length > 0){
+      rows = cloudRows;
+      renderTable();
+      localStorage.setItem('vtpl_draft_'+currentUser, JSON.stringify(rows));
+      showToast('📂 GitHub Cloud draft loaded ✅ ('+rows.length+' entries)');
+      updateDraftBtn();
+      return;
+    }
   }
   const saved = localStorage.getItem('vtpl_draft_'+currentUser);
-  if(saved){ try{ rows=JSON.parse(saved); renderTable(); showToast('📂 Local draft loaded'); }catch(e){ renderTable(); showToast('❌ Draft corrupt hai'); } }
-  else { renderTable(); showToast('ℹ️ Koi draft nahi mila'); }
+  if(saved){
+    try{
+      rows = JSON.parse(saved);
+      renderTable();
+      showToast('📂 Local draft loaded ('+rows.length+' entries)');
+    }catch(e){
+      renderTable();
+      showToast('❌ Draft corrupt hai');
+    }
+  }else{
+    renderTable();
+    showToast('ℹ️ Koi draft nahi mila');
+  }
   updateDraftBtn();
 }
+
 async function removeDraft(){
   if(!confirm('Draft delete karna chahte hain?')) return;
-  if(isPantryConfigured()){ try{ await fetch(pantryUrl(currentUser),{method:'DELETE'}); }catch(e){} }
+  if(isGHConfigured()){
+    showToast('⏳ GitHub se delete ho raha hai...');
+    await deleteFromGist(currentUser);
+  }
   localStorage.removeItem('vtpl_draft_'+currentUser);
   showToast('🗑 Draft remove ho gaya!');
   updateDraftBtn();
 }
+
 async function updateDraftBtn(){
   const localExists = !!localStorage.getItem('vtpl_draft_'+currentUser);
   let cloudExists = false;
-  if(isPantryConfigured()){ try{ const res=await fetch(pantryUrl(currentUser)); if(res.ok){const d=await res.json();cloudExists=!!(d&&d.rows&&d.rows.length);} }catch(e){} }
-  const exists = localExists||cloudExists;
-  ['remove-draft-btn','footer-remove-draft-btn'].forEach(id=>{ const el=document.getElementById(id); if(el) el.style.display=exists?'inline-block':'none'; });
+  if(isGHConfigured()){
+    try{
+      const cloudRows = await loadFromGist(currentUser);
+      cloudExists = !!(cloudRows && cloudRows.length);
+    }catch(e){}
+  }
+  const exists = localExists || cloudExists;
+  ['remove-draft-btn','footer-remove-draft-btn'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el) el.style.display=exists?'inline-block':'none';
+  });
 }
 
-// ── TDS ──
 let tdsLastNet = 0;
-let tdsCurrentCat = '';
 function tdsCalc(){
   const gross = parseFloat(document.getElementById('tds-gross').value)||0;
   const rateVal = parseFloat(document.getElementById('tds-rate').value)||0;
