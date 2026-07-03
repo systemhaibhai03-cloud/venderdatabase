@@ -21,11 +21,6 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);min-height:100vh;over
 @keyframes overlayIn{from{background:rgba(0,0,0,0);backdrop-filter:blur(0px);}to{background:rgba(5,10,30,.85);backdrop-filter:blur(16px);}}
 .link-popup-card{position:relative;width:min(480px,92vw);background:rgba(10,20,60,.9);border:1.5px solid rgba(33,150,243,.35);border-radius:20px;overflow:hidden;box-shadow:0 0 60px rgba(33,150,243,.25),0 40px 80px rgba(0,0,0,.7);animation:popCardIn .5s cubic-bezier(.16,1,.3,1);}
 @keyframes popCardIn{from{opacity:0;transform:scale(.8) translateY(30px);}to{opacity:1;transform:scale(1) translateY(0);}}
-.link-popup-shimmer{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
-.link-popup-shimmer::before{content:'';position:absolute;top:-60%;left:-60%;width:220%;height:220%;background:conic-gradient(from 0deg,transparent 0%,rgba(33,150,243,.4) 10%,transparent 20%,rgba(21,101,192,.2) 30%,transparent 40%,rgba(33,150,243,.5) 50%,transparent 60%,rgba(21,101,192,.3) 70%,transparent 80%,rgba(33,150,243,.4) 90%,transparent 100%);animation:sparkSpin 2.5s linear infinite;}
-@keyframes sparkSpin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
-.link-popup-shimmer::after{content:'';position:absolute;inset:3px;background:rgba(10,20,60,.95);border-radius:18px;}
-.solar-scene{position:relative;height:170px;overflow:hidden;background:linear-gradient(180deg,#1a3a5c 0%,#0d1f35 60%,#122840 100%);border-bottom:1px solid rgba(33,150,243,.25);}
 .link-popup-body{position:relative;z-index:2;padding:18px 22px 20px;}
 .popup-greeting{font-size:13px;font-weight:700;color:#90caf9;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:7px;}
 .popup-url-display{background:rgba(33,150,243,.1);border:1px solid rgba(33,150,243,.25);border-radius:8px;padding:8px 12px;font-size:11px;color:rgba(255,255,255,.7);font-family:monospace;margin-bottom:14px;word-break:break-all;}
@@ -37,17 +32,9 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);min-height:100vh;over
 
 #login-screen{position:fixed;inset:0;z-index:99999;background:linear-gradient(180deg,#87ceeb 0%,#b3e0ff 35%,#d4ecff 70%,#e8f4ff 100%);display:flex;align-items:center;justify-content:center;font-family:'DM Sans',sans-serif;flex-direction:column;overflow:hidden;}
 #login-screen::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 40% at 50% 20%,rgba(255,255,255,.5) 0%,transparent 70%),radial-gradient(ellipse 80% 50% at 20% 80%,rgba(255,255,255,.3) 0%,transparent 60%);pointer-events:none;}
-#login-screen::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(21,101,192,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(21,101,192,.04) 1px,transparent 1px);background-size:50px 50px;pointer-events:none;mask-image:radial-gradient(ellipse at center,black 30%,transparent 80%);-webkit-mask-image:radial-gradient(ellipse at center,black 30%,transparent 80%);}
 
 .sun{position:absolute;top:8%;right:10%;width:90px;height:90px;background:radial-gradient(circle,#fff7d6 0%,#ffe082 40%,#ffb74d 100%);border-radius:50%;box-shadow:0 0 60px rgba(255,193,7,.6),0 0 120px rgba(255,193,7,.3);animation:sunPulse 4s ease-in-out infinite;z-index:1;}
-.sun::before{content:'';position:absolute;inset:-25px;border-radius:50%;background:radial-gradient(circle,rgba(255,235,59,.3) 0%,transparent 70%);animation:sunPulse 4s ease-in-out infinite reverse;}
-@keyframes sunPulse{0%,100%{transform:scale(1);box-shadow:0 0 60px rgba(255,193,7,.6),0 0 120px rgba(255,193,7,.3);}50%{transform:scale(1.08);box-shadow:0 0 80px rgba(255,193,7,.8),0 0 160px rgba(255,193,7,.4);}}
-
-.sun-rays{position:absolute;top:8%;right:10%;width:90px;height:90px;animation:sunRotate 30s linear infinite;z-index:1;}
-.sun-rays::before,.sun-rays::after{content:'';position:absolute;top:50%;left:50%;width:140px;height:2px;background:linear-gradient(90deg,transparent,rgba(255,193,7,.4),transparent);transform-origin:0 50%;}
-.sun-rays::before{transform:translate(0,-50%) rotate(0deg);}
-.sun-rays::after{transform:translate(0,-50%) rotate(60deg);}
-@keyframes sunRotate{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+@keyframes sunPulse{0%,100%{transform:scale(1);}50%{transform:scale(1.08);}}
 
 .cloud{position:absolute;background:#fff;border-radius:100px;opacity:.85;filter:drop-shadow(0 4px 12px rgba(21,101,192,.15));}
 .cloud::before,.cloud::after{content:'';position:absolute;background:#fff;border-radius:50%;}
@@ -62,61 +49,21 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);min-height:100vh;over
 .cloud3::after{width:70px;height:70px;top:-38px;left:42px;}
 @keyframes cloudDrift{from{transform:translateX(0);}to{transform:translateX(calc(100vw + 250px));}}
 
-.bird{position:absolute;font-size:14px;color:#1565c0;opacity:.6;animation:birdFly 25s linear infinite;}
-.bird1{top:18%;left:-50px;animation-delay:-5s;}
-.bird2{top:22%;left:-50px;animation-delay:-15s;font-size:11px;}
-.bird3{top:28%;left:-50px;animation-delay:-20s;font-size:12px;}
-@keyframes birdFly{0%{transform:translateX(0) translateY(0);}50%{transform:translateX(50vw) translateY(-15px);}100%{transform:translateX(calc(100vw + 100px)) translateY(0);}}
-
 .solar-field{position:absolute;bottom:0;left:0;right:0;height:170px;display:flex;align-items:flex-end;justify-content:center;gap:8px;padding:0 30px 25px;pointer-events:none;z-index:2;}
 .solar-unit{display:flex;flex-direction:column;align-items:center;animation:panelFloat 4s ease-in-out infinite;}
 .solar-unit:nth-child(2n){animation-delay:.5s;}
-.solar-unit:nth-child(3n){animation-delay:1s;}
 @keyframes panelFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-3px);}}
-.solar-panel{width:80px;height:55px;background:linear-gradient(135deg,#1976d2 0%,#0d47a1 50%,#1976d2 100%);border:2px solid #1565c0;border-radius:6px;position:relative;overflow:hidden;box-shadow:0 4px 15px rgba(13,71,161,.4),inset 0 0 20px rgba(33,150,243,.3);}
+.solar-panel{width:80px;height:55px;background:linear-gradient(135deg,#1976d2 0%,#0d47a1 50%,#1976d2 100%);border:2px solid #1565c0;border-radius:6px;position:relative;overflow:hidden;box-shadow:0 4px 15px rgba(13,71,161,.4);}
 .solar-panel::before{content:'';position:absolute;inset:3px;background-image:linear-gradient(rgba(255,255,255,.15) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.15) 1px,transparent 1px);background-size:13px 13px;border-radius:3px;}
-.solar-panel::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(110deg,transparent,rgba(255,255,255,.5),transparent);animation:panelShine 3s ease-in-out infinite;}
-@keyframes panelShine{0%{left:-100%;}50%,100%{left:130%;}}
-.solar-pole{width:4px;height:30px;background:linear-gradient(180deg,#90a4ae,#546e7a);box-shadow:0 2px 5px rgba(0,0,0,.2);}
+.solar-pole{width:4px;height:30px;background:linear-gradient(180deg,#90a4ae,#546e7a);}
 .solar-base{width:25px;height:5px;background:linear-gradient(180deg,#78909c,#546e7a);border-radius:2px;}
 
-.wind-turbine{position:absolute;bottom:165px;z-index:1;}
-.wind1{left:8%;}
-.wind2{right:8%;}
-.turbine-pole{width:3px;height:75px;background:linear-gradient(180deg,#fff,#cfd8dc);margin:0 auto;box-shadow:0 0 5px rgba(0,0,0,.15);}
-.turbine-blades{position:absolute;top:0;left:50%;transform:translateX(-50%);width:50px;height:50px;animation:spinBlades 4s linear infinite;}
-.wind2 .turbine-blades{animation-duration:5s;}
-@keyframes spinBlades{from{transform:translateX(-50%) rotate(0deg);}to{transform:translateX(-50%) rotate(360deg);}}
-.turbine-blade{position:absolute;width:6px;height:24px;background:linear-gradient(180deg,#fff,#e0e0e0);border-radius:50% 50% 5px 5px;left:50%;top:50%;transform-origin:50% 100%;box-shadow:0 0 3px rgba(0,0,0,.2);}
-.turbine-blade:nth-child(1){transform:translate(-50%,-100%) rotate(0deg);}
-.turbine-blade:nth-child(2){transform:translate(-50%,-100%) rotate(120deg);}
-.turbine-blade:nth-child(3){transform:translate(-50%,-100%) rotate(240deg);}
-.turbine-hub{position:absolute;width:8px;height:8px;background:#546e7a;border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%);z-index:5;}
-
-.tree{position:absolute;bottom:25px;z-index:1;}
-.tree1{left:3%;}
-.tree2{right:3%;}
-.tree3{left:18%;bottom:30px;transform:scale(.7);}
-.tree-trunk{width:8px;height:25px;background:linear-gradient(180deg,#6d4c41,#4e342e);margin:0 auto;border-radius:2px;}
-.tree-leaves{width:40px;height:50px;background:radial-gradient(circle at 50% 100%,#388e3c,#2e7d32);border-radius:50% 50% 30% 30%;margin-bottom:-5px;box-shadow:0 4px 10px rgba(46,125,50,.3);}
-
-.particle{position:absolute;width:6px;height:6px;background:radial-gradient(circle,#fff,rgba(33,150,243,.6));border-radius:50%;box-shadow:0 0 10px rgba(33,150,243,.8);animation:particleFloat 6s ease-in-out infinite;pointer-events:none;}
-.particle:nth-child(odd){background:radial-gradient(circle,#fff,rgba(255,193,7,.6));box-shadow:0 0 10px rgba(255,193,7,.8);}
-@keyframes particleFloat{0%,100%{opacity:0;transform:translateY(0) scale(.5);}50%{opacity:1;transform:translateY(-80px) scale(1.2);}}
-
-.energy-wave{position:absolute;bottom:60px;left:50%;transform:translateX(-50%);width:0;height:0;border-radius:50%;border:2px solid rgba(33,150,243,.4);animation:waveExpand 3s ease-out infinite;pointer-events:none;}
-.energy-wave:nth-child(2){animation-delay:1s;}
-.energy-wave:nth-child(3){animation-delay:2s;}
-@keyframes waveExpand{from{width:50px;height:50px;opacity:1;}to{width:500px;height:500px;opacity:0;}}
-
-.splash-card{position:relative;z-index:10;width:min(580px,95vw);background:linear-gradient(135deg,rgba(255,255,255,.85),rgba(227,242,253,.75));border:1.5px solid rgba(33,150,243,.3);border-radius:28px;overflow:hidden;box-shadow:0 25px 80px rgba(13,71,161,.25),0 0 0 1px rgba(255,255,255,.6),inset 0 1px 0 rgba(255,255,255,.8);animation:splashIn 1s cubic-bezier(.16,1,.3,1) both;backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);}
+.splash-card{position:relative;z-index:10;width:min(580px,95vw);background:linear-gradient(135deg,rgba(255,255,255,.85),rgba(227,242,253,.75));border:1.5px solid rgba(33,150,243,.3);border-radius:28px;overflow:hidden;box-shadow:0 25px 80px rgba(13,71,161,.25);animation:splashIn 1s cubic-bezier(.16,1,.3,1) both;backdrop-filter:blur(20px) saturate(180%);}
 @keyframes splashIn{from{opacity:0;transform:scale(.9) translateY(40px);}to{opacity:1;transform:scale(1) translateY(0);}}
 
 .splash-header{position:relative;padding:24px 28px 18px;background:linear-gradient(135deg,rgba(21,101,192,.95) 0%,rgba(13,71,161,.95) 100%);overflow:hidden;}
-.splash-header::before{content:'';position:absolute;top:-50%;right:-20%;width:300px;height:300px;background:radial-gradient(circle,rgba(255,193,7,.3),transparent 70%);border-radius:50%;}
-.splash-header::after{content:'';position:absolute;bottom:-30%;left:-10%;width:200px;height:200px;background:radial-gradient(circle,rgba(33,150,243,.4),transparent 70%);border-radius:50%;}
 .splash-header-content{position:relative;z-index:2;display:flex;align-items:center;gap:14px;}
-.splash-vt-icon{width:56px;height:56px;background:linear-gradient(135deg,#ffeb3b,#ff9800);border-radius:16px;display:flex;align-items:center;justify-content:center;border:2px solid rgba(255,255,255,.5);flex-shrink:0;box-shadow:0 8px 25px rgba(255,152,0,.5),inset 0 2px 0 rgba(255,255,255,.4);animation:iconBounce 3s ease-in-out infinite;}
+.splash-vt-icon{width:56px;height:56px;background:linear-gradient(135deg,#ffeb3b,#ff9800);border-radius:16px;display:flex;align-items:center;justify-content:center;border:2px solid rgba(255,255,255,.5);flex-shrink:0;box-shadow:0 8px 25px rgba(255,152,0,.5);animation:iconBounce 3s ease-in-out infinite;}
 @keyframes iconBounce{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-4px) rotate(-3deg);}}
 .splash-brand-text h2{font-family:'Baloo 2',cursive;font-size:26px;font-weight:800;color:#fff;line-height:1;letter-spacing:-.5px;text-shadow:0 2px 10px rgba(0,0,0,.3);}
 .splash-brand-text p{font-size:11px;color:rgba(255,255,255,.85);font-weight:500;margin-top:4px;letter-spacing:.3px;}
@@ -130,11 +77,9 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);min-height:100vh;over
 .splash-pick-label span{flex:1;max-width:40px;height:2px;background:linear-gradient(90deg,transparent,#1565c0,transparent);}
 
 .splash-users{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
-.user-card{cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:10px;padding:18px 16px 16px;border-radius:18px;border:2px solid rgba(33,150,243,.25);background:linear-gradient(135deg,rgba(255,255,255,.9),rgba(227,242,253,.85));transition:all .35s cubic-bezier(.16,1,.3,1);min-width:140px;position:relative;overflow:hidden;box-shadow:0 4px 15px rgba(13,71,161,.1);}
-.user-card::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.5),transparent);transition:left .6s ease;}
-.user-card:hover::before{left:100%;}
-.user-card:hover{transform:translateY(-8px) scale(1.03);border-color:#1976d2;box-shadow:0 20px 40px rgba(13,71,161,.25),0 0 0 4px rgba(33,150,243,.15);}
-.user-avatar{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#1565c0,#42a5f5);display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:800;color:#fff;font-family:'Baloo 2',cursive;border:3px solid #fff;flex-shrink:0;box-shadow:0 6px 20px rgba(21,101,192,.4),inset 0 -3px 0 rgba(0,0,0,.1);transition:.3s;}
+.user-card{cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:10px;padding:18px 16px 16px;border-radius:18px;border:2px solid rgba(33,150,243,.25);background:linear-gradient(135deg,rgba(255,255,255,.9),rgba(227,242,253,.85));transition:all .35s cubic-bezier(.16,1,.3,1);min-width:140px;box-shadow:0 4px 15px rgba(13,71,161,.1);}
+.user-card:hover{transform:translateY(-8px) scale(1.03);border-color:#1976d2;box-shadow:0 20px 40px rgba(13,71,161,.25);}
+.user-avatar{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#1565c0,#42a5f5);display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:800;color:#fff;font-family:'Baloo 2',cursive;border:3px solid #fff;box-shadow:0 6px 20px rgba(21,101,192,.4);transition:.3s;}
 .user-card:hover .user-avatar{transform:rotate(-5deg) scale(1.1);}
 .user-card span{font-size:13px;font-weight:700;color:#0d47a1;text-align:center;line-height:1.3;}
 .user-role{font-size:10px;color:#546e7a;font-weight:500;margin-top:-4px;}
@@ -158,10 +103,6 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);min-height:100vh;over
 .user-chip-av{width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#42a5f5,#1565c0);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;font-family:'Baloo 2',cursive;}
 .user-chip span{font-size:11px;font-weight:600;color:#fff;}
 
-.gh-token-btn{background:linear-gradient(135deg,#24292e,#40464d);color:#fff;border:1px solid rgba(255,255,255,.2);border-radius:8px;padding:5px 11px;font-size:11px;font-weight:600;cursor:pointer;font-family:'Poppins',sans-serif;display:flex;align-items:center;gap:5px;transition:.2s;}
-.gh-token-btn:hover{background:linear-gradient(135deg,#40464d,#586069);transform:translateY(-1px);}
-.gh-token-btn.connected{background:linear-gradient(135deg,#2e7d32,#43a047);border-color:rgba(102,187,106,.5);}
-
 .add-vendor-panel{display:none;background:#fff;border-bottom:2px solid #e3eaf7;padding:14px 20px;}
 .add-vendor-panel.open{display:block;animation:slideDown .35s cubic-bezier(.16,1,.3,1);}
 @keyframes slideDown{from{opacity:0;transform:translateY(-12px);}to{opacity:1;transform:translateY(0);}}
@@ -176,7 +117,6 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);min-height:100vh;over
 .avp-cancel-btn{background:#f1f5f9;color:#546e7a;border:1.5px solid #cfd8dc;border-radius:8px;padding:8px 14px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Poppins',sans-serif;}
 .avp-addrow-btn{background:#e8f5e9;color:#2e7d32;border:1.5px solid #a5d6a7;border-radius:8px;padding:8px 14px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Poppins',sans-serif;transition:.2s;}
 .avp-addrow-btn:hover{background:#c8e6c9;}
-
 .avp-inline-addrow{display:flex;gap:8px;margin-top:10px;align-items:flex-start;flex-wrap:wrap;padding-top:10px;border-top:1px solid #e3eaf7;}
 .avp-inline-addrow label{font-size:10px;font-weight:700;color:#1565c0;}
 .avp-inline-addrow .pf-field-mini{display:flex;flex-direction:column;gap:2px;flex:1;min-width:120px;}
@@ -185,9 +125,6 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);min-height:100vh;over
 .avp-inline-addrow .pf-field-mini select,
 .avp-inline-addrow .pf-field-mini textarea{border:1.5px solid #cfd8dc;border-radius:7px;padding:6px 9px;font-size:11.5px;font-family:'Poppins',sans-serif;color:#263238;background:#f8fbff;width:100%;}
 .avp-inline-addrow .pf-field-mini textarea{resize:vertical;min-height:36px;max-height:80px;line-height:1.4;}
-.avp-inline-addrow .pf-field-mini input:focus,
-.avp-inline-addrow .pf-field-mini select:focus,
-.avp-inline-addrow .pf-field-mini textarea:focus{outline:none;border-color:#1976d2;}
 .avp-direct-add-btn{background:linear-gradient(90deg,#ff6f00,#ffa000);color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Poppins',sans-serif;transition:.2s;white-space:nowrap;align-self:flex-end;}
 .avp-direct-add-btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(255,111,0,.4);}
 
@@ -198,8 +135,8 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);min-height:100vh;over
 .stat-value{font-size:22px;font-weight:800;color:#1565c0;font-family:'Baloo 2',cursive;line-height:1;}
 .stat-sub{font-size:10px;color:#90a4ae;}
 
-.vendor-section{background:#1565c0;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:42px;}
-.vendor-section-title{font-size:12px;font-weight:700;color:#fff;letter-spacing:1px;text-transform:uppercase;display:flex;align-items:center;gap:7px;}
+.vendor-section,.entry-section,.table-section{background:#1565c0;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:42px;}
+.vendor-section-title,.entry-section-title,.table-section-title{font-size:12px;font-weight:700;color:#fff;letter-spacing:1px;text-transform:uppercase;display:flex;align-items:center;gap:7px;}
 .fetch-hint{font-size:10px;color:rgba(255,255,255,.6);margin-left:auto;}
 
 .vendor-detail-form{background:#fff;border-bottom:2px solid #e3eaf7;padding:12px 20px 10px;}
@@ -213,9 +150,6 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);min-height:100vh;over
 .fetch-btn:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(21,101,192,.4);}
 .fetch-btn svg{width:16px;height:16px;}
 .fetch-btn span{font-size:8px;line-height:1;}
-
-.entry-section{background:#1565c0;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:42px;}
-.entry-section-title{font-size:12px;font-weight:700;color:#fff;letter-spacing:1px;text-transform:uppercase;display:flex;align-items:center;gap:7px;}
 
 .payment-form-wrap{background:#fff;border-bottom:2px solid #e3eaf7;padding:12px 20px;}
 .payment-form-row{display:grid;grid-template-columns:1.4fr 1.4fr 1.2fr 1fr 2fr auto;gap:8px;align-items:end;}
@@ -239,8 +173,6 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);min-height:100vh;over
 .sd-add{background:#f0fdf4;color:#166534;font-weight:600;border-top:2px solid #bbf7d0;}
 .sd-add:hover{background:#dcfce7;color:#14532d;}
 
-.table-section{background:#1565c0;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:42px;}
-.table-section-title{font-size:12px;font-weight:700;color:#fff;letter-spacing:1px;text-transform:uppercase;display:flex;align-items:center;gap:7px;}
 .table-controls{background:#fff;border-bottom:1px solid #e3eaf7;padding:10px 20px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
 .sort-label{font-size:11px;font-weight:600;color:#546e7a;}
 .ctrl-select{border:1.5px solid #cfd8dc;border-radius:7px;padding:5px 9px;font-size:11px;font-family:'Poppins',sans-serif;color:#263238;background:#f8fbff;}
@@ -283,25 +215,6 @@ tbody td:first-child{text-align:center;color:#90a4ae;font-weight:600;font-size:1
 .toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%);background:#263238;color:#fff;border-radius:10px;padding:10px 22px;font-size:12px;font-weight:600;font-family:'Poppins',sans-serif;box-shadow:0 8px 30px rgba(0,0,0,.3);z-index:99999;opacity:0;pointer-events:none;transition:.3s;white-space:nowrap;}
 .toast.show{opacity:1;}
 
-.gh-modal-overlay{position:fixed;inset:0;z-index:999998;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;}
-.gh-modal-overlay.active{display:flex;}
-.gh-modal{background:#fff;border-radius:16px;width:min(460px,92vw);padding:24px;box-shadow:0 20px 60px rgba(0,0,0,.3);animation:popCardIn .4s cubic-bezier(.16,1,.3,1);}
-.gh-modal h3{font-size:16px;font-weight:700;color:#24292e;margin-bottom:6px;display:flex;align-items:center;gap:8px;}
-.gh-modal p{font-size:12px;color:#586069;margin-bottom:14px;line-height:1.6;}
-.gh-modal input{width:100%;border:2px solid #d1d5da;border-radius:10px;padding:10px 14px;font-size:13px;font-family:'Poppins',sans-serif;margin-bottom:8px;}
-.gh-modal input:focus{outline:none;border-color:#1565c0;box-shadow:0 0 0 3px rgba(21,101,192,.15);}
-.gh-modal .gh-status{font-size:11px;padding:6px 10px;border-radius:8px;margin-bottom:12px;display:none;}
-.gh-modal .gh-status.success{display:block;background:#e8f5e9;color:#2e7d32;border:1px solid #a5d6a7;}
-.gh-modal .gh-status.error{display:block;background:#ffebee;color:#c62828;border:1px solid #ef9a9a;}
-.gh-modal .gh-status.info{display:block;background:#e3f2fd;color:#1565c0;border:1px solid #90caf9;}
-.gh-modal-btns{display:flex;gap:8px;flex-wrap:wrap;}
-.gh-modal-btns button{flex:1;min-width:90px;padding:9px 14px;border-radius:9px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Poppins',sans-serif;border:none;transition:.2s;}
-.gh-modal-btns .gh-save{background:linear-gradient(90deg,#24292e,#40464d);color:#fff;}
-.gh-modal-btns .gh-save:hover{background:#40464d;}
-.gh-modal-btns .gh-test{background:#e3f2fd;color:#1565c0;border:1.5px solid #90caf9;}
-.gh-modal-btns .gh-remove{background:#ffebee;color:#c62828;border:1.5px solid #ef9a9a;}
-.gh-modal-btns .gh-close{background:#f1f5f9;color:#546e7a;border:1.5px solid #cfd8dc;}
-
 #tds-inline-wrap{display:none;margin-top:10px;padding:10px 14px;border-top:2px dashed #a5d6a7;background:#f9fbe7;border-radius:0 0 10px 10px;}
 
 .cloud-indicator{display:inline-flex;align-items:center;gap:4px;font-size:9px;font-weight:700;padding:2px 8px;border-radius:10px;margin-left:8px;}
@@ -316,13 +229,10 @@ tbody td:first-child{text-align:center;color:#90a4ae;font-weight:600;font-size:1
   .payment-form-row .add-row-btn{grid-column:1/-1;}
   .topbar-right{gap:4px;}
   .sun{width:60px;height:60px;}
-  .sun-rays{width:60px;height:60px;}
   .solar-panel{width:50px;height:35px;}
-  .wind-turbine{display:none;}
-  .tree3{display:none;}
 }
 @media print{
-  .topbar,.stats-bar,.vendor-detail-form,.payment-form-wrap,.entry-section,.vendor-section,.table-controls,.footer-bar,.del-btn,.table-section,.add-vendor-panel,#link-popup-overlay,.gh-modal-overlay{display:none!important;}
+  .topbar,.stats-bar,.vendor-detail-form,.payment-form-wrap,.entry-section,.vendor-section,.table-controls,.footer-bar,.del-btn,.table-section,.add-vendor-panel,#link-popup-overlay{display:none!important;}
   .table-wrap{overflow:visible;}
   table{min-width:0;}
 }
@@ -332,11 +242,10 @@ tbody td:first-child{text-align:center;color:#90a4ae;font-weight:600;font-size:1
 
 <div id="link-popup-overlay">
   <div class="link-popup-card">
-    <div class="link-popup-shimmer"></div>
-    <div class="solar-scene" style="padding:0;height:120px;display:flex;align-items:center;justify-content:center;">
+    <div style="padding:0;height:120px;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#1a3a5c,#0d1f35);">
       <div style="text-align:center;">
         <div style="font-size:36px;">⚡</div>
-        <div style="font-family:'Baloo 2',cursive;font-size:16px;font-weight:800;color:#fff;" id="popup-logo-name">VISHAL GROUP</div>
+        <div style="font-family:'Baloo 2',cursive;font-size:16px;font-weight:800;color:#fff;">VISHAL GROUP</div>
       </div>
     </div>
     <div class="link-popup-body">
@@ -350,51 +259,12 @@ tbody td:first-child{text-align:center;color:#90a4ae;font-weight:600;font-size:1
   </div>
 </div>
 
-<div class="gh-modal-overlay" id="gh-modal-overlay">
-  <div class="gh-modal">
-    <h3>
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="#24292e"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-      GitHub Cloud Sync Status
-    </h3>
-    <p id="gh-modal-info">
-      🔑 <strong>Token Status:</strong> <span id="gh-token-status">Checking...</span><br>
-      <span style="font-size:10px;color:#90a4ae;">Token is hardcoded in this file — works on all PCs automatically!</span>
-    </p>
-    <input type="password" id="gh-token-input" placeholder="Override token (optional)..." autocomplete="off">
-    <div class="gh-status" id="gh-status"></div>
-    <div class="gh-modal-btns">
-      <button class="gh-test" onclick="testGHToken()">🧪 Test Connection</button>
-      <button class="gh-save" onclick="saveGHToken()">💾 Override Token</button>
-      <button class="gh-remove" onclick="removeGHToken()">🗑 Clear Override</button>
-      <button class="gh-close" onclick="closeGHModal()">✕ Close</button>
-    </div>
-  </div>
-</div>
-
 <div id="login-screen">
-  <div class="sun-rays"></div>
   <div class="sun"></div>
   <div class="cloud cloud1"></div>
   <div class="cloud cloud2"></div>
   <div class="cloud cloud3"></div>
-  <div class="bird bird1">𓅪</div>
-  <div class="bird bird2">𓅪</div>
-  <div class="bird bird3">𓅪</div>
-  <div class="tree tree1"><div class="tree-leaves"></div><div class="tree-trunk"></div></div>
-  <div class="tree tree2"><div class="tree-leaves"></div><div class="tree-trunk"></div></div>
-  <div class="tree tree3"><div class="tree-leaves"></div><div class="tree-trunk"></div></div>
-  <div class="wind-turbine wind1"><div class="turbine-blades"><div class="turbine-blade"></div><div class="turbine-blade"></div><div class="turbine-blade"></div><div class="turbine-hub"></div></div><div class="turbine-pole"></div></div>
-  <div class="wind-turbine wind2"><div class="turbine-blades"><div class="turbine-blade"></div><div class="turbine-blade"></div><div class="turbine-blade"></div><div class="turbine-hub"></div></div><div class="turbine-pole"></div></div>
   <div class="solar-field" id="solarField"></div>
-  <div class="energy-wave"></div>
-  <div class="energy-wave"></div>
-  <div class="energy-wave"></div>
-  <div class="particle" style="left:10%;top:60%;animation-delay:0s;"></div>
-  <div class="particle" style="left:25%;top:50%;animation-delay:1s;"></div>
-  <div class="particle" style="left:40%;top:55%;animation-delay:2s;"></div>
-  <div class="particle" style="left:55%;top:48%;animation-delay:1.5s;"></div>
-  <div class="particle" style="left:70%;top:58%;animation-delay:.5s;"></div>
-  <div class="particle" style="left:85%;top:52%;animation-delay:2.5s;"></div>
 
   <div class="splash-card">
     <div class="splash-header">
@@ -436,7 +306,7 @@ tbody td:first-child{text-align:center;color:#90a4ae;font-weight:600;font-size:1
       </div>
       <div class="splash-footer-note">
         <span class="live-dot"></span>
-        System Online · Cloud Sync Active · © 2026 Vishal Group
+        System Online · Cloud Sync via Google Apps Script · © 2026 Vishal Group
       </div>
     </div>
   </div>
@@ -501,10 +371,6 @@ tbody td:first-child{text-align:center;color:#90a4ae;font-weight:600;font-size:1
       <button onclick="saveDraft()" style="background:linear-gradient(135deg,#2e7d32,#43a047);color:#fff;border:none;border-radius:8px;padding:8px 14px;font-size:11px;font-weight:700;cursor:pointer;">💾 Save Draft</button>
       <button onclick="loadDraft()" style="background:linear-gradient(135deg,#e65100,#ff6f00);color:#fff;border:none;border-radius:8px;padding:8px 14px;font-size:11px;font-weight:700;cursor:pointer;">📂 Load Draft</button>
       <button id="remove-draft-btn" onclick="removeDraft()" style="background:linear-gradient(135deg,#b71c1c,#e53935);color:#fff;border:none;border-radius:8px;padding:8px 14px;font-size:11px;font-weight:700;cursor:pointer;display:none;">🗑 Remove Draft</button>
-      <button class="gh-token-btn" id="gh-token-btn" onclick="openGHModal()">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-        🔑 GitHub
-      </button>
       <button class="switch-btn" onclick="switchCompany()">⇄ Switch</button>
       <div class="user-chip">
         <div class="user-chip-av" id="user-av">V</div>
@@ -591,30 +457,6 @@ tbody td:first-child{text-align:center;color:#90a4ae;font-weight:600;font-size:1
       </div>
       <button class="add-row-btn" onclick="addRow()">+ ADD ROW</button>
     </div>
-
-    <div id="tds-inline-wrap">
-      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
-        <div style="display:flex;align-items:center;gap:6px;flex-shrink:0;">
-          <div style="width:22px;height:22px;background:linear-gradient(135deg,#2e7d32,#43a047);border-radius:6px;display:flex;align-items:center;justify-content:center;">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M9 14l2 2 4-4" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <span style="font-size:11px;font-weight:700;color:#2e7d32;">TDS</span>
-          <span id="tds-auto-label" style="background:#e8f5e9;color:#388e3c;font-size:9px;font-weight:700;padding:1px 7px;border-radius:8px;border:1px solid #a5d6a7;"></span>
-        </div>
-        <div style="display:flex;align-items:center;gap:8px;flex:1;min-width:220px;">
-          <label style="font-size:11px;font-weight:600;color:#2e7d32;white-space:nowrap;">Gross ₹</label>
-          <input type="number" id="tds-gross" placeholder="Amount daalo..." min="0" step="1" oninput="tdsCalcAndSync()" style="flex:1;font-size:13px;font-weight:700;border:2px solid #43a047;border-radius:7px;padding:5px 10px;width:100%;outline:none;">
-        </div>
-        <div id="tds-result-inline" style="display:none;align-items:center;gap:10px;flex-wrap:wrap;">
-          <span style="font-size:11px;color:#c62828;font-weight:700;" id="tds-deduct-label"></span>
-          <span style="font-size:13px;font-weight:800;color:#1565c0;" id="tds-net-label"></span>
-        </div>
-        <button onclick="document.getElementById('tds-inline-wrap').style.display='none'" style="background:none;border:none;color:#90a4ae;font-size:16px;cursor:pointer;margin-left:auto;line-height:1;">×</button>
-      </div>
-      <input type="hidden" id="tds-rate">
-      <input type="hidden" id="tds-cess" value="0">
-      <input type="hidden" id="tds-surcharge" value="0">
-    </div>
   </div>
 
   <div class="table-section">
@@ -679,6 +521,11 @@ tbody td:first-child{text-align:center;color:#90a4ae;font-weight:600;font-size:1
 
 <script>
 // ════════════════════════════════════════════════
+// ✅ GOOGLE APPS SCRIPT WEB APP URL (SECURE BRIDGE)
+// ════════════════════════════════════════════════
+const GAS_URL = "https://script.google.com/macros/s/AKfycbzkJ8OWW0rxs5X4eIuRVoymjdmteQEaF22HRUIQ_48q0q4UXTHtp82BCpYww2BdCu4z/exec";
+
+// ════════════════════════════════════════════════
 //  VENDOR DATABASE
 // ════════════════════════════════════════════════
 const VENDOR_DB = [{"name":"AB Pal Electricals Pvt Ltd","account":"04821600045074","ifsc":"PSIB0000482","bank":"Punjab and Sind Bank","branch":"Fatehpuri Delhi"},{"name":"ABS Metal Label","account":"920020004291126","ifsc":"UTIB0003666","bank":"Axis Bank","branch":"Greater Noida"},{"name":"AK Power Projects","account":"79786834242","ifsc":"IDFB0060621","bank":"IDFC First Bank","branch":"Khordha"},{"name":"AN Electricals","account":"023884600000805","ifsc":"YESB0000238","bank":"Yes Bank","branch":"Daraganj New Delhi"},{"name":"ARS Electrical Care","account":"62082010028462","ifsc":"CNRB0006115","bank":"Canara Bank","branch":"Madurai"},{"name":"Aarti Devi","account":"30203402505","ifsc":"SBIN0011548","bank":"State Bank of India","branch":"Nangloi"},{"name":"Abhishek Kumar","account":"40257242949","ifsc":"SBIN0002983","bank":"State Bank Of India","branch":"Narkatiaganj"},{"name":"Ablaze Electricals","account":"07980200013267","ifsc":"UCBA0000798","bank":"UCO Bank","branch":"Bakultala"},{"name":"Ajay","account":"34679760490","ifsc":"SBIN0003392","bank":"State Bank of India","branch":"ADB Shodapur"},{"name":"Ajay Kantilal Kakad","account":"322502010024861","ifsc":"UBIN0532258","bank":"Union bank of india","branch":"GHULEWADI"},{"name":"Ajay Kumar","account":"3283001500495923","ifsc":"PUNB0328300","bank":"Punjab National Bank","branch":"Kalsana"},{"name":"Ajay Kumar","account":"33966295435","ifsc":"SBIN0008706","bank":"State Bank Of India","branch":"Baholi Panipat"},{"name":"Akan Kalita","account":"35068666042","ifsc":"SBIN0005242","bank":"State Bank of India","branch":"Palasbari"},{"name":"Aman Kumar","account":"7050044084","ifsc":"KKBK0008057","bank":"Kotak Mahindra Bank","branch":"Bengaluru"},{"name":"Amar Kumar","account":"3006001700073278","ifsc":"PUNB0300600","bank":"Punjab Nataional Bank","branch":"Raipur"},{"name":"Amol Jagdish Dhanej","account":"40858964085","ifsc":"SBIN0021877","bank":"State Bank of India","branch":"Gangapur Road Nashik"},{"name":"Anand Machinery Store","account":"3947002100007173","ifsc":"PUNB0394700","bank":"Punjab National Bank","branch":"Ghaziabad"},{"name":"Anant Solar Technologies","account":"50200069942658","ifsc":"HDFC0002653","bank":"HDFC Bank","branch":"Kaushambi"},{"name":"Angothu Rajkumar","account":"39076849640","ifsc":"SBIN0021514","bank":"State Bank Of India","branch":"Chinnapendyal"},{"name":"Ankit","account":"31930110032312","ifsc":"UCBA0003193","bank":"UCO Bank","branch":"Panipat"},{"name":"Anshu Kumar","account":"762102010006215","ifsc":"UBIN0576212","bank":"Union bank of india","branch":"Narkatiaganj"},{"name":"Anubhav Electricals","account":"10075588455","ifsc":"SBIN0003111","bank":"State Bank of India","branch":"BSR Ghaziabad"},{"name":"Ashutosh Electric Co","account":"1116002100038553","ifsc":"PUNB0111600","bank":"Punjab National Bank","branch":"Nehru Nagar"},{"name":"Ashwin Kanade","account":"60398910859","ifsc":"MAHB0000143","bank":"Bank of Maharashtra","branch":"Pandhana"},{"name":"Awadh Enterprises","account":"41588341446","ifsc":"SBIN0011607","bank":"State Bank Of India","branch":"Panki"},{"name":"B S Electrical Industries","account":"50200044991001","ifsc":"HDFC0000278","bank":"HDFC Bank","branch":"Gr Noida"},{"name":"BUSINESS COACHING INDIA LLP","account":"6813094779","ifsc":"KKBK0000173","bank":"Kotak Mahindra Bank Ltd","branch":"M Block GK II New Delhi"},{"name":"Balram Kumar","account":"35502048976","ifsc":"SBIN0002971","bank":"State Bank of India","branch":"Champaran Madhuban"},{"name":"Bhagyabati Bhoina","account":"1403200100009323","ifsc":"PUNB0140320","bank":"Punjab National Bank","branch":"Jearsuguda"},{"name":"Bhanudas Banshi Deshmukh","account":"20183927424","ifsc":"MAHB0000358","bank":"Bank of Maharashtra","branch":"Akolner Ahmednagar"},{"name":"Bhavika Electronics","account":"1484050015756","ifsc":"PUNB0148420","bank":"Punjab National Bank","branch":"Greater Noida"},{"name":"Bhukya Sai Kiran","account":"110256139574","ifsc":"CNRB0007870","bank":"Canara Bank","branch":"Ghanpur"},{"name":"Bhukya Sambaraju","account":"295812010000816","ifsc":"UBIN0829587","bank":"Union Bank of India","branch":"Station Ghanpur"},{"name":"Bipin Kumar","account":"50100742091184","ifsc":"HDFC0005819","bank":"HDFC Bank","branch":"Noida"},{"name":"Bureau Veritas India Pvt Ltd","account":"041233594905","ifsc":"BARC0INBBIR","bank":"Barclays Bank","branch":"Mumbai"},{"name":"Business Automations Solutions LLP","account":"10230012251580","ifsc":"BDBL0001012","bank":"Bandhan Bank Limited","branch":"Barasat West Bengal"},{"name":"Chandan Singh Bheel","account":"63050713311","ifsc":"SBIN0030391","bank":"State Bank of India","branch":"Collectorate Guna"},{"name":"Chandra Prakash","account":"36077908619","ifsc":"SBIN0015131","bank":"State Bank Of India","branch":"Chhanbey"},{"name":"Chandra Shekhar","account":"731910110002340","ifsc":"BKID0007319","bank":"Bank Of India","branch":"Unnao"},{"name":"Chetna Goyal","account":"40007213572","ifsc":"SBIN0006776","bank":"State Bank Of India","branch":"Bazaria"},{"name":"D Table Analytics","account":"10128038038","ifsc":"IDFB0042145","bank":"IDFC FIRST BANK","branch":"Ujjain"},{"name":"DIWAKAR BISHNOI","account":"088801001158","ifsc":"ICIC0000888","bank":"ICICI Bank","branch":"Ghaziabad"},{"name":"Dalchand Sharma","account":"059701000031885","ifsc":"IOBA0000597","bank":"Indian Overseas Bank","branch":"Dardi"},{"name":"Daniel Vincent R","account":"1229166000045415","ifsc":"KVBL0001229","bank":"Karur Vysya Bank","branch":"Chennai"},{"name":"Deep Electtricals","account":"15918020000067","ifsc":"HDFC0000573","bank":"HDFC Bank","branch":"Ambedkar Road"},{"name":"Deepak Gome","account":"372801000006349","ifsc":"IOBA0003728","bank":"Indian Overseas Bank","branch":"Arera Colony Bhopal"},{"name":"Deepali Sharma","account":"0526100100000083","ifsc":"PUNB0052610","bank":"Punjab National Bank","branch":"Lohia Nagar Ghaziabad"},{"name":"DesignHost in","account":"663505600195","ifsc":"ICIC0006635","bank":"ICICI Bank Ltd","branch":"Naraina Vihar New Delhi"},{"name":"Devi Infra","account":"925020004659077","ifsc":"UTIB0003076","bank":"Axis Bank Ltd","branch":"Nidadavole"},{"name":"Didar Singh","account":"01611530020644","ifsc":"HDFC0000161","bank":"HDFC Bank","branch":"College Road Ropar"},{"name":"Dinesh Pratap Singh","account":"50100251021109","ifsc":"HDFC0000722","bank":"HDFC Bank","branch":"Alamragh"},{"name":"Durgesh Kumar Yadav","account":"660702010009875","ifsc":"UBIN0566071","bank":"Union bank of india","branch":"Chandauli up"},{"name":"Dynamic Power Solutions","account":"3863700000966","ifsc":"YESB0000038","bank":"Yes Bank","branch":"Raj Nagar"},{"name":"FCG Flameproof Control Gears India Pvt Ltd","account":"923020031276304","ifsc":"UTIB0000111","bank":"Axis Bank Ltd","branch":"Vapi Gujarat"},{"name":"Ferro Engineering","account":"000605027099","ifsc":"ICIC0000006","bank":"ICICI Bank Ltd","branch":"Kolkata RN Mukherjee"},{"name":"Future IT Zone","account":"008584600001467","ifsc":"YESB0000085","bank":"Yes Bank","branch":"Atta Noida"},{"name":"G Kumar Electro Pvt Ltd","account":"50200016952270","ifsc":"HDFC0000596","bank":"HDFC Bank","branch":"Lucknow"},{"name":"G Kumar Electro Pvt Ltd","account":"39507919769","ifsc":"SBIN0008066","bank":"State Bank of India","branch":"SME Branch"},{"name":"GOLDWYN LTD","account":"50200066840057","ifsc":"HDFC0002722","bank":"HDFC BANK LTD","branch":"CHANDER NAGAR GHAZIABAD"},{"name":"GSC Infra Solutions","account":"921020038393682","ifsc":"UTIB0004390","bank":"AXIS Bank Ltd","branch":"Noida"},{"name":"Gowdham P","account":"32349085732","ifsc":"SBIN0001030","bank":"State Bank Of India","branch":"Omalur"},{"name":"Gurpeet Singh","account":"3292001700029014","ifsc":"PUNB0329200","bank":"Punjab National Bank","branch":"Dabra Chowk Hissar"},{"name":"HR Angle Consulting","account":"10259237066","ifsc":"IDFB0020129","bank":"IFDC First Bank","branch":"Gurgaon Sohna Road Branch"},{"name":"Hans Plaza Apartment Owners Association","account":"016012010001201","ifsc":"UBIN0801607","bank":"Union Bank of India","branch":"Navyug Market"},{"name":"Happy Villa","account":"73403070001362","ifsc":"CNRB0017340","bank":"Canara Bank","branch":"Bijoynagar Branch"},{"name":"Harsh Vardhan Singh","account":"693302010006001","ifsc":"UBIN0569330","bank":"Union bank of india","branch":"Jahangirganj"},{"name":"Hindustan Engineering Co","account":"50200046629641","ifsc":"HDFC0004191","bank":"HDFC Bank","branch":"Ashoka Park New Delhi"},{"name":"Jado Rai And Sons","account":"012063300001251","ifsc":"YESB0000120","bank":"Yes Bank","branch":"Ambala Cantt"},{"name":"Jagadamba Steelex","account":"50200012305855","ifsc":"HDFC0002458","bank":"HDFC Bank","branch":"Jatani Khurda Odisha"},{"name":"Janaki Sukla","account":"32482009608","ifsc":"SBIN0003945","bank":"State Bank of India","branch":"Paradeep"},{"name":"Jay Gurudev Enterprises","account":"33998540504","ifsc":"SBIN0007627","bank":"State Bank of India","branch":"Nirankari Colony"},{"name":"Jeet Enterprises","account":"50382142981","ifsc":"IDIB000G526","bank":"Indian","branch":""},{"name":"Jitendra Diwakar","account":"3079241762","ifsc":"CBIN0280983","bank":"Central Bank of India","branch":"Panki"},{"name":"Jitendra Dogra","account":"20200086839181","ifsc":"BDBL00002526","bank":"Bandan Bank","branch":"West Rohtas Nagar Delhi"},{"name":"Jitendra Kumar","account":"8104794225","ifsc":"IDIB000G007","bank":"Indian Bank","branch":"Navyug Market"},{"name":"KK Bhoir Enterprises","account":"120021100110454","ifsc":"ABHY0065075","bank":"Abhyudaya Coparative Bank ltd","branch":"Ulwe Navi Mumbai"},{"name":"KS Nagar","account":"052010100576956","ifsc":"UTIB0001615","bank":"Axis Bank Ltd","branch":"BTM Layout Bengaluru"},{"name":"Karan Srivastava","account":"7593000100017739","ifsc":"PUNB0759300","bank":"Punjab National Bank","branch":"Mirzapur"},{"name":"Keshav Krishnamurti","account":"38469058785","ifsc":"SBIN0002909","bank":"State Bank of India","branch":"Lakhminia Station Road"},{"name":"Keyshine Consumer Products","account":"50200081682291","ifsc":"HDFC0000573","bank":"HDFC Bank","branch":"Ghandhi Nagar"},{"name":"Konark Engineering Workshop","account":"3704274029","ifsc":"CBIN0282139","bank":"Central Bank of India","branch":"Paradeep"},{"name":"Konark Enterprise","account":"002130100006067","ifsc":"NKGS0000002","bank":"NKGSB Cooperative Bank Ltd","branch":"Laxmi Sadan Mumbai"},{"name":"Krishna Solar and Electric Company","account":"3716572667","ifsc":"CBIN0285125","bank":"Central Bank of India","branch":"Kamta Chauraha Branch"},{"name":"Kulwinder Kaur","account":"42551964498","ifsc":"SBIN0011966","bank":"State Bank Of India","branch":"Mithapur Road"},{"name":"Kundan Srivastava","account":"593002010010155","ifsc":"UBIN0559300","bank":"Union Bank Of India","branch":"Robertsganj Sonbhadra"},{"name":"Lamcon Fianance And Management Services Pvt Ltd","account":"01482560000665","ifsc":"HDFC0000148","bank":"HDFC Bank Ltd","branch":"East Street Branch Pune"},{"name":"Lavdiya Radhani","account":"36082010006706","ifsc":"CNRB0013608","bank":"Canara Bank","branch":"Warangal"},{"name":"Lilu Swain","account":"42141114710","ifsc":"SBIN0002071","bank":"State Bank of India","branch":"Jatni"},{"name":"MAHENDER","account":"50100489854967","ifsc":"HDFC0003432","bank":"HDFC Bank","branch":"VPO Munak"},{"name":"MD TAZ","account":"15620110049129","ifsc":"UCBA0001562","bank":"UCO Bank","branch":"Mahana"},{"name":"MM Automation Service","account":"920020058397285","ifsc":"UTIB0003073","bank":"Axis Bank","branch":"Axis bank"},{"name":"MULCHAND","account":"50100368386470","ifsc":"HDFC0003432","bank":"HDFC Bank","branch":"VPO Munak"},{"name":"Mahalingam M","account":"4376101007141","ifsc":"CNRB0004376","bank":"Canara Bank","branch":"Mallur"},{"name":"Mallanna Constructions","account":"7362000100039001","ifsc":"KARB0000736","bank":"Karnataka Bank Ltd","branch":"Serilingampally Hyderabad"},{"name":"Malothu Raju","account":"43560102448","ifsc":"SBIN0021514","bank":"State Bank of India","branch":"China Pendyal"},{"name":"Mani M","account":"4376101003850","ifsc":"CNRB0004376","bank":"Canara Bank","branch":"Mallur"},{"name":"Manikanta And Co","account":"4497201000043","ifsc":"CNRB0004497","bank":"Canara Bank","branch":"Bodhan"},{"name":"Manish Kumar","account":"188054141366","ifsc":"INDB0000714","bank":"IndusInd Bank","branch":"Mumbai"},{"name":"Mayur Bhimrao Satpute","account":"50100294883491","ifsc":"HDFC0000181","bank":"HDFC Bank Ltd","branch":"Ahmednagar"},{"name":"Modern Switchgears India","account":"2781261000129","ifsc":"CNRB0002781","bank":"Canara Bank","branch":"Lucknow"},{"name":"Mohit Singh","account":"0745716839","ifsc":"KKBK0000677","bank":"Kotak Mahindra","branch":"Ghaziabad"},{"name":"Mpower Energy Solution","account":"50200080374015","ifsc":"HDFC0004281","bank":"HDFC Bank Ltd","branch":"Patrapada Bhubanerwar"},{"name":"Murugan M","account":"31874563741","ifsc":"SBIN0003953","bank":"State Bank of India","branch":"Mallur"},{"name":"N Raja Electricals and Plumbing Works","account":"002501000038102","ifsc":"IOBA0000025","bank":"Indian Overseas Bank","branch":"Erode"},{"name":"NS Engineering Enterprises","account":"716201010050111","ifsc":"UBIN0571628","bank":"Union Bank of India","branch":"Basubedpur"},{"name":"Nanak Chand Anil Kumar","account":"20356847588","ifsc":"","bank":"Indian Bank","branch":""},{"name":"Nandan Kumar","account":"66270100000048","ifsc":"BARB0VJKAMM","bank":"Bank of Baroda","branch":"Sangrur"},{"name":"Nandini Cartridges","account":"003883800005838","ifsc":"YESB0000038","bank":"Yes Bank Ltd","branch":"Ghaziabad"},{"name":"National Electric Trading Corporation","account":"50200050516236","ifsc":"HDFC0000263","bank":"HDFC Bank","branch":"Amritsar Punjab"},{"name":"Navtej Singh","account":"201001674447","ifsc":"INDB0000228","bank":"IndusInd Bank","branch":"Baddi"},{"name":"Niraj Kumar Nishad","account":"3458837990","ifsc":"CBIN0284560","bank":"Central Bank of India","branch":"EAST CHAMPARAN"},{"name":"Nirakar Rahidas","account":"20165601890","ifsc":"SBIN0000238","bank":"State Bank Of India","branch":"JHARSUGUDA"},{"name":"Nirbhay Kumar","account":"110156362021","ifsc":"CNRB0001157","bank":"Canara Bank","branch":"Chandigarh"},{"name":"Nirmal Kumar Baghel","account":"919010079277679","ifsc":"UTIB0000139","bank":"Axis Bank","branch":"Gurgaon"},{"name":"Nitin Dureja","account":"9112368909","ifsc":"KKBK0000293","bank":"Kotak Mahindra Bank","branch":"Panipat"},{"name":"Nitish Kumar","account":"42083634165","ifsc":"SBIN0050324","bank":"State Bank Of India","branch":"Noida"},{"name":"Om Logistcis Supply Chain Pvt Ltd","account":"778205000348","ifsc":"ICIC0007782","bank":"ICICI Bank","branch":"Greater Noida"},{"name":"PS Enterprises","account":"41124350937","ifsc":"SBIN0003111","bank":"State Bank of India","branch":"Ghaziabad"},{"name":"Pardeep Kumar","account":"33533832790","ifsc":"SBIN0050097","bank":"State Bank of India","branch":"Gharannuda"},{"name":"Patronize Packers and Movers","account":"558011033851","ifsc":"KKBK0005033","bank":"Kotak Mahindra Bank","branch":"Sector 69 Noida"},{"name":"Poturaju Dilip Kumar","account":"40619199379","ifsc":"SBIN0061490","bank":"State Bank Of India","branch":"Vadlapudi Visakhapatnam"},{"name":"Poturaju Dilip Kumar","account":"3869386619","ifsc":"CBIN0282338","bank":"Central Bank of India","branch":"Vadlapudi Visakhapatnam"},{"name":"Pradeep Kumar","account":"0248687629","ifsc":"KKBK0004373","bank":"Kotak Mahindra Bank","branch":"Panipat Haryana"},{"name":"Prakash Light House","account":"693305500144","ifsc":"ICIC0000045","bank":"ICICI Bank Ltd","branch":"Madhuban Udaipur"},{"name":"Pramod Kumar","account":"10170550839","ifsc":"IDFB0021007","bank":"IDFC FIRST Bank","branch":"Gurgaon"},{"name":"Prolific Glasses Pvt Ltd","account":"650014121538","ifsc":"INDB0000817","bank":"Indusind Bank Ltd","branch":"Vaishali Ghaziabad"},{"name":"Pronto Renewables Energy Pvt Ltd","account":"081605013573","ifsc":"ICIC0000816","bank":"ICICI Bank","branch":"Sector 63 Noida"},{"name":"RR Enterprise","account":"50200064937332","ifsc":"HDFC0000394","bank":"HDFC Bank","branch":"Noida"},{"name":"Rahul Kumar Jha","account":"3702000400758822","ifsc":"PUNB0370200","bank":"Punjab National Bank","branch":"Noida"},{"name":"Rajendra Ram","account":"3594972932","ifsc":"CBIN0280278","bank":"Central Bank of India","branch":"Chhatrapati"},{"name":"Rajesh Kumar","account":"0674000102086394","ifsc":"PUNB0067400","bank":"Punjab National Bank","branch":"Navyug Market"},{"name":"Rajiv Kumar","account":"20185289355","ifsc":"FINO0009002","bank":"Fino Payment Bank","branch":"Juinagar Branch"},{"name":"Rakesh Engineering Works","account":"1683350697","ifsc":"CBIN0282338","bank":"Central Bank of India","branch":"Loha Mandi Ghaziabad"},{"name":"Ramsavy Electricals","account":"2080002100003109","ifsc":"PUNB0208000","bank":"Punjab National Bank","branch":"Harpur Barwan"},{"name":"Ravi Kumar Yadav","account":"519602010516103","ifsc":"UBIN0553778","bank":"Union bank of india","branch":"Sarojini Nagar Lucknow"},{"name":"Ravikant","account":"360702120003079","ifsc":"UBIN0536075","bank":"Union bank of india","branch":"Varanasi"},{"name":"Red N Green Energy and Infra LLP","account":"50200099517115","ifsc":"HDFC0009608","bank":"HDFC Bank","branch":"Dilshuknagar PNT Colony"},{"name":"Reway Innovation Pvt Ltd","account":"50200114479611","ifsc":"HDFC0000573","bank":"HDFC Bank","branch":"Ambedkar Road"},{"name":"Ritu","account":"7801001500002877","ifsc":"PUNB0370300","bank":"Punjab National Bank","branch":"Arya nagar railway colony gzp"},{"name":"Rohidas Bhanudas Deshmukh","account":"34297551321","ifsc":"SBIN0008421","bank":"State Bank of India","branch":"Kedgaon"},{"name":"SB Bolt Industries","account":"50200115237030","ifsc":"HDFC0008501","bank":"HDFC Bank Ltd","branch":"Jaipur"},{"name":"SHA and Associates","account":"003105029717","ifsc":"ICIC0000031","bank":"ICICI Bank","branch":"Senior Mall Sec 18"},{"name":"SHASHI ENGICON PVT LTD","account":"00110500068842","ifsc":"UCBA0000011","bank":"UCO Bank","branch":"Johri Bajar"},{"name":"SJ Engineering","account":"36485622637","ifsc":"SBIN0008706","bank":"State Bank of India","branch":"Panipat Refinery"},{"name":"SK Pandey and Co","account":"1116009300020745","ifsc":"PUNB0111600","bank":"Punjab National Bank","branch":"Nehru Nagar"},{"name":"SRC Logistics","account":"60028808758","ifsc":"MAHB0000378","bank":"Bank of Maharashtra","branch":"Ghaizbad Navyug Market"},{"name":"SSG Engineers India","account":"003861900006610","ifsc":"YESB0000038","bank":"Yes Bank Ltd","branch":"Rajnagar"},{"name":"Sachin","account":"65758100004102","ifsc":"BARB0VJPAIE","bank":"Bank of Baroda","branch":"Panipat Industrial Area"},{"name":"Samad Khan","account":"00820100028879","ifsc":"BARB0MORADA","bank":"Bankof Baroda","branch":"Moradabad"},{"name":"Santosh Kumar Majhi","account":"30232629157","ifsc":"SBIN0002071","bank":"State Bank of India","branch":"Jatni"},{"name":"Saraj Kumar Katiyar","account":"10176263704","ifsc":"SBIN0011607","bank":"State Bank of India","branch":"Panki Kanpur"},{"name":"Sarat Chandra Sahoo","account":"2210000100131186","ifsc":"PUNB0221000","bank":"Punjab National Bank","branch":"Jatni"},{"name":"Saroj Kumar","account":"3395006900001286","ifsc":"PUNB0339500","bank":"Punjab National Bank","branch":"Amritsar Cantt Nccload Road"},{"name":"Sarvesh Singh","account":"54090100004623","ifsc":"BARB0JAMMIR","bank":"Bank of Baroda","branch":"Jamalpur Rd"},{"name":"Satish Kumar Dikshit","account":"20355970384","ifsc":"SBIN0017651","bank":"State Bank of India","branch":"Barigarh"},{"name":"Satyabrata Mahahiak","account":"547510510001419","ifsc":"BKID0005475","bank":"Bank of India","branch":"Punjab"},{"name":"Savita Sharma","account":"40694080737","ifsc":"SBIN0002481","bank":"State Bank of India","branch":"Shahabad Markand"},{"name":"Shakti Machinery and Mill Store","account":"510101005128071","ifsc":"UBIN0550850","bank":"Union Bank of India","branch":"Ghaziabad SSI Finance Branch"},{"name":"Shiv Kumar","account":"1245000100284542","ifsc":"PUNB0124500","bank":"Punjab National Bank","branch":"Balla"},{"name":"Shiv Kumar Singh","account":"13200100006660","ifsc":"BARB0PAORIL","bank":"Bank of Baroda","branch":"New Delhi"},{"name":"Shivaji Chaurasiya","account":"035801567230","ifsc":"ICIC0000358","bank":"ICICI Bank","branch":"Gurgaon"},{"name":"Shnakar Trading Company","account":"510330110000243","ifsc":"BKID0005103","bank":"Bank of India","branch":"Paradeep"},{"name":"Shobin Chezhian","account":"922010031208183","ifsc":"UTIB0004838","bank":"Axis Bank Ltd","branch":"Chennai"},{"name":"Shree Balaji Electricals","account":"34470200000698","ifsc":"BARB0CHAKSU","bank":"Bank of Baroda","branch":"Chaksu Branch"},{"name":"Shree Nath Enterprises","account":"65131138051","ifsc":"SBIN0050106","bank":"State Bank of India","branch":"Mathura Road"},{"name":"Shri Balaji Electricals","account":"01532000005217","ifsc":"HDFC0000153","bank":"HDFC Bank LTD","branch":"Raj Nagar"},{"name":"Shri Mahalaxmi Associates","account":"259971309955","ifsc":"INDB0000733","bank":"Indusind Bank","branch":"Vasundhara Ghaziabad"},{"name":"Shri Shyam Trading Co","account":"50200088648339","ifsc":"HDFC0003432","bank":"HDFC Bank LTD","branch":"Painpat"},{"name":"Shyam Electricals","account":"695505601071","ifsc":"ICIC0006955","bank":"ICICI Bank","branch":"Lohia Nagar"},{"name":"Sibadatta Rautaray","account":"34348306725","ifsc":"SBIN0012028","bank":"State Bank of India","branch":"Jatni"},{"name":"Someshwar Dattatray Deshmukh","account":"60290178164","ifsc":"MAHB0000358","bank":"Bank of Maharashtra","branch":"Akolner"},{"name":"Spaasi Solar Auto Tracking Systems Pvt Ltd","account":"754605500131","ifsc":"ICIC0007546","bank":"ICICI Bank Ltd","branch":"Rajnagar Extension"},{"name":"Sreerise Infra Project Pvt Ltd","account":"50200110784562","ifsc":"HDFC0000642","bank":"HDFC Bank","branch":"SRINIVASNAGAR"},{"name":"Sudhir Switchgears Pvt Ltd","account":"00602320005321","ifsc":"HDFC0000060","bank":"HDFC Bank Ltd","branch":"Mumbai"},{"name":"Sujit Bhanudas Magar","account":"50200062111742","ifsc":"HDFC0007043","bank":"HDFC Bank","branch":"KEDGAON AHMEDNAGAR"},{"name":"Sujith V","account":"33174212413","ifsc":"SBIN0008627","bank":"State Bank Of India","branch":"Kattoor"},{"name":"Sumit","account":"0465100100014701","ifsc":"PUNB0046510","bank":"Punjab National Bank","branch":"Sarna"},{"name":"Sunil Kumar Yadav","account":"30985026923","ifsc":"SBIN0012500","bank":"State Bank of India","branch":"Brahmanpur Barkhandi Jaunpur"},{"name":"Suraj Patel","account":"388101000000375","ifsc":"IOBA0003881","bank":"Indian Overseas Bank","branch":"Bhabhua"},{"name":"Tarini Steel and Pipes","account":"920020062742464","ifsc":"UTIB0002053","bank":"Axis Bank Ltd","branch":"Bhubaneswar"},{"name":"Transrail Lighting Limited","account":"378655100000055","ifsc":"IBKL0000004","bank":"IDBI Bank Ltd","branch":"Mumbai"},{"name":"Triveni Sales Corporation","account":"01862000020071","ifsc":"KKBK0000186","bank":"Kotak Mahindra Bank","branch":"Chandni Chowk"},{"name":"Uday Shankar Jayswal","account":"6150400769","ifsc":"KKBK0005340","bank":"Kotak Mahindra Bank","branch":"GT Road Ghaziabad"},{"name":"Ultimate Power Controls","account":"200002747647","ifsc":"ESFB0017001","bank":"Equitas Small Finance Bank","branch":"Noida"},{"name":"Umendra Pratap Singh","account":"683910110015646","ifsc":"BKID0006839","bank":"Bank of India","branch":"Sitapur Road"},{"name":"VINIT KASHYAP","account":"60362317645","ifsc":"MAHB0001713","bank":"Bank of Maharashtra","branch":"Modinagar"},{"name":"Ved Parkash Construction","account":"50200089651795","ifsc":"HDFC0003617","bank":"HDFC Bank","branch":"VPO PAIR"},{"name":"Vicky Kumar","account":"3364436882","ifsc":"CBIN0283005","bank":"Central Bank of India","branch":"Devapur"},{"name":"Vinod","account":"33321957664","ifsc":"SBIN0003392","bank":"State Bank of India","branch":"ADB Shodapur"},{"name":"Vishal","account":"2080001700146410","ifsc":"PUNB0208000","bank":"Punjab National Bank","branch":"Harpurberwan"},{"name":"Vishal Ashok Khomna","account":"80042343227","ifsc":"MAHG0004534","bank":"Maharashtra Gramin Bank","branch":"Pimpla District Beed Maharashtra"},{"name":"Vishal Craft and Interiors Pvt Ltd","account":"40438835140","ifsc":"SBIN0011859","bank":"State Bank of India","branch":"Sector 19 Noida"},{"name":"Vishal Electricals","account":"125605001080","ifsc":"ICIC0001256","bank":"ICICI Bank","branch":"Ambedkar Road Gzb"},{"name":"Vishal Technopower Pvt Ltd","account":"125605003404","ifsc":"ICIC0001256","bank":"ICICI Bank","branch":"Ambedkar Road Gzb"},{"name":"Vishal Yadav","account":"3149287349","ifsc":"KKBK0000218","bank":"Kotak Mahindra Bank","branch":"Kalkaji"}];
@@ -690,266 +537,61 @@ let sortDir = 'asc';
 let currentUser = 'Vishaltechnopower';
 let pendingLink = null;
 
-// ╔══════════════════════════════════════════════════════════════════╗
-// ║                                                                  ║
-// ║   🔑 GITHUB TOKEN — यहाँ अपना token paste करो ⬇️                  ║
-// ║   ────────────────────────────────────────────                  ║
-// ║   GitHub.com → Settings → Developer Settings →                  ║
-// ║   Personal Access Tokens → Tokens (classic) →                   ║
-// ║   Generate new token → Scope: सिर्फ ✅ "gist"                     ║
-// ║                                                                  ║
-// ║   ⚠️ Repo PRIVATE होना ज़रूरी है security के लिए!                 ║
-// ║                                                                  ║
-// ╚══════════════════════════════════════════════════════════════════╝
-
-const HARDCODED_GH_TOKEN = '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';
-
 // ═══════════════════════════════════════════════
-//  GITHUB GIST — CLOUD SYNC ENGINE
+// CLOUD BRIDGE (GITHUB via GOOGLE APPS SCRIPT)
 // ═══════════════════════════════════════════════
-const GH_API = 'https://api.github.com';
-const GH_TOKEN_KEY = 'vtpl_gh_token';
-const GH_GIST_ID_KEY = 'vtpl_gh_gist_id';
-
-function getGHToken(){ 
-  // Priority 1: Hardcoded token (if valid)
-  if(HARDCODED_GH_TOKEN && HARDCODED_GH_TOKEN.length > 15 && HARDCODED_GH_TOKEN.startsWith('ghp_') && !HARDCODED_GH_TOKEN.includes('PASTE_YOUR_TOKEN')){
-    return HARDCODED_GH_TOKEN;
-  }
-  // Priority 2: localStorage override (if user added one manually)
-  return localStorage.getItem(GH_TOKEN_KEY)||''; 
-}
-function isUsingHardcodedToken(){
-  return HARDCODED_GH_TOKEN && HARDCODED_GH_TOKEN.length > 15 && HARDCODED_GH_TOKEN.startsWith('ghp_') && !HARDCODED_GH_TOKEN.includes('PASTE_YOUR_TOKEN') && !localStorage.getItem(GH_TOKEN_KEY);
-}
-function getGHGistId(){ return localStorage.getItem(GH_GIST_ID_KEY)||''; }
-function isGHConfigured(){ return getGHToken().length > 10; }
-
-function ghHeaders(){
-  return {
-    'Authorization': 'token ' + getGHToken(),
-    'Accept': 'application/vnd.github.v3+json',
-    'Content-Type': 'application/json'
-  };
+function hasCloudBridge(){
+  return GAS_URL && GAS_URL.startsWith('https://script.google.com/macros/s/');
 }
 
-function gistFileName(company){
-  return 'vtpl_draft_' + company.replace(/[^a-zA-Z0-9]/g,'_').toLowerCase() + '.json';
-}
-
-async function findOrCreateGist(){
-  const token = getGHToken();
-  if(!token) return null;
-  const savedId = getGHGistId();
-  if(savedId){
-    try{
-      const res = await fetch(GH_API+'/gists/'+savedId, { headers:ghHeaders() });
-      if(res.ok) return savedId;
-    }catch(e){}
-    localStorage.removeItem(GH_GIST_ID_KEY);
-  }
-  try{
-    const res = await fetch(GH_API+'/gists?per_page=100', { headers:ghHeaders() });
-    if(res.ok){
-      const gists = await res.json();
-      for(const g of gists){
-        if(g.files && g.files['_vtpl_marker.json']){
-          localStorage.setItem(GH_GIST_ID_KEY, g.id);
-          return g.id;
-        }
-      }
-    }
-  }catch(e){}
-  try{
-    const res = await fetch(GH_API+'/gists', {
-      method:'POST',
-      headers:ghHeaders(),
-      body:JSON.stringify({
-        description:'Vishal Group — Vendor Payment Drafts (auto-sync)',
-        public:false,
-        files:{
-          '_vtpl_marker.json':{ content: JSON.stringify({app:'Vishal Group Vendor Payment System',created:new Date().toISOString()}) }
-        }
-      })
-    });
-    if(res.ok || res.status===201){
-      const data = await res.json();
-      localStorage.setItem(GH_GIST_ID_KEY, data.id);
-      return data.id;
-    }
-  }catch(e){}
-  return null;
-}
-
-async function saveToGist(company, data){
-  if(!isGHConfigured()) return false;
-  const gistId = await findOrCreateGist();
-  if(!gistId) return false;
-  const fileName = gistFileName(company);
-  const payload = {
-    files:{
-      [fileName]:{ content: JSON.stringify({ company, rows:data, savedAt:new Date().toISOString(), version:2 }, null, 2) }
-    }
-  };
-  try{
-    const res = await fetch(GH_API+'/gists/'+gistId, {
-      method:'PATCH',
-      headers:ghHeaders(),
-      body:JSON.stringify(payload)
-    });
-    return res.ok;
-  }catch(e){ return false; }
-}
-
-async function loadFromGist(company){
-  if(!isGHConfigured()) return null;
-  const gistId = await findOrCreateGist();
-  if(!gistId) return null;
-  try{
-    const res = await fetch(GH_API+'/gists/'+gistId, { headers:ghHeaders() });
-    if(!res.ok) return null;
-    const gist = await res.json();
-    const fileName = gistFileName(company);
-    if(gist.files && gist.files[fileName]){
-      const content = JSON.parse(gist.files[fileName].content);
-      return content.rows || null;
-    }
-  }catch(e){}
-  return null;
-}
-
-async function deleteFromGist(company){
-  if(!isGHConfigured()) return false;
-  const gistId = getGHGistId();
-  if(!gistId) return false;
-  const fileName = gistFileName(company);
-  try{
-    const res = await fetch(GH_API+'/gists/'+gistId, {
-      method:'PATCH',
-      headers:ghHeaders(),
-      body:JSON.stringify({ files:{ [fileName]:null } })
-    });
-    return res.ok;
-  }catch(e){ return false; }
-}
-
-async function testGHConnection(){
-  if(!isGHConfigured()) return { ok:false, msg:'Token not set' };
-  try{
-    const res = await fetch(GH_API+'/user', { headers:ghHeaders() });
-    if(res.ok){
-      const user = await res.json();
-      return { ok:true, msg:'Connected as: '+user.login, user:user.login };
-    }else if(res.status===401){
-      return { ok:false, msg:'Invalid token — check permission' };
-    }else{
-      return { ok:false, msg:'Error: HTTP '+res.status };
-    }
-  }catch(e){
-    return { ok:false, msg:'Network error — check internet' };
-  }
-}
-
-function openGHModal(){
-  document.getElementById('gh-modal-overlay').classList.add('active');
-  const input = document.getElementById('gh-token-input');
-  const statusEl = document.getElementById('gh-token-status');
-  
-  if(isUsingHardcodedToken()){
-    statusEl.innerHTML = '<span style="color:#01579b;font-weight:700;">✅ HARDCODED — Auto-active on all PCs</span>';
-    input.placeholder = 'Override hardcoded token (optional)...';
-    input.value = '';
-  }else if(localStorage.getItem(GH_TOKEN_KEY)){
-    statusEl.innerHTML = '<span style="color:#2e7d32;font-weight:700;">✅ Manual override active</span>';
-    input.value = localStorage.getItem(GH_TOKEN_KEY);
-  }else{
-    statusEl.innerHTML = '<span style="color:#c62828;font-weight:700;">❌ No token set — Hardcode it in file</span>';
-    input.value = '';
-  }
-  document.getElementById('gh-status').style.display='none';
-}
-function closeGHModal(){
-  document.getElementById('gh-modal-overlay').classList.remove('active');
-}
-function saveGHToken(){
-  const token = document.getElementById('gh-token-input').value.trim();
-  if(!token){
-    showGHStatus('error','⚠️ Token enter karo pehle!');
-    return;
-  }
-  localStorage.setItem(GH_TOKEN_KEY, token);
-  localStorage.removeItem(GH_GIST_ID_KEY);
-  showGHStatus('success','✅ Override token saved! Hardcoded ko bypass kar diya.');
-  updateCloudIndicator();
-  updateGHButton();
-}
-function removeGHToken(){
-  if(!confirm('Manual override token remove karna chahte ho?\n\n(Hardcoded token wapas active ho jayega)')) return;
-  localStorage.removeItem(GH_TOKEN_KEY);
-  localStorage.removeItem(GH_GIST_ID_KEY);
-  document.getElementById('gh-token-input').value='';
-  if(isUsingHardcodedToken()){
-    showGHStatus('success','✅ Override removed. Hardcoded token wapas active!');
-  }else{
-    showGHStatus('info','🗑 Token cleared. Local only mode.');
-  }
-  updateCloudIndicator();
-  updateGHButton();
-}
-async function testGHToken(){
-  showGHStatus('info','⏳ Testing connection...');
-  const result = await testGHConnection();
-  if(result.ok){
-    showGHStatus('success','✅ '+result.msg+' — Setting up gist...');
-    const gistId = await findOrCreateGist();
-    if(gistId){
-      showGHStatus('success','✅ All Good! User: '+result.user+' · Gist: '+gistId.slice(0,8)+'...');
-    }else{
-      showGHStatus('error','⚠️ User verified but Gist create nahi hua. Check "gist" scope.');
-    }
-  }else{
-    showGHStatus('error','❌ '+result.msg);
-  }
-  updateCloudIndicator();
-  updateGHButton();
-}
-function showGHStatus(type, msg){
-  const el = document.getElementById('gh-status');
-  el.className = 'gh-status '+type;
-  el.textContent = msg;
-  el.style.display = 'block';
-}
-
-function updateGHButton(){
-  const btn = document.getElementById('gh-token-btn');
-  if(isGHConfigured()){
-    btn.classList.add('connected');
-    let label = isUsingHardcodedToken() ? '🔒 Hardcoded' : '☁ Connected';
-    btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg> '+label;
-  }else{
-    btn.classList.remove('connected');
-    btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg> 🔑 GitHub';
-  }
-}
-
-async function updateCloudIndicator(){
+function updateCloudIndicator(state='ready'){
   const el = document.getElementById('cloud-indicator');
-  if(!isGHConfigured()){
-    el.className='cloud-indicator offline';
-    el.textContent='📴 Local Only';
+  if(!el) return;
+  if(!hasCloudBridge()){
+    el.className = 'cloud-indicator offline';
+    el.textContent = '📴 GAS URL Missing';
     return;
   }
-  if(isUsingHardcodedToken()){
-    el.className='cloud-indicator hardcoded';
-    el.textContent='🔒 Auto-Sync ON';
-  }else{
-    el.className='cloud-indicator online';
-    el.textContent='☁ GitHub Sync';
+  if(state === 'working'){
+    el.className = 'cloud-indicator hardcoded';
+    el.textContent = '⏳ Syncing';
+    return;
+  }
+  if(state === 'error'){
+    el.className = 'cloud-indicator offline';
+    el.textContent = '⚠ Cloud Error';
+    return;
+  }
+  el.className = 'cloud-indicator online';
+  el.textContent = '☁ GitHub Sync';
+}
+
+function draftFileName(){
+  return "drafts/" + currentUser.replace(/[^a-zA-Z0-9]/g,'_').toLowerCase() + ".json";
+}
+
+async function cloudRequest(action, fileName, data = null){
+  if(!hasCloudBridge()) return { ok:false, msg:'GAS URL not configured' };
+  try{
+    const res = await fetch(GAS_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify({ action, fileName, content: data })
+    });
+    const text = await res.text();
+    try { return JSON.parse(text); }
+    catch(parseErr){
+      console.error('Cloud raw response:', text);
+      return { ok:false, msg:'Invalid JSON from GAS' };
+    }
+  }catch(err){
+    console.error('Cloud request error:', err);
+    return { ok:false, msg:'Network / CORS error' };
   }
 }
 
 // ═══════════════════════════════════════════════
-//  INIT
+// INIT
 // ═══════════════════════════════════════════════
 (function(){
   const dl = document.getElementById('sites-datalist');
@@ -967,6 +609,21 @@ async function updateCloudIndicator(){
   }
 })();
 
+(function loadCustomSites(){
+  try{
+    const saved = JSON.parse(localStorage.getItem('vtpl_custom_sites')||'[]');
+    saved.forEach(s=>{ if(!SITES.includes(s)) SITES.push(s); });
+  }catch(e){}
+})();
+
+window.addEventListener('load',()=>{
+  updateCloudIndicator();
+  updateDraftBtn();
+});
+
+// ═══════════════════════════════════════════════
+// HELPERS
+// ═══════════════════════════════════════════════
 function handleRemarksKey(e){
   if(e.ctrlKey && e.key === 'Enter'){
     e.preventDefault();
@@ -986,6 +643,10 @@ function showToast(msg){
   t.innerText=msg; t.style.display='block'; t.className='toast show';
   clearTimeout(_tt);
   _tt=setTimeout(()=>{t.className='toast';setTimeout(()=>t.style.display='none',300);},2600);
+}
+
+function escapeHtml(str){
+  return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
 function interceptLinks(){
@@ -1014,6 +675,9 @@ function closePopup(){
 }
 interceptLinks();
 
+// ═══════════════════════════════════════════════
+// LOGIN / SWITCH
+// ═══════════════════════════════════════════════
 function login(company, av, fullName){
   currentUser = company;
   rows = [];
@@ -1023,7 +687,6 @@ function login(company, av, fullName){
   document.getElementById('user-label').textContent = company;
   document.getElementById('login-screen').style.display = 'none';
   document.getElementById('app').style.display = 'block';
-  updateGHButton();
   updateCloudIndicator();
   loadDraft();
 }
@@ -1034,12 +697,11 @@ function switchCompany(){
   document.getElementById('app').style.display = 'none';
 }
 
-function toggleAddVendor(){
-  document.getElementById('addVendorPanel').classList.toggle('open');
-}
-function closeAddVendor(){
-  document.getElementById('addVendorPanel').classList.remove('open');
-}
+// ═══════════════════════════════════════════════
+// ADD/EDIT VENDOR PANEL
+// ═══════════════════════════════════════════════
+function toggleAddVendor(){ document.getElementById('addVendorPanel').classList.toggle('open'); }
+function closeAddVendor(){ document.getElementById('addVendorPanel').classList.remove('open'); }
 
 function avpCheckAccount(){
   const acc = document.getElementById('avp-acc').value.trim();
@@ -1086,7 +748,6 @@ function saveAndAddRow(){
   showToast('✅ Vendor saved & form filled!');
   closeAddVendor();
 }
-
 function avpDirectAddRow(){
   const name = document.getElementById('avp-name').value.trim();
   const acc  = document.getElementById('avp-acc').value.trim();
@@ -1113,6 +774,9 @@ function avpDirectAddRow(){
   showToast('✅ Row added!');
 }
 
+// ═══════════════════════════════════════════════
+// VDF
+// ═══════════════════════════════════════════════
 function vdfCheckAccount(){
   const acc = document.getElementById('vdf-acc').value.trim();
   const v = VENDOR_DB.find(x=>x.account===acc);
@@ -1133,11 +797,11 @@ function vdfAutoFill(){
     .catch(()=>{ bankEl.value=''; branchEl.value=''; showToast('⚠️ IFSC not found'); });
 }
 function fillVDF(v){
-  document.getElementById('vdf-ifsc').value=v.ifsc;
-  document.getElementById('vdf-bank').value=v.bank;
-  document.getElementById('vdf-branch').value=v.branch;
-  document.getElementById('vdf-name').value=v.name;
-  document.getElementById('vdf-acc').value=v.account;
+  document.getElementById('vdf-ifsc').value=v.ifsc||'';
+  document.getElementById('vdf-bank').value=v.bank||'';
+  document.getElementById('vdf-branch').value=v.branch||'';
+  document.getElementById('vdf-name').value=v.name||'';
+  document.getElementById('vdf-acc').value=v.account||'';
   ['vdf-bank','vdf-branch'].forEach(id=>{ const el=document.getElementById(id); el.classList.add('auto-filled'); setTimeout(()=>el.classList.remove('auto-filled'),2500); });
 }
 function fetchAndFill(){
@@ -1148,6 +812,9 @@ function fetchAndFill(){
   else alert('Vendor not found. Enter manually or use "+ Add".');
 }
 
+// ═══════════════════════════════════════════════
+// SEARCH
+// ═══════════════════════════════════════════════
 function handleTypeChange(sel){
   const manual = document.getElementById('pf-type-manual');
   if(sel.value === '__manual__'){
@@ -1158,7 +825,6 @@ function handleTypeChange(sel){
     manual.style.display = 'none';
   }
 }
-
 function nameSearch(){
   const q = document.getElementById('pf-name').value.trim().toLowerCase();
   const dd = document.getElementById('name-dropdown');
@@ -1181,7 +847,6 @@ function selectVendorName(escaped){
   document.getElementById('vdf-form-wrap').style.display='block';
   showToast('✅ Vendor details fetched!');
 }
-
 document.addEventListener('click',e=>{
   if(!document.getElementById('name-search-wrap').contains(e.target))
     document.getElementById('name-dropdown').style.display='none';
@@ -1189,12 +854,6 @@ document.addEventListener('click',e=>{
     document.getElementById('site-dropdown').style.display='none';
 });
 
-(function loadCustomSites(){
-  try{
-    const saved = JSON.parse(localStorage.getItem('vtpl_custom_sites')||'[]');
-    saved.forEach(s=>{ if(!SITES.includes(s)) SITES.push(s); });
-  }catch(e){}
-})();
 function saveCustomSite(s){
   try{ const saved=JSON.parse(localStorage.getItem('vtpl_custom_sites')||'[]'); if(!saved.includes(s)){saved.push(s);localStorage.setItem('vtpl_custom_sites',JSON.stringify(saved));} }catch(e){}
   const dl=document.getElementById('sites-datalist');
@@ -1222,8 +881,11 @@ function siteSearch(){
 }
 function selectSite(s){ document.getElementById('pf-site').value=s; document.getElementById('site-dropdown').style.display='none'; }
 
+// ═══════════════════════════════════════════════
+// ADD ROW
+// ═══════════════════════════════════════════════
 function addRow(){
-  const type = document.getElementById('pf-type').value === '__manual__'
+  const type = document.getElementById('pf-type').value === '__manual__' || document.getElementById('pf-type-manual').style.display !== 'none'
     ? document.getElementById('pf-type-manual').value.trim()
     : document.getElementById('pf-type').value;
   const name = document.getElementById('vdf-name').value.trim() || document.getElementById('pf-name').value.trim();
@@ -1249,12 +911,17 @@ function addRow(){
   showToast('✅ Row added!');
 }
 
+// ═══════════════════════════════════════════════
+// TABLE
+// ═══════════════════════════════════════════════
 function renderTable(data){
   data = data||rows;
   const tbody = document.getElementById('table-body');
   if(!data.length){
     tbody.innerHTML=`<tr id="empty-row"><td colspan="10"><div class="empty-state"><div class="es-icon">🏢</div><p>Search vendor by name → Select → Fill Type, Site, Amount → Click "+ ADD ROW"</p><small>Or use the ➕ Add button</small></div></td></tr>`;
-    updateStats([]); return;
+    updateStats([]); 
+    document.getElementById('entries-count').textContent = '0 entries';
+    return;
   }
   tbody.innerHTML=data.map((r,i)=>`
     <tr draggable="true" data-idx="${rows.indexOf(r)}"
@@ -1269,16 +936,12 @@ function renderTable(data){
       <td>${r.branch||'—'}</td>
       <td>${r.site||'—'}</td>
       <td><span style="background:#e3f2fd;color:#1565c0;padding:2px 8px;border-radius:12px;font-size:10.5px;font-weight:700;">${r.type||'—'}</span></td>
-      <td class="amt-cell">₹${r.amt.toLocaleString('en-IN',{minimumFractionDigits:0})}</td>
+      <td class="amt-cell">₹${Number(r.amt||0).toLocaleString('en-IN',{minimumFractionDigits:0})}</td>
       <td class="remarks-cell">${escapeHtml(r.remarks||'—')}</td>
       <td><button class="del-btn" onclick="delRow(${rows.indexOf(r)})">🗑</button></td>
     </tr>`).join('');
   document.getElementById('entries-count').textContent=data.length+' entries';
   updateStats(data);
-}
-
-function escapeHtml(str){
-  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
 let dragSrcIdx = null;
@@ -1289,7 +952,7 @@ function dragEnd(e){ document.querySelectorAll('#table-body tr').forEach(tr=>{tr
 
 function delRow(idx){rows.splice(idx,1);renderTable();}
 function updateStats(data){
-  const total=data.reduce((s,r)=>s+r.amt,0);
+  const total=data.reduce((s,r)=>s+(parseFloat(r.amt)||0),0);
   const fmt=n=>'₹'+Math.round(n).toLocaleString('en-IN');
   document.getElementById('stat-total').textContent=data.length;
   document.getElementById('stat-payable').textContent=fmt(total);
@@ -1302,22 +965,25 @@ function sortTable(){
   if(!col){renderTable();return;}
   const sorted=[...rows].sort((a,b)=>{
     let va=a[col]||'',vb=b[col]||'';
-    if(col==='amount'){va=a.amt;vb=b.amt;}
+    if(col==='amount'){va=parseFloat(a.amt)||0;vb=parseFloat(b.amt)||0;}
     if(typeof va==='number') return sortDir==='asc'?va-vb:vb-va;
-    return sortDir==='asc'?va.localeCompare(vb):vb.localeCompare(va);
+    return sortDir==='asc'?String(va).localeCompare(String(vb)):String(vb).localeCompare(String(va));
   });
   renderTable(sorted);
 }
 function filterTable(q){
   if(!q){renderTable();return;}
   q=q.toLowerCase();
-  const filtered=rows.filter(r=>(r.name+r.bank+r.branch+r.site+r.type+r.remarks+r.acc).toLowerCase().includes(q));
+  const filtered=rows.filter(r=>(String(r.name||'')+String(r.bank||'')+String(r.branch||'')+String(r.site||'')+String(r.type||'')+String(r.remarks||'')+String(r.acc||'')).toLowerCase().includes(q));
   renderTable(filtered);
 }
 function clearAll(){
   if(!rows.length||confirm('Clear all entries?')){rows=[];renderTable();}
 }
 
+// ═══════════════════════════════════════════════
+// EXPORT
+// ═══════════════════════════════════════════════
 function exportExcel(){
   if(!rows.length){ showToast('⚠️ Koi data nahi hai!'); return; }
   const today = new Date();
@@ -1374,92 +1040,89 @@ function exportExcel(){
   showToast('📊 Excel exported!');
 }
 
+// ═══════════════════════════════════════════════
+// DRAFT SAVE / LOAD / DELETE via GITHUB (GAS)
+// ═══════════════════════════════════════════════
 async function saveDraft(){
   if(!rows.length){ showToast('⚠️ Koi row nahi hai'); return; }
   localStorage.setItem('vtpl_draft_'+currentUser, JSON.stringify(rows));
-  if(!isGHConfigured()){
-    showToast('💾 Local save ho gaya!');
-    updateDraftBtn();
+  updateDraftBtn(true);
+
+  if(!hasCloudBridge()){
+    updateCloudIndicator('error');
+    showToast('💾 Local save ho gaya, GAS URL missing');
     return;
   }
+
+  updateCloudIndicator('working');
   showToast('⏳ GitHub pe save ho raha hai...');
-  const ok = await saveToGist(currentUser, rows);
-  showToast(ok ? '💾 GitHub Cloud + Local saved ✅' : '💾 Local save hua (GitHub error)');
-  updateDraftBtn();
+
+  const result = await cloudRequest('save', draftFileName(), {
+    company: currentUser,
+    rows: rows,
+    savedAt: new Date().toISOString()
+  });
+
+  if(result.ok){
+    updateCloudIndicator();
+    showToast('✅ GitHub Cloud + Local saved');
+  }else{
+    updateCloudIndicator('error');
+    showToast('⚠️ Cloud save failed, local backup saved');
+  }
 }
 
 async function loadDraft(){
-  if(isGHConfigured()){
-    showToast('⏳ GitHub se load ho raha hai...');
-    const cloudRows = await loadFromGist(currentUser);
-    if(cloudRows && cloudRows.length > 0){
-      rows = cloudRows;
-      renderTable();
-      localStorage.setItem('vtpl_draft_'+currentUser, JSON.stringify(rows));
-      showToast('📂 GitHub Cloud draft loaded ✅ ('+rows.length+' entries)');
-      updateDraftBtn();
-      return;
-    }
+  if(!hasCloudBridge()){
+    const saved = localStorage.getItem('vtpl_draft_'+currentUser);
+    if(saved){
+      try{ rows=JSON.parse(saved); renderTable(); updateDraftBtn(true); showToast('📂 Local draft loaded ('+rows.length+' entries)'); }
+      catch(e){ rows=[]; renderTable(); updateDraftBtn(false); showToast('❌ Local draft corrupt hai'); }
+    }else{ rows=[]; renderTable(); updateDraftBtn(false); showToast('ℹ️ Koi draft nahi mila'); }
+    return;
   }
+
+  updateCloudIndicator('working');
+  showToast('⏳ GitHub se load ho raha hai...');
+  const result = await cloudRequest('load', draftFileName());
+
+  if(result.ok && result.data && result.data.rows && result.data.rows.length){
+    rows = result.data.rows;
+    renderTable();
+    localStorage.setItem('vtpl_draft_'+currentUser, JSON.stringify(rows));
+    updateCloudIndicator();
+    updateDraftBtn(true);
+    showToast('📂 GitHub draft loaded ✅ ('+rows.length+' entries)');
+    return;
+  }
+
   const saved = localStorage.getItem('vtpl_draft_'+currentUser);
   if(saved){
-    try{
-      rows = JSON.parse(saved);
-      renderTable();
-      showToast('📂 Local draft loaded ('+rows.length+' entries)');
-    }catch(e){
-      renderTable();
-      showToast('❌ Draft corrupt hai');
-    }
-  }else{
-    renderTable();
-    showToast('ℹ️ Koi draft nahi mila');
+    try{ rows=JSON.parse(saved); renderTable(); updateCloudIndicator(); updateDraftBtn(true); showToast('📂 Local draft loaded'); return; }
+    catch(e){}
   }
-  updateDraftBtn();
+  rows=[]; renderTable(); updateCloudIndicator(); updateDraftBtn(false); showToast('ℹ️ Koi draft nahi mila');
 }
 
 async function removeDraft(){
   if(!confirm('Draft delete karna chahte hain?')) return;
-  if(isGHConfigured()){
-    showToast('⏳ GitHub se delete ho raha hai...');
-    await deleteFromGist(currentUser);
-  }
   localStorage.removeItem('vtpl_draft_'+currentUser);
-  showToast('🗑 Draft remove ho gaya!');
-  updateDraftBtn();
+  rows=[]; renderTable(); updateDraftBtn(false);
+
+  if(!hasCloudBridge()){ showToast('🗑 Local draft remove ho gaya'); return; }
+
+  updateCloudIndicator('working');
+  const result = await cloudRequest('delete', draftFileName());
+  if(result.ok){ updateCloudIndicator(); showToast('🗑 Draft GitHub se remove ho gaya!'); }
+  else{ updateCloudIndicator('error'); showToast('⚠️ Cloud delete failed'); }
 }
 
-async function updateDraftBtn(){
-  const localExists = !!localStorage.getItem('vtpl_draft_'+currentUser);
-  let cloudExists = false;
-  if(isGHConfigured()){
-    try{
-      const cloudRows = await loadFromGist(currentUser);
-      cloudExists = !!(cloudRows && cloudRows.length);
-    }catch(e){}
-  }
-  const exists = localExists || cloudExists;
+function updateDraftBtn(exists=null){
+  if(exists===null) exists = !!localStorage.getItem('vtpl_draft_'+currentUser);
   ['remove-draft-btn','footer-remove-draft-btn'].forEach(id=>{
     const el=document.getElementById(id);
     if(el) el.style.display=exists?'inline-block':'none';
   });
-}
-
-let tdsLastNet = 0;
-function tdsCalc(){
-  const gross = parseFloat(document.getElementById('tds-gross').value)||0;
-  const rateVal = parseFloat(document.getElementById('tds-rate').value)||0;
-  if(!gross){ document.getElementById('tds-result-inline').style.display='none'; tdsLastNet=0; return; }
-  const tdsAmt = Math.round(gross * rateVal / 100);
-  tdsLastNet = gross - tdsAmt;
-  const ri = document.getElementById('tds-result-inline');
-  ri.style.display='flex';
-  document.getElementById('tds-deduct-label').textContent = '− TDS ₹'+Math.round(tdsAmt).toLocaleString('en-IN')+' (@'+rateVal+'%)';
-  document.getElementById('tds-net-label').textContent = '= Net ₹'+Math.round(tdsLastNet).toLocaleString('en-IN');
-}
-function tdsCalcAndSync(){
-  tdsCalc();
-  if(tdsLastNet>0) document.getElementById('pf-amount').value=Math.round(tdsLastNet);
 }
 </script>
 </body>
