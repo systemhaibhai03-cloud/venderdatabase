@@ -1,0 +1,116 @@
+{
+  "company": "Vishaltechnopower",
+  "rows": [
+    {
+      "name": "Ajay Kantilal Kakad",
+      "acc": "322502010024861",
+      "ifsc": "UBIN0532258",
+      "bank": "Union bank of india",
+      "branch": "GHULEWADI",
+      "site": "Meerut Solar Project",
+      "type": "Engineer Expenses",
+      "amt": 680,
+      "remarks": "Expenses Dated 02/07/2026"
+    },
+    {
+      "name": "Anshu Kumar",
+      "acc": "762102010006215",
+      "ifsc": "UBIN0576212",
+      "bank": "Union bank of india",
+      "branch": "Narkatiaganj",
+      "site": "AAI Amritsar",
+      "type": "Engineer Expenses",
+      "amt": 5686,
+      "remarks": "Expenses Dated 26/06/2026 to 03/07/2026\nBus Ticket 2827"
+    },
+    {
+      "name": "Karan Srivastava",
+      "acc": "7593000100017739",
+      "ifsc": "PUNB0759300",
+      "bank": "Punjab National Bank",
+      "branch": "Mirzapur",
+      "site": "UPSIDCO",
+      "type": "Engineer Expenses",
+      "amt": 8455,
+      "remarks": "Expenses Dated 25/06/2026 to 02/07/2026\nMaterial Purchase 2203\nPorter Payment 3272\n"
+    },
+    {
+      "name": "Ravikant",
+      "acc": "360702120003079",
+      "ifsc": "UBIN0536075",
+      "bank": "Union bank of india",
+      "branch": "Varanasi",
+      "site": "IIT Ropar",
+      "type": "Engineer Expenses",
+      "amt": 3302,
+      "remarks": "Expenses Dated 26/06/2026 to 02/07/2026\nHotel Room 700\n"
+    },
+    {
+      "name": "Balram Kumar",
+      "acc": "35502048976",
+      "ifsc": "SBIN0002971",
+      "bank": "State Bank of India",
+      "branch": "Champaran Madhuban",
+      "site": "IOCL Mumbai",
+      "type": "Engineer Expenses",
+      "amt": 11250,
+      "remarks": "Expenses Dated 26/06/2026 to 02/07/2026\nLocal Electrician 2000"
+    },
+    {
+      "name": "Shobin Chezhian",
+      "acc": "922010031208183",
+      "ifsc": "UTIB0004838",
+      "bank": "Axis Bank Ltd",
+      "branch": "Chennai",
+      "site": "VOCPA",
+      "type": "Engineer Expenses",
+      "amt": 7991,
+      "remarks": "Expenses Dated 24/06/2026 to 02/07/2026\nBus Ticket 3024\nHotel Room 1200\nFuel Expenses 1262\n"
+    },
+    {
+      "name": "Vicky Kumar",
+      "acc": "3364436882",
+      "ifsc": "CBIN0283005",
+      "bank": "Central Bank of India",
+      "branch": "Devapur",
+      "site": "VOCPA",
+      "type": "Engineer Expenses",
+      "amt": 14439,
+      "remarks": "Expenses Dated 02/07/2026 to 06/07/2026\nFlight Ticket 14089"
+    },
+    {
+      "name": "Vicky Kumar",
+      "acc": "3364436882",
+      "ifsc": "CBIN0283005",
+      "bank": "Central Bank of India",
+      "branch": "Devapur",
+      "site": "",
+      "type": "Engineer Expenses",
+      "amt": 20000,
+      "remarks": "Advance Payment Approval on Email\n"
+    },
+    {
+      "name": "Umendra Pratap Singh",
+      "acc": "683910110015646",
+      "ifsc": "BKID0006839",
+      "bank": "Bank of India",
+      "branch": "Sitapur Road",
+      "site": "IOCL Panipat Complex",
+      "type": "Engineer Expenses",
+      "amt": 1940,
+      "remarks": "Expenses Dated 26/06/2026 to 03/07/2026\n"
+    },
+    {
+      "name": "Rajiv Kumar",
+      "acc": "20185289355",
+      "ifsc": "FINO0009002",
+      "bank": "Fino Payment Bank",
+      "branch": "Juinagar Branch",
+      "site": "IOCL Mumbai",
+      "type": "Engineer Expenses",
+      "amt": 6442,
+      "remarks": "Expenses Dated 19/06/2026 to 27/06/2026"
+    }
+  ],
+  "savedAt": "2026-07-04T06:24:12.336Z"
+}
