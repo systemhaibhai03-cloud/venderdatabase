@@ -1,0 +1,50 @@
+{
+  "company": "Vishal Electrical",
+  "rows": [
+    {
+      "name": "Chandra Prakash",
+      "acc": "36077908619",
+      "ifsc": "SBIN0015131",
+      "bank": "State Bank Of India",
+      "branch": "Chhanbey",
+      "site": "IOCL Jatni",
+      "type": "Engineer Expenses",
+      "amt": 1610,
+      "remarks": "Expenses Dated 28/06/2026 to 01/07/2026\nLabour Payment 500\n"
+    },
+    {
+      "name": "Pramod Kumar",
+      "acc": "10170550839",
+      "ifsc": "IDFB0021007",
+      "bank": "IDFC FIRST Bank",
+      "branch": "Gurgaon",
+      "site": "PPA Port",
+      "type": "Engineer Expenses",
+      "amt": 4150,
+      "remarks": "Expenses Dated 26/06/2026 to 03/07/2026\n"
+    },
+    {
+      "name": "Ravi Kumar Yadav",
+      "acc": "519602010516103",
+      "ifsc": "UBIN0553778",
+      "bank": "Union bank of india",
+      "branch": "Sarojini Nagar Lucknow",
+      "site": "IOCL Jatni",
+      "type": "Engineer Expenses",
+      "amt": 15907,
+      "remarks": "Expenses Dated 26/06/2026 to 03/07/2026\nHotel Room Charges 8000\nFooding 3500"
+    },
+    {
+      "name": "Shivaji Chaurasiya",
+      "acc": "035801567230",
+      "ifsc": "ICIC0000358",
+      "bank": "ICICI Bank",
+      "branch": "Gurgaon",
+      "site": "IOCL Jatni",
+      "type": "Engineer Expenses",
+      "amt": 6026,
+      "remarks": "Expenses Dated 26/06/2026 to 02/07/2026\nCube Test Report 1000\nMaterial Purchase 2575"
+    }
+  ],
+  "savedAt": "2026-07-04T06:04:40.407Z"
+}
