@@ -7,43 +7,10 @@
       "ifsc": "SBIN0015131",
       "bank": "State Bank Of India",
       "branch": "Chhanbey",
-      "site": "IOCL Jharsuguda",
-      "type": "Engineer Expenses",
-      "amt": 3010,
-      "remarks": "Expenses Dated 05/07/2026 to 09/07/2026\nMaterial Purchase 2000\n"
-    },
-    {
-      "name": "Keshav Krishnamurti",
-      "acc": "38469058785",
-      "ifsc": "SBIN0002909",
-      "bank": "State Bank of India",
-      "branch": "Lakhminia Station Road",
-      "site": "IOCL Paradeep",
-      "type": "Engineer Expenses",
-      "amt": 7143,
-      "remarks": "Expenses Dated 24/06/2026 to 09/07/2026\nMaterial Purchase 2000\nFooding 1950"
-    },
-    {
-      "name": "Pramod Kumar",
-      "acc": "10170550839",
-      "ifsc": "IDFB0021007",
-      "bank": "IDFC FIRST Bank",
-      "branch": "Gurgaon",
-      "site": "PPA Port",
-      "type": "Engineer Expenses",
-      "amt": 3315,
-      "remarks": "Expenses Dated 04/07/2026 to 10/07/2026\n"
-    },
-    {
-      "name": "Ravi Kumar Yadav",
-      "acc": "519602010516103",
-      "ifsc": "UBIN0553778",
-      "bank": "Union bank of india",
-      "branch": "Sarojini Nagar Lucknow",
       "site": "IOCL Jatni",
       "type": "Engineer Expenses",
-      "amt": 16974,
-      "remarks": "Expenses Dated 03/07/2026 to 09/07/2026\nHotel Room Charges 7700\nTrain Ticket 4194\n"
+      "amt": 890,
+      "remarks": "Expenses Dated 10/07/2026 to 13/07/2026\n"
     },
     {
       "name": "Shivaji Chaurasiya",
@@ -53,9 +20,9 @@
       "branch": "Gurgaon",
       "site": "IOCL Jatni",
       "type": "Engineer Expenses",
-      "amt": 1900,
-      "remarks": "Expenses Dated 03/07/2026 to 08/07/2026\n"
+      "amt": 5834,
+      "remarks": "Expenses Dated 10/07/2026 to 15/07/2026\nMaterial Purchase 2734"
     }
   ],
-  "savedAt": "2026-07-13T05:22:37.679Z"
+  "savedAt": "2026-07-17T12:17:05.835Z"
 }
