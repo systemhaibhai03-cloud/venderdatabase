@@ -2,17 +2,6 @@
   "company": "Vishaltechnopower",
   "rows": [
     {
-      "name": "Chandra Shekhar",
-      "acc": "731910110002340",
-      "ifsc": "BKID0007319",
-      "bank": "Bank Of India",
-      "branch": "Unnao",
-      "site": "IOCL Sarpara",
-      "type": "Engineer Expenses",
-      "amt": 22158,
-      "remarks": "Expenses Dated 01/07/2026 to 14/07/2026\nFooding Expenses 2500\nTrain Ticket 3083\nFlight Ticket 8430"
-    },
-    {
       "name": "Vicky Kumar",
       "acc": "3364436882",
       "ifsc": "CBIN0283005",
@@ -88,7 +77,29 @@
       "type": "Engineer Expenses",
       "amt": 5700,
       "remarks": "Expenses Dated 14/07/2026 to 18/07/2026"
+    },
+    {
+      "name": "Pramod Kumar",
+      "acc": "10170550839",
+      "ifsc": "IDFB0021007",
+      "bank": "IDFC FIRST Bank",
+      "branch": "Gurgaon",
+      "site": "",
+      "type": "",
+      "amt": 0,
+      "remarks": ""
+    },
+    {
+      "name": "Chandra Shekhar",
+      "acc": "731910110002340",
+      "ifsc": "BKID0007319",
+      "bank": "Bank Of India",
+      "branch": "Unnao",
+      "site": "IOCL Sarpara",
+      "type": "Engineer Expenses",
+      "amt": 38585,
+      "remarks": "Expenses Dated 01/07/2026 to 17/07/2026\nHotel Room Charges 4300\nFlight Ticket 18284\nRapido 3471\nFooding 3500\nTrain Ticket 4229"
     }
   ],
-  "savedAt": "2026-07-18T05:45:18.956Z"
+  "savedAt": "2026-07-18T06:12:12.306Z"
 }
