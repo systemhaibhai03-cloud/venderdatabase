@@ -66,7 +66,29 @@
       "type": "Engineer Expenses",
       "amt": 3180,
       "remarks": "Expenses Dated 10/07/2026 to 15/07/2026\nHotel Room Charges 700\n"
+    },
+    {
+      "name": "Durgesh Kumar Yadav",
+      "acc": "660702010009875",
+      "ifsc": "UBIN0566071",
+      "bank": "Union bank of india",
+      "branch": "Chandauli up",
+      "site": "IOCL Panipat Complex",
+      "type": "Engineer Expenses",
+      "amt": 2590,
+      "remarks": "Expenses Dated 11/07/2026 to 18/07/2026\nMaterial Purchase 600\nAuto Freight 800"
+    },
+    {
+      "name": "Balram Kumar",
+      "acc": "35502048976",
+      "ifsc": "SBIN0002971",
+      "bank": "State Bank of India",
+      "branch": "Champaran Madhuban",
+      "site": "IOCL Mumbai",
+      "type": "Engineer Expenses",
+      "amt": 5700,
+      "remarks": "Expenses Dated 14/07/2026 to 18/07/2026"
     }
   ],
-  "savedAt": "2026-07-17T12:32:02.409Z"
+  "savedAt": "2026-07-18T05:44:44.053Z"
 }
