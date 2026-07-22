@@ -1,0 +1,17 @@
+{
+  "company": "Vishal Electrical",
+  "rows": [
+    {
+      "name": "Uday Shankar Jayswal",
+      "acc": "6150400769",
+      "ifsc": "KKBK0005340",
+      "bank": "Kotak Mahindra Bank",
+      "branch": "GT Road Ghaziabad",
+      "site": "",
+      "type": "Vendor",
+      "amt": 20,
+      "remarks": ""
+    }
+  ],
+  "savedAt": "2026-07-22T12:15:52.211Z"
+}
