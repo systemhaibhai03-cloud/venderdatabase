@@ -2,16 +2,71 @@
   "company": "Vishal Electrical",
   "rows": [
     {
-      "name": "Uday Shankar Jayswal",
-      "acc": "6150400769",
-      "ifsc": "KKBK0005340",
-      "bank": "Kotak Mahindra Bank",
-      "branch": "GT Road Ghaziabad",
-      "site": "",
-      "type": "Vendor",
-      "amt": 20,
-      "remarks": ""
+      "name": "Ravi Kumar Yadav",
+      "acc": "519602010516103",
+      "ifsc": "UBIN0553778",
+      "bank": "Union bank of india",
+      "branch": "Sarojini Nagar Lucknow",
+      "site": "PPA Port",
+      "type": "Engineer Expenses",
+      "amt": 11180,
+      "remarks": "Expenses Dated 20/07/2026 to 24/07/2026\nHotel Room Charges 5400 \nFooding 2000 "
+    },
+    {
+      "name": "Keshav Krishnamurti",
+      "acc": "38469058785",
+      "ifsc": "SBIN0002909",
+      "bank": "State Bank of India",
+      "branch": "Lakhminia Station Road",
+      "site": "IOCL Paradeep",
+      "type": "Engineer Expenses",
+      "amt": 4669,
+      "remarks": "Expenses Dated 13/07/2026 to 20/07/2026\n"
+    },
+    {
+      "name": "Pramod Kumar",
+      "acc": "10170550839",
+      "ifsc": "IDFB0021007",
+      "bank": "IDFC FIRST Bank",
+      "branch": "Gurgaon",
+      "site": "PPA Port",
+      "type": "Engineer Expenses",
+      "amt": 1650,
+      "remarks": "Expenses Dated 18/07/2026 to 23/07/2026\n"
+    },
+    {
+      "name": "Chandra Prakash",
+      "acc": "36077908619",
+      "ifsc": "SBIN0015131",
+      "bank": "State Bank Of India",
+      "branch": "Chhanbey",
+      "site": "IOCL Jatni",
+      "type": "Engineer Expenses",
+      "amt": 7645,
+      "remarks": "Expenses Dated 17/07/2026 to 23/07/2026\nLabour Payment 2600\nMaterial Purchase 2050\n"
+    },
+    {
+      "name": "Ravikant",
+      "acc": "360702120003079",
+      "ifsc": "UBIN0536075",
+      "bank": "Union bank of india",
+      "branch": "Varanasi",
+      "site": "IOCL Panipat",
+      "type": "Engineer Expenses",
+      "amt": 6160,
+      "remarks": "Expenses Dated 16/07/2026 to 23/07/2026\nHotel Charges 700\nLabour Payment 700\nMachine Tool 2000"
+    },
+    {
+      "name": "Shivaji Chaurasiya",
+      "acc": "035801567230",
+      "ifsc": "ICIC0000358",
+      "bank": "ICICI Bank",
+      "branch": "Gurgaon",
+      "site": "IOCL Jatni",
+      "type": "Engineer Expenses",
+      "amt": 2982,
+      "remarks": "Expenses Dated 17/07/2026 to 23/07/2026\nPrint Out 1000\n"
     }
   ],
-  "savedAt": "2026-07-22T12:15:52.211Z"
+  "savedAt": "2026-07-24T11:08:53.226Z"
 }
