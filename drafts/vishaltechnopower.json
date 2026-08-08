@@ -7,10 +7,10 @@
       "ifsc": "UBIN0532258",
       "bank": "Union bank of india",
       "branch": "GHULEWADI",
-      "site": "Meerut Solar Project",
+      "site": "AAI Amritsar",
       "type": "Engineer Expenses",
-      "amt": 15703,
-      "remarks": "Expenses Dated 25/07/2026 to 30/07/2026\nHotel Room Charges 3600\nLabour Payment 2600\nMaterial Purchase 3670"
+      "amt": 12020,
+      "remarks": "Expenses Dated 31/107/2026 to 07/8/2026\nHotel Room Charges 4800 /-\nFooding 1800 /-\nBus Ticket 1450 /-"
     },
     {
       "name": "Balram Kumar",
@@ -20,8 +20,8 @@
       "branch": "Champaran Madhuban",
       "site": "IOCL Mumbai",
       "type": "Engineer Expenses",
-      "amt": 2800,
-      "remarks": "Expenses Dated 25/07/2026 to 31/07/2026\n"
+      "amt": 2600,
+      "remarks": "Expenses Dated 01/08/2026 to 06/08/2026\n"
     },
     {
       "name": "Durgesh Kumar Yadav",
@@ -31,8 +31,8 @@
       "branch": "Chandauli up",
       "site": "AAI Chandigarh",
       "type": "Engineer Expenses",
-      "amt": 3205,
-      "remarks": "Expenses Dated 24/07/2026 31/07/2026\nHotel Room Charges 900\nBus Ticket 585"
+      "amt": 2025,
+      "remarks": "Expenses Dated 30/07/2026 to 08/08/2026\n "
     },
     {
       "name": "Karan Srivastava",
@@ -40,10 +40,21 @@
       "ifsc": "PUNB0759300",
       "bank": "Punjab National Bank",
       "branch": "Mirzapur",
-      "site": "TLL PUNJAB",
+      "site": "TLL Punjab",
       "type": "Engineer Expenses",
-      "amt": 2535,
-      "remarks": "Expenses Dated 24/07/2026 to 30/07/2026\n"
+      "amt": 2600,
+      "remarks": "Expenses Dated 31/07/2026 to 06/08/2026\n"
+    },
+    {
+      "name": "Nitish Kumar",
+      "acc": "42083634165",
+      "ifsc": "SBIN0050324",
+      "bank": "State Bank Of India",
+      "branch": "Noida",
+      "site": "GAIL Vijaypur",
+      "type": "Engineer Expenses",
+      "amt": 3410,
+      "remarks": "Expenses Dated 24/07/2026 to 05/08/2026\nLabour Payment 1600"
     },
     {
       "name": "Ravikant",
@@ -51,10 +62,10 @@
       "ifsc": "UBIN0536075",
       "bank": "Union bank of india",
       "branch": "Varanasi",
-      "site": "IOCL PANIPAT COMPLEX",
+      "site": "IOCL Panipat Complex",
       "type": "Engineer Expenses",
-      "amt": 3060,
-      "remarks": "Expenses Dated 24/07/2026 to 28/07/2026\n"
+      "amt": 1975,
+      "remarks": "Expenses Dated 31/07/2026 to 07/08/2026\n"
     },
     {
       "name": "Rajiv Kumar",
@@ -64,20 +75,9 @@
       "branch": "Juinagar Branch",
       "site": "IOCL Mumbai",
       "type": "Engineer Expenses",
-      "amt": 3170,
-      "remarks": "Expenses Dated 24/07/2026 to 29/07/2026\n"
-    },
-    {
-      "name": "Umendra Pratap Singh",
-      "acc": "683910110015646",
-      "ifsc": "BKID0006839",
-      "bank": "Bank of India",
-      "branch": "Sitapur Road",
-      "site": "IOCL PANIPAT COMPLEX",
-      "type": "Engineer Expenses",
-      "amt": 4945,
-      "remarks": "Expenses Dated 15/07/2026 to 30/07/2026\n"
+      "amt": 6480,
+      "remarks": "Expenses Dated 31/07/2026 to 05/08/2026\n"
     }
   ],
-  "savedAt": "2026-08-01T05:26:43.728Z"
+  "savedAt": "2026-08-08T06:52:32.390Z"
 }
