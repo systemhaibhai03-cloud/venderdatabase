@@ -1,0 +1,61 @@
+{
+  "company": "Vishal Electrical",
+  "rows": [
+    {
+      "name": "Chandra Shekhar",
+      "acc": "731910110002340",
+      "ifsc": "BKID0007319",
+      "bank": "Bank Of India",
+      "branch": "Unnao",
+      "site": "IOCL Vizag",
+      "type": "Engineer Expenses",
+      "amt": 16101,
+      "remarks": "Expenses Dated 14/08/2026 to 21/08/2026\nHotel Room Charges 9100\nFooding 4000\nTrain Ticket 1456"
+    },
+    {
+      "name": "Chandra Prakash",
+      "acc": "36077908619",
+      "ifsc": "SBIN0015131",
+      "bank": "State Bank Of India",
+      "branch": "Chhanbey",
+      "site": "IOCL Jatni",
+      "type": "Engineer Expenses",
+      "amt": 2030,
+      "remarks": "Expenses Dated 14/08/2026 to 20/08/2026\nLabour Payment 500\n"
+    },
+    {
+      "name": "Pramod Kumar",
+      "acc": "10170550839",
+      "ifsc": "IDFB0021007",
+      "bank": "IDFC FIRST Bank",
+      "branch": "Gurgaon",
+      "site": "PPA Port",
+      "type": "Engineer Expenses",
+      "amt": 2400,
+      "remarks": "Expenses Dated 14/08/2026 to 21/08/2026\n"
+    },
+    {
+      "name": "Ravi Kumar Yadav",
+      "acc": "519602010516103",
+      "ifsc": "UBIN0553778",
+      "bank": "Union bank of india",
+      "branch": "Sarojini Nagar Lucknow",
+      "site": "IOCL Paradeep",
+      "type": "Engineer Expenses",
+      "amt": 10122,
+      "remarks": "Expenses Dated 14/08/2026 to 21/08/2026\nHotel Room Charges 5500\nFooding 2000\nSweets 1539"
+    },
+    {
+      "name": "Shivaji Chaurasiya",
+      "acc": "035801567230",
+      "ifsc": "ICIC0000358",
+      "bank": "ICICI Bank",
+      "branch": "Gurgaon",
+      "site": "IOCL Jharsuguda",
+      "type": "Engineer Expenses",
+      "amt": 15234,
+      "remarks": "Expenses Dated 07/08/2026 to 20/08/2026\nLabour Payment 8900\nCourier Charges 960\nTrain Ticket 1149"
+    }
+  ],
+  "savedAt": "2026-08-22T08:21:50.672Z"
+}
