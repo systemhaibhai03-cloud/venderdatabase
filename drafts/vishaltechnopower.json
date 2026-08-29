@@ -35,17 +35,6 @@
       "remarks": "Expenses Dated 22/08/2026 to 27/08/2026\nHotel Room Charges 7800\nDTDC Charges 1350\nFlight Ticket 9131\nBus Ticket 2974\n"
     },
     {
-      "name": "Himanshu Yadav",
-      "acc": "Himanshu Yadav",
-      "ifsc": "CBIN0280203",
-      "bank": "Central Bank of India",
-      "branch": "RAMKOLA",
-      "site": "IOCL Panipat Complex",
-      "type": "Engineer Expenses",
-      "amt": 1080,
-      "remarks": "Expenses Dated 21/08/2026 to 27/08/2026\n"
-    },
-    {
       "name": "Ravikant",
       "acc": "360702120003079",
       "ifsc": "UBIN0536075",
@@ -77,7 +66,18 @@
       "type": "Engineer Expenses",
       "amt": 9488,
       "remarks": "Expenses Dated 17/08/2026 to 27/08/2026\nMaterial Purchase 3908\nMedical & Printout 1740\n"
+    },
+    {
+      "name": "Himanshu Yadav",
+      "acc": "4054343388",
+      "ifsc": "CBIN0280203",
+      "bank": "Central Bank of India",
+      "branch": "RAMKOLA",
+      "site": "IOCL Panipat Complex",
+      "type": "Engineer Expenses",
+      "amt": 1080,
+      "remarks": "Expenses Dated 21/08/2026 to 27/08/2026"
     }
   ],
-  "savedAt": "2026-08-29T08:06:58.013Z"
+  "savedAt": "2026-08-29T08:14:15.878Z"
 }
