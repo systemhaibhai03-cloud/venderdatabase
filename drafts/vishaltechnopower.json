@@ -1,0 +1,72 @@
+{
+  "company": "Vishaltechnopower",
+  "rows": [
+    {
+      "name": "Balram Kumar",
+      "acc": "35502048976",
+      "ifsc": "SBIN0002971",
+      "bank": "State Bank of India",
+      "branch": "Champaran Madhuban",
+      "site": "IIT Ropar",
+      "type": "Engineer Expenses",
+      "amt": 4923,
+      "remarks": "Expenses Dated 28/08/2026 to 01/09/2026\nMaterial Purchase 1076"
+    },
+    {
+      "name": "Durgesh Kumar Yadav",
+      "acc": "660702010009875",
+      "ifsc": "UBIN0566071",
+      "bank": "Union bank of india",
+      "branch": "Chandauli up",
+      "site": "AAI Chandigarh",
+      "type": "Engineer Expenses",
+      "amt": 4993,
+      "remarks": "Expenses Dated 22/08/2026 to 04/09/2026\nGate Pass Document Print 2275\nBus & Train Ticket 698\n"
+    },
+    {
+      "name": "Himanshu Yadav",
+      "acc": "4054343388",
+      "ifsc": "CBIN0280203",
+      "bank": "Central Bank of India",
+      "branch": "RAMKOLA",
+      "site": "IOCL Panipat Complex",
+      "type": "Engineer Expenses",
+      "amt": 3865,
+      "remarks": "Expenses Dated 28/08/2026 to 03/09/2026\nMaterial Purchase 2385"
+    },
+    {
+      "name": "Karan Srivastava",
+      "acc": "7593000100017739",
+      "ifsc": "PUNB0759300",
+      "bank": "Punjab National Bank",
+      "branch": "Mirzapur",
+      "site": "TLL Punjab",
+      "type": "Engineer Expenses",
+      "amt": 6131,
+      "remarks": "Expenses Dated 07/08/2026 to 03/09/2026\n"
+    },
+    {
+      "name": "Ravikant",
+      "acc": "360702120003079",
+      "ifsc": "UBIN0536075",
+      "bank": "Union bank of india",
+      "branch": "Varanasi",
+      "site": "IIT Ropar",
+      "type": "Engineer Expenses",
+      "amt": 5241,
+      "remarks": "Expenses Dated 31/08/2026 to 03/09/2026\nMaterial Purchase 796\nBus Ticket 735\n"
+    },
+    {
+      "name": "Rajiv Kumar",
+      "acc": "20185289355",
+      "ifsc": "FINO0009002",
+      "bank": "Fino Payment Bank",
+      "branch": "Juinagar Branch",
+      "site": "IOCL Mumbai",
+      "type": "Engineer Expenses",
+      "amt": 7560,
+      "remarks": "Expenses Dated 29/08/2026 to 03/09/2026\n"
+    }
+  ],
+  "savedAt": "2026-09-05T07:09:43.692Z"
+}
