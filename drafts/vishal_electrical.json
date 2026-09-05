@@ -1,0 +1,39 @@
+{
+  "company": "Vishal Electrical",
+  "rows": [
+    {
+      "name": "Chandra Prakash",
+      "acc": "36077908619",
+      "ifsc": "SBIN0015131",
+      "bank": "State Bank Of India",
+      "branch": "Chhanbey",
+      "site": "IOCL Jatni",
+      "type": "Engineer Expenses",
+      "amt": 5050,
+      "remarks": "Expenses Dated 28/08/2026 to 03/09/2026\nMaterial Purchase 2550\nLabour Payment 1300\n"
+    },
+    {
+      "name": "Pramod Kumar",
+      "acc": "10170550839",
+      "ifsc": "IDFB0021007",
+      "bank": "IDFC FIRST Bank",
+      "branch": "Gurgaon",
+      "site": "PPA Port",
+      "type": "Engineer Expenses",
+      "amt": 2680,
+      "remarks": "Expenses Dated 28/08/2026 to 03/09/2026\nLabour Payment 1300\nTrain Ticket 130\n "
+    },
+    {
+      "name": "Ravi Kumar Yadav",
+      "acc": "519602010516103",
+      "ifsc": "UBIN0553778",
+      "bank": "Union bank of india",
+      "branch": "Sarojini Nagar Lucknow",
+      "site": "PPA Site",
+      "type": "Engineer Expenses",
+      "amt": 13929,
+      "remarks": "Expenses Dated 29/08/2026 to 02/09/2026\nHotel Room Charges 6600\nFooding 3000\nTrain Ticket 3709"
+    }
+  ],
+  "savedAt": "2026-09-05T07:16:56.788Z"
+}
