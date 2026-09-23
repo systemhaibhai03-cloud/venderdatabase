@@ -1,0 +1,83 @@
+{
+  "company": "Vishaltechnopower",
+  "rows": [
+    {
+      "name": "Vishal Technopower Pvt Ltd",
+      "acc": "125605003404",
+      "ifsc": "ICIC0001256",
+      "bank": "ICICI Bank",
+      "branch": "Ambedkar Road Gzb",
+      "site": "GHAZIABAD",
+      "type": "Vendor",
+      "amt": 500000,
+      "remarks": "Funds Transfer To Vishal Technopower Pvt Ltd\nICICI BANK  "
+    },
+    {
+      "name": "Vicky Kumar",
+      "acc": "3364436882",
+      "ifsc": "CBIN0283005",
+      "bank": "Central Bank of India",
+      "branch": "Devapur",
+      "site": "AAI SALEM",
+      "type": "Engineer Expenses",
+      "amt": 24810,
+      "remarks": "Expenses Dated 21/09/2026 to 23/09/2026\nFlight Ticket 23402\n"
+    },
+    {
+      "name": "Vicky Kumar",
+      "acc": "3364436882",
+      "ifsc": "CBIN0283005",
+      "bank": "Central Bank of India",
+      "branch": "Devapur",
+      "site": "GHAZIABAD",
+      "type": "Engineer Expenses",
+      "amt": 50000,
+      "remarks": "Expenses INDIAN RAILWAY Payment Transfer To Vicky Kumar  "
+    },
+    {
+      "name": "R S TRADERS AND LIGHT HOUSE",
+      "acc": "2502210577279723",
+      "ifsc": "AUBL0002105",
+      "bank": "AU Small Finance Bank",
+      "branch": "GHAZIABAD-RAJ NAGAR",
+      "site": "GHAZIABAD",
+      "type": "Vendor",
+      "amt": 300000,
+      "remarks": "Payment Transfer as per Ledger "
+    },
+    {
+      "name": "A P TRADERS",
+      "acc": "102405501252",
+      "ifsc": "ICIC0001024",
+      "bank": "ICICI Bank",
+      "branch": "DELHIKRISHNA NAGAR",
+      "site": "DELHI",
+      "type": "Vendor",
+      "amt": 700000,
+      "remarks": "Payment Transfer as per Ledger "
+    },
+    {
+      "name": "DEE KAY TRADERS",
+      "acc": "088805000684",
+      "ifsc": "ICIC0000888",
+      "bank": "ICICI Bank",
+      "branch": "Ghaziabad",
+      "site": "GHAZIABAD",
+      "type": "Vendor",
+      "amt": 10180,
+      "remarks": "Payment transfer for Material Purchase \nMS FLATE / SHAPE & SECTION "
+    },
+    {
+      "name": "Jitendra Kumar",
+      "acc": "8104794225",
+      "ifsc": "IDIB000G007",
+      "bank": "Indian Bank",
+      "branch": "Navyug Market",
+      "site": "GHAZIABAD",
+      "type": "Office Expenses",
+      "amt": 7750,
+      "remarks": "Payment Transfer for Stamp Paper 500 RS\n13@550 7150\nNotry 600\n"
+    }
+  ],
+  "savedAt": "2026-09-23T13:36:02.829Z"
+}
