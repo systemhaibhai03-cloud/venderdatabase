@@ -1,0 +1,116 @@
+{
+  "company": "Vishaltechnopower",
+  "rows": [
+    {
+      "name": "Ajay Kantilal Kakad",
+      "acc": "322502010024861",
+      "ifsc": "UBIN0532258",
+      "bank": "Union bank of india",
+      "branch": "GHULEWADI",
+      "site": "TLL PUNJAB",
+      "type": "Engineer Expenses",
+      "amt": 18259,
+      "remarks": "Expenses Dated 11/09/2026 to 26/09/2026\nHotel Room Charges 3600\nFooding 4200\nBus Ticket 880\nMetro Ticket 1843 "
+    },
+    {
+      "name": "Balram Kumar",
+      "acc": "35502048976",
+      "ifsc": "SBIN0002971",
+      "bank": "State Bank of India",
+      "branch": "Champaran Madhuban",
+      "site": "IIT ROPAR",
+      "type": "Engineer Expenses",
+      "amt": 3710,
+      "remarks": "Expenses Dated 25/09/2026\nMaterial Purchase 2420 "
+    },
+    {
+      "name": "Chandra Shekhar",
+      "acc": "731910110002340",
+      "ifsc": "BKID0007319",
+      "bank": "Bank Of India",
+      "branch": "Unnao",
+      "site": "IR NAGPUR",
+      "type": "Engineer Expenses",
+      "amt": 25624,
+      "remarks": "Expenses Dated 19/09/2026 to 25/09/2026\nHotel Room Charges 6600\nStamp Paper & Notry 3400\nTrain Ticket 3962\nFooding 3500\nPayment Received In Cash Charges 4250 "
+    },
+    {
+      "name": "Durgesh Kumar Yadav",
+      "acc": "660702010009875",
+      "ifsc": "UBIN0566071",
+      "bank": "Union bank of india",
+      "branch": "Chandauli up",
+      "site": "AAI Chandigarh",
+      "type": "Engineer Expenses",
+      "amt": 9980,
+      "remarks": "Expenses Dated 16/09/2026 to 27/09/2026\nLabour Payment 2050\nMaterial Purchase 3890"
+    },
+    {
+      "name": "Karan Srivastava",
+      "acc": "7593000100017739",
+      "ifsc": "PUNB0759300",
+      "bank": "Punjab National Bank",
+      "branch": "Mirzapur",
+      "site": "Delhi Transco Ltd",
+      "type": "Engineer Expenses",
+      "amt": 12046,
+      "remarks": "Expenses Dated 18/09/2026 to 22/09/2026\nCab Charges 6426\n"
+    },
+    {
+      "name": "Pramod Kumar",
+      "acc": "10170550839",
+      "ifsc": "IDFB0021007",
+      "bank": "IDFC FIRST Bank",
+      "branch": "Gurgaon",
+      "site": "GAIL Vijaypur",
+      "type": "Engineer Expenses",
+      "amt": 2090,
+      "remarks": "Expenses Dated 18/09/2026 to 24/09/2026\nMaterial Purchase 290"
+    },
+    {
+      "name": "Rajiv Kumar",
+      "acc": "20185289355",
+      "ifsc": "FINO0009002",
+      "bank": "Fino Payment Bank",
+      "branch": "Juinagar Branch",
+      "site": "BPCL Chembu",
+      "type": "Engineer Expenses",
+      "amt": 6089,
+      "remarks": "Expenses Dated 18/09/2026 to 24/09/2026\n"
+    },
+    {
+      "name": "Ravikant",
+      "acc": "360702120003079",
+      "ifsc": "UBIN0536075",
+      "bank": "Union bank of india",
+      "branch": "Varanasi",
+      "site": "IOCL Panipat Complex",
+      "type": "Engineer Expenses",
+      "amt": 6552,
+      "remarks": "Expenses Dated 20/09/2026 to 24/09/2026\nMaterial Purchase 4402"
+    },
+    {
+      "name": "Shivaji Chaurasiya",
+      "acc": "035801567230",
+      "ifsc": "ICIC0000358",
+      "bank": "ICICI Bank",
+      "branch": "Gurgaon",
+      "site": "HPCL ANANTAPUR",
+      "type": "Engineer Expenses",
+      "amt": 9190,
+      "remarks": "Expenses Dated 18/09/2026 to 25/09/2026\nMaterial Purchase 1960\nHotel Room Charges 3400\n"
+    },
+    {
+      "name": "Inderpreet Singh",
+      "acc": "50100395493495",
+      "ifsc": "HDFC0003841",
+      "bank": "HDFC Bank",
+      "branch": "BHOSRI",
+      "site": "Site Vist",
+      "type": "Others",
+      "amt": 465,
+      "remarks": "Expenses Dated 15/09/2026 to 19/09/2026"
+    }
+  ],
+  "savedAt": "2026-09-28T08:54:39.965Z"
+}
