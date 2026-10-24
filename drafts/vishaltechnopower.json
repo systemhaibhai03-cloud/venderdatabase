@@ -1,0 +1,94 @@
+{
+  "company": "Vishaltechnopower",
+  "rows": [
+    {
+      "name": "ABHAY KUMAR",
+      "acc": "34953502357",
+      "ifsc": "SBIN0011195",
+      "bank": "State Bank of India",
+      "branch": "DOHRIGHAT",
+      "site": "IOCL Mumbai",
+      "type": "Engineer Expenses",
+      "amt": 2400,
+      "remarks": "Expenses Dated 19/10/2026 to 22/10/2026\nHotel Room Charges 2200\n"
+    },
+    {
+      "name": "Ajay Kantilal Kakad",
+      "acc": "322502010024861",
+      "ifsc": "UBIN0532258",
+      "bank": "Union bank of india",
+      "branch": "GHULEWADI",
+      "site": "Meerut Solar Project",
+      "type": "Engineer Expenses",
+      "amt": 1928,
+      "remarks": "Expenses Dated 10/10/2026 & 15/10/2026\nFooding 600"
+    },
+    {
+      "name": "Balram Kumar",
+      "acc": "35502048976",
+      "ifsc": "SBIN0002971",
+      "bank": "State Bank of India",
+      "branch": "Champaran Madhuban",
+      "site": "IIT ROPAR",
+      "type": "Engineer Expenses",
+      "amt": 10320,
+      "remarks": "Expenses Dated 16/10/2026 to 23/10/2026\nMaterial Purchase 10140"
+    },
+    {
+      "name": "Durgesh Kumar Yadav",
+      "acc": "660702010009875",
+      "ifsc": "UBIN0566071",
+      "bank": "Union bank of india",
+      "branch": "Chandauli up",
+      "site": "AAI Chandigarh",
+      "type": "Engineer Expenses",
+      "amt": 5045,
+      "remarks": "Expenses Dated 17/10/2026 to 23/10/2026\nLabour Payment 600\nMaterial Purchase 2525"
+    },
+    {
+      "name": "Karan Srivastava",
+      "acc": "7593000100017739",
+      "ifsc": "PUNB0759300",
+      "bank": "Punjab National Bank",
+      "branch": "Mirzapur",
+      "site": "IOCL DSO / DTL",
+      "type": "Engineer Expenses",
+      "amt": 5040,
+      "remarks": "Expenses Dated 17/10/2026 to 22/10/2026\n"
+    },
+    {
+      "name": "MANJIT KUMAR",
+      "acc": "2243000100736280",
+      "ifsc": "PUNB0224300",
+      "bank": "Punjab National Bank",
+      "branch": "JANTA BAZAR",
+      "site": "IOCL DSO DAK EXPRESSWAY",
+      "type": "Engineer Expenses",
+      "amt": 1545,
+      "remarks": "Expenses Dated 22/10/2026 & 23/10/2026"
+    },
+    {
+      "name": "Pramod Kumar",
+      "acc": "10170550839",
+      "ifsc": "IDFB0021007",
+      "bank": "IDFC FIRST Bank",
+      "branch": "Gurgaon",
+      "site": "GAIL Vijaypur",
+      "type": "Engineer Expenses",
+      "amt": 11200,
+      "remarks": "Expenses Dated 17/10/2026 to 22/10/2026\nLabour Payment 1500\nTractor/Trolly Charges 8000 "
+    },
+    {
+      "name": "Shivaji Chaurasiya",
+      "acc": "035801567230",
+      "ifsc": "ICIC0000358",
+      "bank": "ICICI Bank",
+      "branch": "Gurgaon",
+      "site": "HPCL ANANTAPUR",
+      "type": "Engineer Expenses",
+      "amt": 3659,
+      "remarks": "Expenses Dated 16/10/2026 to 23/10/2026\nMaterial Purchase 1839"
+    }
+  ],
+  "savedAt": "2026-10-24T06:38:37.966Z"
+}
