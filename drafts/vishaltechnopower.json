@@ -88,7 +88,51 @@
       "type": "Engineer Expenses",
       "amt": 3659,
       "remarks": "Expenses Dated 16/10/2026 to 23/10/2026\nMaterial Purchase 1839"
+    },
+    {
+      "name": "Ravikant",
+      "acc": "360702120003079",
+      "ifsc": "UBIN0536075",
+      "bank": "Union bank of india",
+      "branch": "Varanasi",
+      "site": "IOCL PANIPAT COMPLEX",
+      "type": "Engineer Expenses",
+      "amt": 1740,
+      "remarks": "Expenses Dated 19/10/2026 to 24/10/2026\n"
+    },
+    {
+      "name": "Ritu",
+      "acc": "7801001500002877",
+      "ifsc": "PUNB0370300",
+      "bank": "Punjab National Bank",
+      "branch": "Arya nagar railway colony gzp",
+      "site": "Office",
+      "type": "Day Book",
+      "amt": 8000,
+      "remarks": "Advance Payment For Office Expenses \n"
+    },
+    {
+      "name": "SHUBHAM KUMAR",
+      "acc": "520101040255103",
+      "ifsc": "UBIN0930831",
+      "bank": "Union Bank of India",
+      "branch": "SIWAN",
+      "site": "IOCL PANIPAT COMPLEX",
+      "type": "Engineer Expenses",
+      "amt": 2350,
+      "remarks": "Expenses Dated 19/10/2026 to 24/10/2026\nFire Resistant Cloth 1100"
+    },
+    {
+      "name": "Shobin Chezhian",
+      "acc": "922010031208183",
+      "ifsc": "UTIB0004838",
+      "bank": "Axis Bank Ltd",
+      "branch": "Chennai",
+      "site": "VOCPA",
+      "type": "Engineer Expenses",
+      "amt": 2879,
+      "remarks": "Fuel Payment Dated 19/10/2026 to 24/10/2026\n"
     }
   ],
-  "savedAt": "2026-10-24T06:39:35.054Z"
+  "savedAt": "2026-10-26T06:04:25.782Z"
 }
