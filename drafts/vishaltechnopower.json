@@ -1,0 +1,83 @@
+{
+  "company": "Vishaltechnopower",
+  "rows": [
+    {
+      "name": "ABHAY KUMAR",
+      "acc": "34953502357",
+      "ifsc": "SBIN0011195",
+      "bank": "State Bank of India",
+      "branch": "DOHRIGHAT",
+      "site": "IOCL Mumbai",
+      "type": "Engineer Expenses",
+      "amt": 6223,
+      "remarks": "Expenses Dated 23/10/2026 to 30/10/2026\nHotel Room Charges 2750\nBPCL Gate Pass 3000"
+    },
+    {
+      "name": "Balram Kumar",
+      "acc": "35502048976",
+      "ifsc": "SBIN0002971",
+      "bank": "State Bank of India",
+      "branch": "Champaran Madhuban",
+      "site": "IIT Ropar",
+      "type": "Engineer Expenses",
+      "amt": 7340,
+      "remarks": "Expenses Dated 24/10/2026 to 30/10/2026\nMaterial Purchase 3020\n"
+    },
+    {
+      "name": "Chandra Shekhar",
+      "acc": "731910110002340",
+      "ifsc": "BKID0007319",
+      "bank": "Bank Of India",
+      "branch": "Unnao",
+      "site": "HPCL Anantapur",
+      "type": "Engineer Expenses",
+      "amt": 3464,
+      "remarks": "Expenses Dated 22/10/2026 to 30/10/2026\nRapido 2944\nHotel Room Charges 3400\nFooding 3000"
+    },
+    {
+      "name": "Karan Srivastava",
+      "acc": "7593000100017739",
+      "ifsc": "PUNB0759300",
+      "bank": "Punjab National Bank",
+      "branch": "Mirzapur",
+      "site": "Delhi Transco Limited",
+      "type": "Engineer Expenses",
+      "amt": 4345,
+      "remarks": "Expenses Dated 23/10/2026 to 29/10/2026\n"
+    },
+    {
+      "name": "Pramod Kumar",
+      "acc": "10170550839",
+      "ifsc": "IDFB0021007",
+      "bank": "IDFC FIRST Bank",
+      "branch": "Gurgaon",
+      "site": "GAIL Vijaypur",
+      "type": "Engineer Expenses",
+      "amt": 4355,
+      "remarks": "Expenses Dated 23/10/2026 to 30/10/2026\nMaterial Purchase 1470"
+    },
+    {
+      "name": "Shivaji Chaurasiya",
+      "acc": "035801567230",
+      "ifsc": "ICIC0000358",
+      "bank": "ICICI Bank",
+      "branch": "Gurgaon",
+      "site": "HPCL Anantapur",
+      "type": "Engineer Expenses",
+      "amt": 1940,
+      "remarks": "Expenses Dated 24/10/2026 to 30/10/2026\nTape Purchase 500"
+    },
+    {
+      "name": "Ritu",
+      "acc": "7801001500002877",
+      "ifsc": "PUNB0370300",
+      "bank": "Punjab National Bank",
+      "branch": "Arya nagar railway colony gzp",
+      "site": "Office",
+      "type": "Day Book",
+      "amt": 8000,
+      "remarks": "Advance Payment For Office Expenses"
+    }
+  ],
+  "savedAt": "2026-10-31T06:12:45.073Z"
+}
