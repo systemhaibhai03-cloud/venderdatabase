@@ -1,0 +1,116 @@
+{
+  "company": "Vishaltechnopower",
+  "rows": [
+    {
+      "name": "ABHAY KUMAR",
+      "acc": "34953502357",
+      "ifsc": "SBIN0011195",
+      "bank": "State Bank of India",
+      "branch": "DOHRIGHAT",
+      "site": "BPCL Chembu",
+      "type": "Engineer Expenses",
+      "amt": 3850,
+      "remarks": "Expenses Dated 13/11/2026 to 19/11/2026\nMotor Frame Welding 1300"
+    },
+    {
+      "name": "Balram Kumar",
+      "acc": "35502048976",
+      "ifsc": "SBIN0002971",
+      "bank": "State Bank of India",
+      "branch": "Champaran Madhuban",
+      "site": "IIT ROPAR",
+      "type": "Engineer Expenses",
+      "amt": 3900,
+      "remarks": "Expenses Dated 14/11/2026 to 20/11/2026\n"
+    },
+    {
+      "name": "BRAJENDRA YADAV",
+      "acc": "4044136168",
+      "ifsc": "CBIN0283297",
+      "bank": "Central Bank of India",
+      "branch": "SVJIC LALITPUR",
+      "site": "INDIAN RAILWAY NAGPUR",
+      "type": "Engineer Expenses",
+      "amt": 3995,
+      "remarks": "Expenses Dated 13/11/2026 to 20/11/2026 \nHotel Room Charges 2400"
+    },
+    {
+      "name": "Chandra Prakash",
+      "acc": "36077908619",
+      "ifsc": "SBIN0015131",
+      "bank": "State Bank Of India",
+      "branch": "Chhanbey",
+      "site": "DSO DAK EXPRESSWAY",
+      "type": "Engineer Expenses",
+      "amt": 2200,
+      "remarks": "Expenses Dated 13/11/2026 to 19/11/2026\n"
+    },
+    {
+      "name": "Durgesh Kumar Yadav",
+      "acc": "660702010009875",
+      "ifsc": "UBIN0566071",
+      "bank": "Union bank of india",
+      "branch": "Chandauli up",
+      "site": "AAI CHANDIGARH",
+      "type": "Engineer Expenses",
+      "amt": 10814,
+      "remarks": "Expenses Dated 14/11/2026 to 21/11/2026\nMaterial Purchase 8506\n"
+    },
+    {
+      "name": "Karan Srivastava",
+      "acc": "7593000100017739",
+      "ifsc": "PUNB0759300",
+      "bank": "Punjab National Bank",
+      "branch": "Mirzapur",
+      "site": "Delhi Transco Limited",
+      "type": "Engineer Expenses",
+      "amt": 4121,
+      "remarks": "Expenses Dated 13/11/2026 to 19/11/2026\n"
+    },
+    {
+      "name": "Nitish Kumar",
+      "acc": "42083634165",
+      "ifsc": "SBIN0050324",
+      "bank": "State Bank Of India",
+      "branch": "Noida",
+      "site": "IOCL Jatni",
+      "type": "Engineer Expenses",
+      "amt": 3163,
+      "remarks": "Expenses Dated 09/11/2026 to 19/11/2026\nBus Ticket 863"
+    },
+    {
+      "name": "Pramod Kumar",
+      "acc": "10170550839",
+      "ifsc": "IDFB0021007",
+      "bank": "IDFC FIRST Bank",
+      "branch": "Gurgaon",
+      "site": "GAIL Vijaypur",
+      "type": "Engineer Expenses",
+      "amt": 9585,
+      "remarks": "Expenses Dated 13/11/2026 to 19/11/2026\nMaterial Purchase 6170"
+    },
+    {
+      "name": "Rajiv Kumar",
+      "acc": "20185289355",
+      "ifsc": "FINO0009002",
+      "bank": "Fino Payment Bank",
+      "branch": "Juinagar Branch",
+      "site": "BPCL Chembu",
+      "type": "Engineer Expenses",
+      "amt": 1830,
+      "remarks": "Expenses Dated 13/11/2026 to 19/11/2026\n"
+    },
+    {
+      "name": "Shivaji Chaurasiya",
+      "acc": "035801567230",
+      "ifsc": "ICIC0000358",
+      "bank": "ICICI Bank",
+      "branch": "Gurgaon",
+      "site": "HPCL ANANTAPUR",
+      "type": "Engineer Expenses",
+      "amt": 6630,
+      "remarks": "Expenses Dated 14/11/2026 to 20/11/2026\nHydra Charges 3600"
+    }
+  ],
+  "savedAt": "2026-11-21T08:06:00.889Z"
+}
